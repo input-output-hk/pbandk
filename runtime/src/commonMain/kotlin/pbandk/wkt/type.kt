@@ -3,34 +3,51 @@
 package pbandk.wkt
 
 sealed class Syntax(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
-    override fun equals(other: kotlin.Any?) = other is Syntax && other.value == value
+    override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Syntax && other.value == value
     override fun hashCode() = value.hashCode()
     override fun toString() = "Syntax.${name ?: "UNRECOGNIZED"}(value=$value)"
 
     object PROTO2 : Syntax(0, "SYNTAX_PROTO2")
     object PROTO3 : Syntax(1, "SYNTAX_PROTO3")
-    class UNRECOGNIZED(value: Int) : Syntax(value)
+    class UNRECOGNIZED(value: Int) : pbandk.wkt.Syntax(value)
 
-    companion object : pbandk.Message.Enum.Companion<Syntax> {
-        val values: List<Syntax> by lazy { listOf(PROTO2, PROTO3) }
+    companion object : pbandk.Message.Enum.Companion<pbandk.wkt.Syntax> {
+        val values: List<pbandk.wkt.Syntax> by lazy { listOf(PROTO2, PROTO3) }
         override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)
         override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException("No Syntax with name: $name")
     }
 }
 
-data class Type(
-    val name: String = "",
-    val fields: List<pbandk.wkt.Field> = emptyList(),
-    val oneofs: List<String> = emptyList(),
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val sourceContext: pbandk.wkt.SourceContext? = null,
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Type : pbandk.Message {
+    val name: String
+    val fields: List<pbandk.wkt.Field>
+    val oneofs: List<String>
+    val options: List<pbandk.wkt.Option>
+    val sourceContext: pbandk.wkt.SourceContext?
+    val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Type
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Type>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Type> {
+        operator fun invoke(
+            name: String = "",
+            fields: List<pbandk.wkt.Field> = emptyList(),
+            oneofs: List<String> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Type = Type_Impl(
+            name,
+            fields,
+            oneofs,
+            options,
+            sourceContext,
+            syntax,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Type() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Type.decodeWithImpl(u)
 
@@ -107,23 +124,48 @@ data class Type(
     }
 }
 
-data class Field(
-    val kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
-    val cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
-    val number: Int = 0,
-    val name: String = "",
-    val typeUrl: String = "",
-    val oneofIndex: Int = 0,
-    val packed: Boolean = false,
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val jsonName: String = "",
-    val defaultValue: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Field : pbandk.Message {
+    val kind: pbandk.wkt.Field.Kind
+    val cardinality: pbandk.wkt.Field.Cardinality
+    val number: Int
+    val name: String
+    val typeUrl: String
+    val oneofIndex: Int
+    val packed: Boolean
+    val options: List<pbandk.wkt.Option>
+    val jsonName: String
+    val defaultValue: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Field
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Field>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Field> {
+        operator fun invoke(
+            kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
+            cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
+            number: Int = 0,
+            name: String = "",
+            typeUrl: String = "",
+            oneofIndex: Int = 0,
+            packed: Boolean = false,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            jsonName: String = "",
+            defaultValue: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Field = Field_Impl(
+            kind,
+            cardinality,
+            number,
+            name,
+            typeUrl,
+            oneofIndex,
+            packed,
+            options,
+            jsonName,
+            defaultValue,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Field() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Field.decodeWithImpl(u)
 
@@ -242,7 +284,7 @@ data class Field(
     sealed class Kind(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Kind && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Kind.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object TYPE_UNKNOWN : Kind(0, "TYPE_UNKNOWN")
         object TYPE_DOUBLE : Kind(1, "TYPE_DOUBLE")
@@ -275,7 +317,7 @@ data class Field(
     sealed class Cardinality(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is pbandk.wkt.Field.Cardinality && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.wkt.Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "Field.Cardinality.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object UNKNOWN : Cardinality(0, "CARDINALITY_UNKNOWN")
         object OPTIONAL : Cardinality(1, "CARDINALITY_OPTIONAL")
@@ -291,18 +333,33 @@ data class Field(
     }
 }
 
-data class Enum(
-    val name: String = "",
-    val enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    val sourceContext: pbandk.wkt.SourceContext? = null,
-    val syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Enum : pbandk.Message {
+    val name: String
+    val enumvalue: List<pbandk.wkt.EnumValue>
+    val options: List<pbandk.wkt.Option>
+    val sourceContext: pbandk.wkt.SourceContext?
+    val syntax: pbandk.wkt.Syntax
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Enum
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Enum>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Enum> {
+        operator fun invoke(
+            name: String = "",
+            enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
+            options: List<pbandk.wkt.Option> = emptyList(),
+            sourceContext: pbandk.wkt.SourceContext? = null,
+            syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Enum = Enum_Impl(
+            name,
+            enumvalue,
+            options,
+            sourceContext,
+            syntax,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Enum() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Enum.decodeWithImpl(u)
 
@@ -369,16 +426,27 @@ data class Enum(
     }
 }
 
-data class EnumValue(
-    val name: String = "",
-    val number: Int = 0,
-    val options: List<pbandk.wkt.Option> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface EnumValue : pbandk.Message {
+    val name: String
+    val number: Int
+    val options: List<pbandk.wkt.Option>
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.EnumValue
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.EnumValue>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.EnumValue> {
+        operator fun invoke(
+            name: String = "",
+            number: Int = 0,
+            options: List<pbandk.wkt.Option> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.EnumValue = EnumValue_Impl(
+            name,
+            number,
+            options,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.EnumValue() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.EnumValue.decodeWithImpl(u)
 
@@ -425,15 +493,24 @@ data class EnumValue(
     }
 }
 
-data class Option(
-    val name: String = "",
-    val value: pbandk.wkt.Any? = null,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Option : pbandk.Message {
+    val name: String
+    val value: pbandk.wkt.Any?
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Option
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Option>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Option> {
+        operator fun invoke(
+            name: String = "",
+            value: pbandk.wkt.Any? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Option = Option_Impl(
+            name,
+            value,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Option() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Option.decodeWithImpl(u)
 
@@ -472,6 +549,38 @@ data class Option(
 
 fun Type?.orDefault() = this ?: Type.defaultInstance
 
+fun Type.copy(
+    name: String = "",
+    fields: List<pbandk.wkt.Field> = emptyList(),
+    oneofs: List<String> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Type = (this as Type_Impl).copy(
+    name,
+    fields,
+    oneofs,
+    options,
+    sourceContext,
+    syntax,
+    unknownFields
+)
+
+private data class Type_Impl(
+    override val name: String,
+    override val fields: List<pbandk.wkt.Field>,
+    override val oneofs: List<String>,
+    override val options: List<pbandk.wkt.Option>,
+    override val sourceContext: pbandk.wkt.SourceContext?,
+    override val syntax: pbandk.wkt.Syntax,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Type {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Type.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun Type.protoMergeImpl(plus: pbandk.Message?): Type = (plus as? Type)?.let {
     it.copy(
         fields = fields + plus.fields,
@@ -506,6 +615,50 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
 }
 
 fun Field?.orDefault() = this ?: Field.defaultInstance
+
+fun Field.copy(
+    kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
+    cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
+    number: Int = 0,
+    name: String = "",
+    typeUrl: String = "",
+    oneofIndex: Int = 0,
+    packed: Boolean = false,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    jsonName: String = "",
+    defaultValue: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Field = (this as Field_Impl).copy(
+    kind,
+    cardinality,
+    number,
+    name,
+    typeUrl,
+    oneofIndex,
+    packed,
+    options,
+    jsonName,
+    defaultValue,
+    unknownFields
+)
+
+private data class Field_Impl(
+    override val kind: pbandk.wkt.Field.Kind,
+    override val cardinality: pbandk.wkt.Field.Cardinality,
+    override val number: Int,
+    override val name: String,
+    override val typeUrl: String,
+    override val oneofIndex: Int,
+    override val packed: Boolean,
+    override val options: List<pbandk.wkt.Option>,
+    override val jsonName: String,
+    override val defaultValue: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Field {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Field.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun Field.protoMergeImpl(plus: pbandk.Message?): Field = (plus as? Field)?.let {
     it.copy(
@@ -548,6 +701,35 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
 
 fun Enum?.orDefault() = this ?: Enum.defaultInstance
 
+fun Enum.copy(
+    name: String = "",
+    enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
+    options: List<pbandk.wkt.Option> = emptyList(),
+    sourceContext: pbandk.wkt.SourceContext? = null,
+    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Enum = (this as Enum_Impl).copy(
+    name,
+    enumvalue,
+    options,
+    sourceContext,
+    syntax,
+    unknownFields
+)
+
+private data class Enum_Impl(
+    override val name: String,
+    override val enumvalue: List<pbandk.wkt.EnumValue>,
+    override val options: List<pbandk.wkt.Option>,
+    override val sourceContext: pbandk.wkt.SourceContext?,
+    override val syntax: pbandk.wkt.Syntax,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Enum {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Enum.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun Enum.protoMergeImpl(plus: pbandk.Message?): Enum = (plus as? Enum)?.let {
     it.copy(
         enumvalue = enumvalue + plus.enumvalue,
@@ -580,6 +762,29 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
 
 fun EnumValue?.orDefault() = this ?: EnumValue.defaultInstance
 
+fun EnumValue.copy(
+    name: String = "",
+    number: Int = 0,
+    options: List<pbandk.wkt.Option> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): EnumValue = (this as EnumValue_Impl).copy(
+    name,
+    number,
+    options,
+    unknownFields
+)
+
+private data class EnumValue_Impl(
+    override val name: String,
+    override val number: Int,
+    override val options: List<pbandk.wkt.Option>,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : EnumValue {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = EnumValue.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun EnumValue.protoMergeImpl(plus: pbandk.Message?): EnumValue = (plus as? EnumValue)?.let {
     it.copy(
         options = options + plus.options,
@@ -604,6 +809,26 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
 }
 
 fun Option?.orDefault() = this ?: Option.defaultInstance
+
+fun Option.copy(
+    name: String = "",
+    value: pbandk.wkt.Any? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Option = (this as Option_Impl).copy(
+    name,
+    value,
+    unknownFields
+)
+
+private data class Option_Impl(
+    override val name: String,
+    override val value: pbandk.wkt.Any?,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Option {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Option.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun Option.protoMergeImpl(plus: pbandk.Message?): Option = (plus as? Option)?.let {
     it.copy(

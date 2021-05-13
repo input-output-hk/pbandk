@@ -2,10 +2,12 @@
 
 package pbandk.testpb
 
-data class Value(
-    val value: Value<*>? = null,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
+interface Value : pbandk.Message {
+    val value: Value<*>?
+
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.Value
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.Value>
+
     sealed class Value<V>(value: V) : pbandk.Message.OneOf<V>(value) {
         class StringValue(stringValue: String = "") : Value<String>(stringValue)
         class BooleanValue(booleanValue: Boolean = false) : Value<Boolean>(booleanValue)
@@ -13,16 +15,18 @@ data class Value(
     }
 
     val stringValue: String?
-        get() = (value as? Value.StringValue)?.value
     val booleanValue: Boolean?
-        get() = (value as? Value.BooleanValue)?.value
     val integerValue: Int?
-        get() = (value as? Value.IntegerValue)?.value
 
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
     companion object : pbandk.Message.Companion<pbandk.testpb.Value> {
+        operator fun invoke(
+            value: Value<*>? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.Value = Value_Impl(
+            value,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.testpb.Value() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.Value.decodeWithImpl(u)
 
@@ -73,6 +77,29 @@ data class Value(
 }
 
 fun Value?.orDefault() = this ?: Value.defaultInstance
+
+fun Value.copy(
+    value: pbandk.testpb.Value.Value<*>? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Value = (this as Value_Impl).copy(
+    value,
+    unknownFields
+)
+
+private data class Value_Impl(
+    override val value: pbandk.testpb.Value.Value<*>?,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Value {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Value.descriptor
+    override val protoSize by lazy { super.protoSize }
+    override val stringValue: String?
+        get() = (value as? pbandk.testpb.Value.Value.StringValue)?.value
+    override val booleanValue: Boolean?
+        get() = (value as? pbandk.testpb.Value.Value.BooleanValue)?.value
+    override val integerValue: Int?
+        get() = (value as? pbandk.testpb.Value.Value.IntegerValue)?.value
+}
 
 private fun Value.protoMergeImpl(plus: pbandk.Message?): Value = (plus as? Value)?.let {
     it.copy(

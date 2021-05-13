@@ -116,12 +116,12 @@ internal class JsonValueEncoder(private val jsonConfig: JsonConfig) {
         }
     }
 
-    fun writeDynamicValue(value: Value): JsonElement = when (value.kind) {
-        is Value.Kind.StringValue -> writeString(value.kind.value)
-        is Value.Kind.BoolValue -> writeBool(value.kind.value)
-        is Value.Kind.NumberValue -> writeDouble(value.kind.value)
-        is Value.Kind.StructValue -> writeValue(value.kind.value.fields, Struct.descriptor.fields.first().type)
-        is Value.Kind.ListValue -> writeValue(value.kind.value.values, ListValue.descriptor.fields.first().type)
+    fun writeDynamicValue(value: Value): JsonElement = when (val valueKind = value.kind) {
+        is Value.Kind.StringValue -> writeString(valueKind.value)
+        is Value.Kind.BoolValue -> writeBool(valueKind.value)
+        is Value.Kind.NumberValue -> writeDouble(valueKind.value)
+        is Value.Kind.StructValue -> writeValue(valueKind.value.fields, Struct.descriptor.fields.first().type)
+        is Value.Kind.ListValue -> writeValue(valueKind.value.values, ListValue.descriptor.fields.first().type)
         is Value.Kind.NullValue, null -> JsonNull
     }
 }

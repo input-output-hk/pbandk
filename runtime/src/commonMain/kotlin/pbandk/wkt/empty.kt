@@ -2,13 +2,18 @@
 
 package pbandk.wkt
 
-data class Empty(
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Empty : pbandk.Message {
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Empty> {
+        operator fun invoke(
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Empty = Empty_Impl(
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Empty() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Empty.decodeWithImpl(u)
 
@@ -26,6 +31,20 @@ data class Empty(
 }
 
 fun Empty?.orDefault() = this ?: Empty.defaultInstance
+
+fun Empty.copy(
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Empty = (this as Empty_Impl).copy(
+    unknownFields
+)
+
+private data class Empty_Impl(
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Empty {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Empty.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun Empty.protoMergeImpl(plus: pbandk.Message?): Empty = (plus as? Empty)?.let {
     it.copy(

@@ -2,14 +2,21 @@
 
 package pbandk.testpb
 
-data class SingleRequiredCustomOption(
-    val single: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface SingleRequiredCustomOption : pbandk.Message {
+    val single: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.SingleRequiredCustomOption
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.SingleRequiredCustomOption>
+
     companion object : pbandk.Message.Companion<pbandk.testpb.SingleRequiredCustomOption> {
+        operator fun invoke(
+            single: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.SingleRequiredCustomOption = SingleRequiredCustomOption_Impl(
+            single,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.testpb.SingleRequiredCustomOption() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.SingleRequiredCustomOption.decodeWithImpl(u)
 
@@ -46,14 +53,21 @@ data class SingleRequiredCustomOption(
     }
 }
 
-data class MultipleCustomOptions(
-    val multiple: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface MultipleCustomOptions : pbandk.Message {
+    val multiple: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptions>
+
     companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptions> {
+        operator fun invoke(
+            multiple: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.MultipleCustomOptions = MultipleCustomOptions_Impl(
+            multiple,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptions() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptions.decodeWithImpl(u)
 
@@ -91,14 +105,21 @@ data class MultipleCustomOptions(
     }
 }
 
-data class MultipleCustomOptionsPlusDeprecated(
-    val multipleDeprecated: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
+    val multipleDeprecated: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated
+    override val descriptor: pbandk.MessageDescriptor<pbandk.testpb.MultipleCustomOptionsPlusDeprecated>
+
     companion object : pbandk.Message.Companion<pbandk.testpb.MultipleCustomOptionsPlusDeprecated> {
+        operator fun invoke(
+            multipleDeprecated: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = MultipleCustomOptionsPlusDeprecated_Impl(
+            multipleDeprecated,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.testpb.MultipleCustomOptionsPlusDeprecated.decodeWithImpl(u)
 
@@ -139,6 +160,23 @@ data class MultipleCustomOptionsPlusDeprecated(
 
 fun SingleRequiredCustomOption?.orDefault() = this ?: SingleRequiredCustomOption.defaultInstance
 
+fun SingleRequiredCustomOption.copy(
+    single: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): SingleRequiredCustomOption = (this as SingleRequiredCustomOption_Impl).copy(
+    single,
+    unknownFields
+)
+
+private data class SingleRequiredCustomOption_Impl(
+    override val single: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : SingleRequiredCustomOption {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = SingleRequiredCustomOption.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun SingleRequiredCustomOption.protoMergeImpl(plus: pbandk.Message?): SingleRequiredCustomOption = (plus as? SingleRequiredCustomOption)?.let {
     it.copy(
         unknownFields = unknownFields + plus.unknownFields
@@ -159,6 +197,23 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
 
 fun MultipleCustomOptions?.orDefault() = this ?: MultipleCustomOptions.defaultInstance
 
+fun MultipleCustomOptions.copy(
+    multiple: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MultipleCustomOptions = (this as MultipleCustomOptions_Impl).copy(
+    multiple,
+    unknownFields
+)
+
+private data class MultipleCustomOptions_Impl(
+    override val multiple: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : MultipleCustomOptions {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = MultipleCustomOptions.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun MultipleCustomOptions.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptions = (plus as? MultipleCustomOptions)?.let {
     it.copy(
         unknownFields = unknownFields + plus.unknownFields
@@ -178,6 +233,23 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 }
 
 fun MultipleCustomOptionsPlusDeprecated?.orDefault() = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
+
+fun MultipleCustomOptionsPlusDeprecated.copy(
+    multipleDeprecated: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): MultipleCustomOptionsPlusDeprecated = (this as MultipleCustomOptionsPlusDeprecated_Impl).copy(
+    multipleDeprecated,
+    unknownFields
+)
+
+private data class MultipleCustomOptionsPlusDeprecated_Impl(
+    override val multipleDeprecated: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : MultipleCustomOptionsPlusDeprecated {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = MultipleCustomOptionsPlusDeprecated.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun MultipleCustomOptionsPlusDeprecated.protoMergeImpl(plus: pbandk.Message?): MultipleCustomOptionsPlusDeprecated = (plus as? MultipleCustomOptionsPlusDeprecated)?.let {
     it.copy(

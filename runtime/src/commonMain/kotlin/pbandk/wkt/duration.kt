@@ -2,15 +2,24 @@
 
 package pbandk.wkt
 
-data class Duration(
-    val seconds: Long = 0L,
-    val nanos: Int = 0,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Duration : pbandk.Message {
+    val seconds: Long
+    val nanos: Int
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.Duration
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Duration>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.Duration> {
+        operator fun invoke(
+            seconds: Long = 0L,
+            nanos: Int = 0,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.Duration = Duration_Impl(
+            seconds,
+            nanos,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.Duration() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.Duration.decodeWithImpl(u)
 
@@ -48,6 +57,26 @@ data class Duration(
 }
 
 fun Duration?.orDefault() = this ?: Duration.defaultInstance
+
+fun Duration.copy(
+    seconds: Long = 0L,
+    nanos: Int = 0,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Duration = (this as Duration_Impl).copy(
+    seconds,
+    nanos,
+    unknownFields
+)
+
+private data class Duration_Impl(
+    override val seconds: Long,
+    override val nanos: Int,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Duration {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Duration.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun Duration.protoMergeImpl(plus: pbandk.Message?): Duration = (plus as? Duration)?.let {
     it.copy(

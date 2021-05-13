@@ -2,17 +2,30 @@
 
 package pbandk.gen.pb
 
-data class Version(
-    val major: Int? = null,
-    val minor: Int? = null,
-    val patch: Int? = null,
-    val suffix: String? = null,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface Version : pbandk.Message {
+    val major: Int?
+    val minor: Int?
+    val patch: Int?
+    val suffix: String?
+
+    override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.Version
+    override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.Version>
+
     companion object : pbandk.Message.Companion<pbandk.gen.pb.Version> {
+        operator fun invoke(
+            major: Int? = null,
+            minor: Int? = null,
+            patch: Int? = null,
+            suffix: String? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.gen.pb.Version = Version_Impl(
+            major,
+            minor,
+            patch,
+            suffix,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.gen.pb.Version() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.Version.decodeWithImpl(u)
 
@@ -69,17 +82,30 @@ data class Version(
     }
 }
 
-data class CodeGeneratorRequest(
-    val fileToGenerate: List<String> = emptyList(),
-    val parameter: String? = null,
-    val protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
-    val compilerVersion: pbandk.gen.pb.Version? = null,
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface CodeGeneratorRequest : pbandk.Message {
+    val fileToGenerate: List<String>
+    val parameter: String?
+    val protoFile: List<pbandk.wkt.FileDescriptorProto>
+    val compilerVersion: pbandk.gen.pb.Version?
+
+    override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorRequest
+    override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorRequest>
+
     companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorRequest> {
+        operator fun invoke(
+            fileToGenerate: List<String> = emptyList(),
+            parameter: String? = null,
+            protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
+            compilerVersion: pbandk.gen.pb.Version? = null,
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.gen.pb.CodeGeneratorRequest = CodeGeneratorRequest_Impl(
+            fileToGenerate,
+            parameter,
+            protoFile,
+            compilerVersion,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorRequest() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorRequest.decodeWithImpl(u)
 
@@ -136,16 +162,27 @@ data class CodeGeneratorRequest(
     }
 }
 
-data class CodeGeneratorResponse(
-    val error: String? = null,
-    val supportedFeatures: Long? = null,
-    val file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface CodeGeneratorResponse : pbandk.Message {
+    val error: String?
+    val supportedFeatures: Long?
+    val file: List<pbandk.gen.pb.CodeGeneratorResponse.File>
+
+    override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse
+    override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse>
+
     companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse> {
+        operator fun invoke(
+            error: String? = null,
+            supportedFeatures: Long? = null,
+            file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.gen.pb.CodeGeneratorResponse = CodeGeneratorResponse_Impl(
+            error,
+            supportedFeatures,
+            file,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorResponse() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorResponse.decodeWithImpl(u)
 
@@ -194,7 +231,7 @@ data class CodeGeneratorResponse(
     sealed class Feature(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {
         override fun equals(other: kotlin.Any?) = other is pbandk.gen.pb.CodeGeneratorResponse.Feature && other.value == value
         override fun hashCode() = value.hashCode()
-        override fun toString() = "pbandk.gen.pb.CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
+        override fun toString() = "CodeGeneratorResponse.Feature.${name ?: "UNRECOGNIZED"}(value=$value)"
 
         object NONE : Feature(0, "FEATURE_NONE")
         object PROTO3_OPTIONAL : Feature(1, "FEATURE_PROTO3_OPTIONAL")
@@ -207,17 +244,30 @@ data class CodeGeneratorResponse(
         }
     }
 
-    data class File(
-        val name: String? = null,
-        val insertionPoint: String? = null,
-        val content: String? = null,
-        val generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
-        override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-    ) : pbandk.Message {
-        override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-        override val descriptor get() = Companion.descriptor
-        override val protoSize by lazy { super.protoSize }
+    interface File : pbandk.Message {
+        val name: String?
+        val insertionPoint: String?
+        val content: String?
+        val generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?
+
+        override operator fun plus(other: pbandk.Message?): pbandk.gen.pb.CodeGeneratorResponse.File
+        override val descriptor: pbandk.MessageDescriptor<pbandk.gen.pb.CodeGeneratorResponse.File>
+
         companion object : pbandk.Message.Companion<pbandk.gen.pb.CodeGeneratorResponse.File> {
+            operator fun invoke(
+                name: String? = null,
+                insertionPoint: String? = null,
+                content: String? = null,
+                generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
+                unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+            ): pbandk.gen.pb.CodeGeneratorResponse.File = CodeGeneratorResponse_File_Impl(
+                name,
+                insertionPoint,
+                content,
+                generatedCodeInfo,
+                unknownFields
+            )
+
             val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorResponse.File() }
             override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.gen.pb.CodeGeneratorResponse.File.decodeWithImpl(u)
 
@@ -277,6 +327,32 @@ data class CodeGeneratorResponse(
 
 fun Version?.orDefault() = this ?: Version.defaultInstance
 
+fun Version.copy(
+    major: Int? = null,
+    minor: Int? = null,
+    patch: Int? = null,
+    suffix: String? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): Version = (this as Version_Impl).copy(
+    major,
+    minor,
+    patch,
+    suffix,
+    unknownFields
+)
+
+private data class Version_Impl(
+    override val major: Int?,
+    override val minor: Int?,
+    override val patch: Int?,
+    override val suffix: String?,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : Version {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = Version.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun Version.protoMergeImpl(plus: pbandk.Message?): Version = (plus as? Version)?.let {
     it.copy(
         major = plus.major ?: major,
@@ -306,6 +382,32 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version 
 }
 
 fun CodeGeneratorRequest?.orDefault() = this ?: CodeGeneratorRequest.defaultInstance
+
+fun CodeGeneratorRequest.copy(
+    fileToGenerate: List<String> = emptyList(),
+    parameter: String? = null,
+    protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
+    compilerVersion: pbandk.gen.pb.Version? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): CodeGeneratorRequest = (this as CodeGeneratorRequest_Impl).copy(
+    fileToGenerate,
+    parameter,
+    protoFile,
+    compilerVersion,
+    unknownFields
+)
+
+private data class CodeGeneratorRequest_Impl(
+    override val fileToGenerate: List<String>,
+    override val parameter: String?,
+    override val protoFile: List<pbandk.wkt.FileDescriptorProto>,
+    override val compilerVersion: pbandk.gen.pb.Version?,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : CodeGeneratorRequest {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = CodeGeneratorRequest.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun CodeGeneratorRequest.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorRequest = (plus as? CodeGeneratorRequest)?.let {
     it.copy(
@@ -337,6 +439,29 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
 
 fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultInstance
 
+fun CodeGeneratorResponse.copy(
+    error: String? = null,
+    supportedFeatures: Long? = null,
+    file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): CodeGeneratorResponse = (this as CodeGeneratorResponse_Impl).copy(
+    error,
+    supportedFeatures,
+    file,
+    unknownFields
+)
+
+private data class CodeGeneratorResponse_Impl(
+    override val error: String?,
+    override val supportedFeatures: Long?,
+    override val file: List<pbandk.gen.pb.CodeGeneratorResponse.File>,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : CodeGeneratorResponse {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = CodeGeneratorResponse.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
+
 private fun CodeGeneratorResponse.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorResponse = (plus as? CodeGeneratorResponse)?.let {
     it.copy(
         error = plus.error ?: error,
@@ -363,6 +488,32 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
 }
 
 fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
+
+fun CodeGeneratorResponse.File.copy(
+    name: String? = null,
+    insertionPoint: String? = null,
+    content: String? = null,
+    generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): CodeGeneratorResponse.File = (this as CodeGeneratorResponse_File_Impl).copy(
+    name,
+    insertionPoint,
+    content,
+    generatedCodeInfo,
+    unknownFields
+)
+
+private data class CodeGeneratorResponse_File_Impl(
+    override val name: String?,
+    override val insertionPoint: String?,
+    override val content: String?,
+    override val generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo?,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : CodeGeneratorResponse.File {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = CodeGeneratorResponse.File.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun CodeGeneratorResponse.File.protoMergeImpl(plus: pbandk.Message?): CodeGeneratorResponse.File = (plus as? CodeGeneratorResponse.File)?.let {
     it.copy(

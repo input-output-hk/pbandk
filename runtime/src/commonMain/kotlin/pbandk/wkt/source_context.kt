@@ -2,14 +2,21 @@
 
 package pbandk.wkt
 
-data class SourceContext(
-    val fileName: String = "",
-    override val unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
-) : pbandk.Message {
-    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
-    override val descriptor get() = Companion.descriptor
-    override val protoSize by lazy { super.protoSize }
+interface SourceContext : pbandk.Message {
+    val fileName: String
+
+    override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext
+    override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.SourceContext>
+
     companion object : pbandk.Message.Companion<pbandk.wkt.SourceContext> {
+        operator fun invoke(
+            fileName: String = "",
+            unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+        ): pbandk.wkt.SourceContext = SourceContext_Impl(
+            fileName,
+            unknownFields
+        )
+
         val defaultInstance by lazy { pbandk.wkt.SourceContext() }
         override fun decodeWith(u: pbandk.MessageDecoder) = pbandk.wkt.SourceContext.decodeWithImpl(u)
 
@@ -37,6 +44,23 @@ data class SourceContext(
 }
 
 fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
+
+fun SourceContext.copy(
+    fileName: String = "",
+    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+): SourceContext = (this as SourceContext_Impl).copy(
+    fileName,
+    unknownFields
+)
+
+private data class SourceContext_Impl(
+    override val fileName: String,
+    override val unknownFields: Map<Int, pbandk.UnknownField>
+) : SourceContext {
+    override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)
+    override val descriptor get() = SourceContext.descriptor
+    override val protoSize by lazy { super.protoSize }
+}
 
 private fun SourceContext.protoMergeImpl(plus: pbandk.Message?): SourceContext = (plus as? SourceContext)?.let {
     it.copy(
