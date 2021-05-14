@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinCommonOptions
+
 plugins {
     kotlin("jvm")
     `maven-publish`
@@ -23,6 +25,19 @@ sourceSets {
 java {
     withSourcesJar()
     withJavadocJar()
+}
+
+kotlin {
+    target {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+
+        // https://youtrack.jetbrains.com/issue/KT-45335
+        attributes {
+            attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
+        }
+    }
 }
 
 publishing {

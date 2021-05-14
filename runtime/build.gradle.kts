@@ -19,7 +19,13 @@ kotlin {
         publishAllLibraryVariants()
     }
 
-    jvm()
+    jvm {
+        compilations.all {
+            kotlinOptions {
+                useOldBackend = true
+            }
+        }
+    }
 
     js {
         useCommonJs()
@@ -68,9 +74,7 @@ kotlin {
 
         val androidTest by getting {
             dependencies {
-                implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:${Versions.junit}")
                 runtimeOnly("org.robolectric:android-all:${Versions.robolectric}")
             }
         }
@@ -85,9 +89,7 @@ kotlin {
         val jvmTest by getting {
             dependencies {
                 implementation(project(":jvm-test-types"))
-                implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:${Versions.junit}")
             }
         }
 
@@ -131,10 +133,6 @@ android {
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
-    withType<KotlinJvmCompile> {
-        kotlinOptions.useOldBackend = true
-    }
-
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
         includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
