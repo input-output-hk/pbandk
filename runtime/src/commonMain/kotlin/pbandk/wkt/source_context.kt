@@ -13,8 +13,8 @@ sealed interface SourceContext : pbandk.Message {
             fileName: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.SourceContext = SourceContext_Impl(
-            fileName,
-            unknownFields
+            fileName = fileName,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.SourceContext() }
@@ -46,11 +46,11 @@ sealed interface SourceContext : pbandk.Message {
 fun SourceContext?.orDefault() = this ?: SourceContext.defaultInstance
 
 fun SourceContext.copy(
-    fileName: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    fileName: String = this.fileName,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SourceContext = (this as SourceContext_Impl).copy(
-    fileName,
-    unknownFields
+    fileName = fileName,
+    unknownFields = unknownFields
 )
 
 private data class SourceContext_Impl(

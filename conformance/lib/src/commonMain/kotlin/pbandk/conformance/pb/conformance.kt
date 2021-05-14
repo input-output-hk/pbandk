@@ -52,8 +52,8 @@ sealed interface FailureSet : pbandk.Message {
             failure: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.conformance.pb.FailureSet = FailureSet_Impl(
-            failure,
-            unknownFields
+            failure = failure,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.conformance.pb.FailureSet() }
@@ -115,13 +115,13 @@ sealed interface ConformanceRequest : pbandk.Message {
             payload: Payload<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.conformance.pb.ConformanceRequest = ConformanceRequest_Impl(
-            requestedOutputFormat,
-            messageType,
-            testCategory,
-            jspbEncodingOptions,
-            printUnknownFields,
-            payload,
-            unknownFields
+            requestedOutputFormat = requestedOutputFormat,
+            messageType = messageType,
+            testCategory = testCategory,
+            jspbEncodingOptions = jspbEncodingOptions,
+            printUnknownFields = printUnknownFields,
+            payload = payload,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.conformance.pb.ConformanceRequest() }
@@ -265,8 +265,8 @@ sealed interface ConformanceResponse : pbandk.Message {
             result: Result<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.conformance.pb.ConformanceResponse = ConformanceResponse_Impl(
-            result,
-            unknownFields
+            result = result,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.conformance.pb.ConformanceResponse() }
@@ -384,8 +384,8 @@ sealed interface JspbEncodingConfig : pbandk.Message {
             useJspbArrayAnyFormat: Boolean = false,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.conformance.pb.JspbEncodingConfig = JspbEncodingConfig_Impl(
-            useJspbArrayAnyFormat,
-            unknownFields
+            useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.conformance.pb.JspbEncodingConfig() }
@@ -417,11 +417,11 @@ sealed interface JspbEncodingConfig : pbandk.Message {
 fun FailureSet?.orDefault() = this ?: FailureSet.defaultInstance
 
 fun FailureSet.copy(
-    failure: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    failure: List<String> = this.failure,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FailureSet = (this as FailureSet_Impl).copy(
-    failure,
-    unknownFields
+    failure = failure,
+    unknownFields = unknownFields
 )
 
 private data class FailureSet_Impl(
@@ -455,21 +455,21 @@ private fun FailureSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Failu
 fun ConformanceRequest?.orDefault() = this ?: ConformanceRequest.defaultInstance
 
 fun ConformanceRequest.copy(
-    requestedOutputFormat: pbandk.conformance.pb.WireFormat = pbandk.conformance.pb.WireFormat.fromValue(0),
-    messageType: String = "",
-    testCategory: pbandk.conformance.pb.TestCategory = pbandk.conformance.pb.TestCategory.fromValue(0),
-    jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig? = null,
-    printUnknownFields: Boolean = false,
-    payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    requestedOutputFormat: pbandk.conformance.pb.WireFormat = this.requestedOutputFormat,
+    messageType: String = this.messageType,
+    testCategory: pbandk.conformance.pb.TestCategory = this.testCategory,
+    jspbEncodingOptions: pbandk.conformance.pb.JspbEncodingConfig? = this.jspbEncodingOptions,
+    printUnknownFields: Boolean = this.printUnknownFields,
+    payload: pbandk.conformance.pb.ConformanceRequest.Payload<*>? = this.payload,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ConformanceRequest = (this as ConformanceRequest_Impl).copy(
-    requestedOutputFormat,
-    messageType,
-    testCategory,
-    jspbEncodingOptions,
-    printUnknownFields,
-    payload,
-    unknownFields
+    requestedOutputFormat = requestedOutputFormat,
+    messageType = messageType,
+    testCategory = testCategory,
+    jspbEncodingOptions = jspbEncodingOptions,
+    printUnknownFields = printUnknownFields,
+    payload = payload,
+    unknownFields = unknownFields
 )
 
 private data class ConformanceRequest_Impl(
@@ -531,11 +531,11 @@ private fun ConformanceRequest.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 fun ConformanceResponse?.orDefault() = this ?: ConformanceResponse.defaultInstance
 
 fun ConformanceResponse.copy(
-    result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    result: pbandk.conformance.pb.ConformanceResponse.Result<*>? = this.result,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ConformanceResponse = (this as ConformanceResponse_Impl).copy(
-    result,
-    unknownFields
+    result = result,
+    unknownFields = unknownFields
 )
 
 private data class ConformanceResponse_Impl(
@@ -592,11 +592,11 @@ private fun ConformanceResponse.Companion.decodeWithImpl(u: pbandk.MessageDecode
 fun JspbEncodingConfig?.orDefault() = this ?: JspbEncodingConfig.defaultInstance
 
 fun JspbEncodingConfig.copy(
-    useJspbArrayAnyFormat: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    useJspbArrayAnyFormat: Boolean = this.useJspbArrayAnyFormat,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): JspbEncodingConfig = (this as JspbEncodingConfig_Impl).copy(
-    useJspbArrayAnyFormat,
-    unknownFields
+    useJspbArrayAnyFormat = useJspbArrayAnyFormat,
+    unknownFields = unknownFields
 )
 
 private data class JspbEncodingConfig_Impl(

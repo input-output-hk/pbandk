@@ -15,9 +15,9 @@ sealed interface Any : pbandk.Message {
             value: pbandk.ByteArr = pbandk.ByteArr.empty,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Any = Any_Impl(
-            typeUrl,
-            value,
-            unknownFields
+            typeUrl = typeUrl,
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Any() }
@@ -59,13 +59,13 @@ sealed interface Any : pbandk.Message {
 fun Any?.orDefault() = this ?: Any.defaultInstance
 
 fun Any.copy(
-    typeUrl: String = "",
-    value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    typeUrl: String = this.typeUrl,
+    value: pbandk.ByteArr = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Any = (this as Any_Impl).copy(
-    typeUrl,
-    value,
-    unknownFields
+    typeUrl = typeUrl,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Any_Impl(

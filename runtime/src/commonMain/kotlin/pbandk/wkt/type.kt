@@ -39,13 +39,13 @@ sealed interface Type : pbandk.Message {
             syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Type = Type_Impl(
-            name,
-            fields,
-            oneofs,
-            options,
-            sourceContext,
-            syntax,
-            unknownFields
+            name = name,
+            fields = fields,
+            oneofs = oneofs,
+            options = options,
+            sourceContext = sourceContext,
+            syntax = syntax,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Type() }
@@ -153,17 +153,17 @@ sealed interface Field : pbandk.Message {
             defaultValue: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Field = Field_Impl(
-            kind,
-            cardinality,
-            number,
-            name,
-            typeUrl,
-            oneofIndex,
-            packed,
-            options,
-            jsonName,
-            defaultValue,
-            unknownFields
+            kind = kind,
+            cardinality = cardinality,
+            number = number,
+            name = name,
+            typeUrl = typeUrl,
+            oneofIndex = oneofIndex,
+            packed = packed,
+            options = options,
+            jsonName = jsonName,
+            defaultValue = defaultValue,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Field() }
@@ -352,12 +352,12 @@ sealed interface Enum : pbandk.Message {
             syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Enum = Enum_Impl(
-            name,
-            enumvalue,
-            options,
-            sourceContext,
-            syntax,
-            unknownFields
+            name = name,
+            enumvalue = enumvalue,
+            options = options,
+            sourceContext = sourceContext,
+            syntax = syntax,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Enum() }
@@ -441,10 +441,10 @@ sealed interface EnumValue : pbandk.Message {
             options: List<pbandk.wkt.Option> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.EnumValue = EnumValue_Impl(
-            name,
-            number,
-            options,
-            unknownFields
+            name = name,
+            number = number,
+            options = options,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.EnumValue() }
@@ -506,9 +506,9 @@ sealed interface Option : pbandk.Message {
             value: pbandk.wkt.Any? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Option = Option_Impl(
-            name,
-            value,
-            unknownFields
+            name = name,
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Option() }
@@ -550,21 +550,21 @@ sealed interface Option : pbandk.Message {
 fun Type?.orDefault() = this ?: Type.defaultInstance
 
 fun Type.copy(
-    name: String = "",
-    fields: List<pbandk.wkt.Field> = emptyList(),
-    oneofs: List<String> = emptyList(),
-    options: List<pbandk.wkt.Option> = emptyList(),
-    sourceContext: pbandk.wkt.SourceContext? = null,
-    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    fields: List<pbandk.wkt.Field> = this.fields,
+    oneofs: List<String> = this.oneofs,
+    options: List<pbandk.wkt.Option> = this.options,
+    sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
+    syntax: pbandk.wkt.Syntax = this.syntax,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Type = (this as Type_Impl).copy(
-    name,
-    fields,
-    oneofs,
-    options,
-    sourceContext,
-    syntax,
-    unknownFields
+    name = name,
+    fields = fields,
+    oneofs = oneofs,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields
 )
 
 private data class Type_Impl(
@@ -617,29 +617,29 @@ private fun Type.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Type {
 fun Field?.orDefault() = this ?: Field.defaultInstance
 
 fun Field.copy(
-    kind: pbandk.wkt.Field.Kind = pbandk.wkt.Field.Kind.fromValue(0),
-    cardinality: pbandk.wkt.Field.Cardinality = pbandk.wkt.Field.Cardinality.fromValue(0),
-    number: Int = 0,
-    name: String = "",
-    typeUrl: String = "",
-    oneofIndex: Int = 0,
-    packed: Boolean = false,
-    options: List<pbandk.wkt.Option> = emptyList(),
-    jsonName: String = "",
-    defaultValue: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    kind: pbandk.wkt.Field.Kind = this.kind,
+    cardinality: pbandk.wkt.Field.Cardinality = this.cardinality,
+    number: Int = this.number,
+    name: String = this.name,
+    typeUrl: String = this.typeUrl,
+    oneofIndex: Int = this.oneofIndex,
+    packed: Boolean = this.packed,
+    options: List<pbandk.wkt.Option> = this.options,
+    jsonName: String = this.jsonName,
+    defaultValue: String = this.defaultValue,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Field = (this as Field_Impl).copy(
-    kind,
-    cardinality,
-    number,
-    name,
-    typeUrl,
-    oneofIndex,
-    packed,
-    options,
-    jsonName,
-    defaultValue,
-    unknownFields
+    kind = kind,
+    cardinality = cardinality,
+    number = number,
+    name = name,
+    typeUrl = typeUrl,
+    oneofIndex = oneofIndex,
+    packed = packed,
+    options = options,
+    jsonName = jsonName,
+    defaultValue = defaultValue,
+    unknownFields = unknownFields
 )
 
 private data class Field_Impl(
@@ -702,19 +702,19 @@ private fun Field.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field {
 fun Enum?.orDefault() = this ?: Enum.defaultInstance
 
 fun Enum.copy(
-    name: String = "",
-    enumvalue: List<pbandk.wkt.EnumValue> = emptyList(),
-    options: List<pbandk.wkt.Option> = emptyList(),
-    sourceContext: pbandk.wkt.SourceContext? = null,
-    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    enumvalue: List<pbandk.wkt.EnumValue> = this.enumvalue,
+    options: List<pbandk.wkt.Option> = this.options,
+    sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
+    syntax: pbandk.wkt.Syntax = this.syntax,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Enum = (this as Enum_Impl).copy(
-    name,
-    enumvalue,
-    options,
-    sourceContext,
-    syntax,
-    unknownFields
+    name = name,
+    enumvalue = enumvalue,
+    options = options,
+    sourceContext = sourceContext,
+    syntax = syntax,
+    unknownFields = unknownFields
 )
 
 private data class Enum_Impl(
@@ -763,15 +763,15 @@ private fun Enum.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum {
 fun EnumValue?.orDefault() = this ?: EnumValue.defaultInstance
 
 fun EnumValue.copy(
-    name: String = "",
-    number: Int = 0,
-    options: List<pbandk.wkt.Option> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    number: Int = this.number,
+    options: List<pbandk.wkt.Option> = this.options,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumValue = (this as EnumValue_Impl).copy(
-    name,
-    number,
-    options,
-    unknownFields
+    name = name,
+    number = number,
+    options = options,
+    unknownFields = unknownFields
 )
 
 private data class EnumValue_Impl(
@@ -811,13 +811,13 @@ private fun EnumValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumVa
 fun Option?.orDefault() = this ?: Option.defaultInstance
 
 fun Option.copy(
-    name: String = "",
-    value: pbandk.wkt.Any? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    value: pbandk.wkt.Any? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Option = (this as Option_Impl).copy(
-    name,
-    value,
-    unknownFields
+    name = name,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Option_Impl(

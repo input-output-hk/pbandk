@@ -13,8 +13,8 @@ sealed interface FieldMask : pbandk.Message {
             paths: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FieldMask = FieldMask_Impl(
-            paths,
-            unknownFields
+            paths = paths,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FieldMask() }
@@ -46,11 +46,11 @@ sealed interface FieldMask : pbandk.Message {
 fun FieldMask?.orDefault() = this ?: FieldMask.defaultInstance
 
 fun FieldMask.copy(
-    paths: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    paths: List<String> = this.paths,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FieldMask = (this as FieldMask_Impl).copy(
-    paths,
-    unknownFields
+    paths = paths,
+    unknownFields = unknownFields
 )
 
 private data class FieldMask_Impl(

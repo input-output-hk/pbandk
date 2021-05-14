@@ -15,9 +15,9 @@ sealed interface Duration : pbandk.Message {
             nanos: Int = 0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Duration = Duration_Impl(
-            seconds,
-            nanos,
-            unknownFields
+            seconds = seconds,
+            nanos = nanos,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Duration() }
@@ -59,13 +59,13 @@ sealed interface Duration : pbandk.Message {
 fun Duration?.orDefault() = this ?: Duration.defaultInstance
 
 fun Duration.copy(
-    seconds: Long = 0L,
-    nanos: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    seconds: Long = this.seconds,
+    nanos: Int = this.nanos,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Duration = (this as Duration_Impl).copy(
-    seconds,
-    nanos,
-    unknownFields
+    seconds = seconds,
+    nanos = nanos,
+    unknownFields = unknownFields
 )
 
 private data class Duration_Impl(

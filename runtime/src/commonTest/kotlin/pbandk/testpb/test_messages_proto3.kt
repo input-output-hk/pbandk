@@ -332,148 +332,148 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
             oneofField: OneofField<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.TestAllTypesProto3 = TestAllTypesProto3_Impl(
-            optionalInt32,
-            optionalInt64,
-            optionalUint32,
-            optionalUint64,
-            optionalSint32,
-            optionalSint64,
-            optionalFixed32,
-            optionalFixed64,
-            optionalSfixed32,
-            optionalSfixed64,
-            optionalFloat,
-            optionalDouble,
-            optionalBool,
-            optionalString,
-            optionalBytes,
-            optionalNestedMessage,
-            optionalForeignMessage,
-            optionalNestedEnum,
-            optionalForeignEnum,
-            optionalAliasedEnum,
-            optionalStringPiece,
-            optionalCord,
-            recursiveMessage,
-            repeatedInt32,
-            repeatedInt64,
-            repeatedUint32,
-            repeatedUint64,
-            repeatedSint32,
-            repeatedSint64,
-            repeatedFixed32,
-            repeatedFixed64,
-            repeatedSfixed32,
-            repeatedSfixed64,
-            repeatedFloat,
-            repeatedDouble,
-            repeatedBool,
-            repeatedString,
-            repeatedBytes,
-            repeatedNestedMessage,
-            repeatedForeignMessage,
-            repeatedNestedEnum,
-            repeatedForeignEnum,
-            repeatedStringPiece,
-            repeatedCord,
-            packedInt32,
-            packedInt64,
-            packedUint32,
-            packedUint64,
-            packedSint32,
-            packedSint64,
-            packedFixed32,
-            packedFixed64,
-            packedSfixed32,
-            packedSfixed64,
-            packedFloat,
-            packedDouble,
-            packedBool,
-            packedNestedEnum,
-            unpackedInt32,
-            unpackedInt64,
-            unpackedUint32,
-            unpackedUint64,
-            unpackedSint32,
-            unpackedSint64,
-            unpackedFixed32,
-            unpackedFixed64,
-            unpackedSfixed32,
-            unpackedSfixed64,
-            unpackedFloat,
-            unpackedDouble,
-            unpackedBool,
-            unpackedNestedEnum,
-            mapInt32Int32,
-            mapInt64Int64,
-            mapUint32Uint32,
-            mapUint64Uint64,
-            mapSint32Sint32,
-            mapSint64Sint64,
-            mapFixed32Fixed32,
-            mapFixed64Fixed64,
-            mapSfixed32Sfixed32,
-            mapSfixed64Sfixed64,
-            mapInt32Float,
-            mapInt32Double,
-            mapBoolBool,
-            mapStringString,
-            mapStringBytes,
-            mapStringNestedMessage,
-            mapStringForeignMessage,
-            mapStringNestedEnum,
-            mapStringForeignEnum,
-            optionalBoolWrapper,
-            optionalInt32Wrapper,
-            optionalInt64Wrapper,
-            optionalUint32Wrapper,
-            optionalUint64Wrapper,
-            optionalFloatWrapper,
-            optionalDoubleWrapper,
-            optionalStringWrapper,
-            optionalBytesWrapper,
-            repeatedBoolWrapper,
-            repeatedInt32Wrapper,
-            repeatedInt64Wrapper,
-            repeatedUint32Wrapper,
-            repeatedUint64Wrapper,
-            repeatedFloatWrapper,
-            repeatedDoubleWrapper,
-            repeatedStringWrapper,
-            repeatedBytesWrapper,
-            optionalDuration,
-            optionalTimestamp,
-            optionalFieldMask,
-            optionalStruct,
-            optionalAny,
-            optionalValue,
-            repeatedDuration,
-            repeatedTimestamp,
-            repeatedFieldmask,
-            repeatedStruct,
-            repeatedAny,
-            repeatedValue,
-            repeatedListValue,
-            fieldname1,
-            fieldName2,
-            fieldName3,
-            field_name4,
-            field0name5,
-            field0Name6,
-            fieldName7,
-            fieldName8,
-            fieldName9,
-            fieldName10,
-            fIELDNAME11,
-            fIELDName12,
-            _fieldName13,
-            _FieldName14,
-            field_name15,
-            field_Name16,
-            fieldName17_,
-            fieldName18_,
-            oneofField,
-            unknownFields
+            optionalInt32 = optionalInt32,
+            optionalInt64 = optionalInt64,
+            optionalUint32 = optionalUint32,
+            optionalUint64 = optionalUint64,
+            optionalSint32 = optionalSint32,
+            optionalSint64 = optionalSint64,
+            optionalFixed32 = optionalFixed32,
+            optionalFixed64 = optionalFixed64,
+            optionalSfixed32 = optionalSfixed32,
+            optionalSfixed64 = optionalSfixed64,
+            optionalFloat = optionalFloat,
+            optionalDouble = optionalDouble,
+            optionalBool = optionalBool,
+            optionalString = optionalString,
+            optionalBytes = optionalBytes,
+            optionalNestedMessage = optionalNestedMessage,
+            optionalForeignMessage = optionalForeignMessage,
+            optionalNestedEnum = optionalNestedEnum,
+            optionalForeignEnum = optionalForeignEnum,
+            optionalAliasedEnum = optionalAliasedEnum,
+            optionalStringPiece = optionalStringPiece,
+            optionalCord = optionalCord,
+            recursiveMessage = recursiveMessage,
+            repeatedInt32 = repeatedInt32,
+            repeatedInt64 = repeatedInt64,
+            repeatedUint32 = repeatedUint32,
+            repeatedUint64 = repeatedUint64,
+            repeatedSint32 = repeatedSint32,
+            repeatedSint64 = repeatedSint64,
+            repeatedFixed32 = repeatedFixed32,
+            repeatedFixed64 = repeatedFixed64,
+            repeatedSfixed32 = repeatedSfixed32,
+            repeatedSfixed64 = repeatedSfixed64,
+            repeatedFloat = repeatedFloat,
+            repeatedDouble = repeatedDouble,
+            repeatedBool = repeatedBool,
+            repeatedString = repeatedString,
+            repeatedBytes = repeatedBytes,
+            repeatedNestedMessage = repeatedNestedMessage,
+            repeatedForeignMessage = repeatedForeignMessage,
+            repeatedNestedEnum = repeatedNestedEnum,
+            repeatedForeignEnum = repeatedForeignEnum,
+            repeatedStringPiece = repeatedStringPiece,
+            repeatedCord = repeatedCord,
+            packedInt32 = packedInt32,
+            packedInt64 = packedInt64,
+            packedUint32 = packedUint32,
+            packedUint64 = packedUint64,
+            packedSint32 = packedSint32,
+            packedSint64 = packedSint64,
+            packedFixed32 = packedFixed32,
+            packedFixed64 = packedFixed64,
+            packedSfixed32 = packedSfixed32,
+            packedSfixed64 = packedSfixed64,
+            packedFloat = packedFloat,
+            packedDouble = packedDouble,
+            packedBool = packedBool,
+            packedNestedEnum = packedNestedEnum,
+            unpackedInt32 = unpackedInt32,
+            unpackedInt64 = unpackedInt64,
+            unpackedUint32 = unpackedUint32,
+            unpackedUint64 = unpackedUint64,
+            unpackedSint32 = unpackedSint32,
+            unpackedSint64 = unpackedSint64,
+            unpackedFixed32 = unpackedFixed32,
+            unpackedFixed64 = unpackedFixed64,
+            unpackedSfixed32 = unpackedSfixed32,
+            unpackedSfixed64 = unpackedSfixed64,
+            unpackedFloat = unpackedFloat,
+            unpackedDouble = unpackedDouble,
+            unpackedBool = unpackedBool,
+            unpackedNestedEnum = unpackedNestedEnum,
+            mapInt32Int32 = mapInt32Int32,
+            mapInt64Int64 = mapInt64Int64,
+            mapUint32Uint32 = mapUint32Uint32,
+            mapUint64Uint64 = mapUint64Uint64,
+            mapSint32Sint32 = mapSint32Sint32,
+            mapSint64Sint64 = mapSint64Sint64,
+            mapFixed32Fixed32 = mapFixed32Fixed32,
+            mapFixed64Fixed64 = mapFixed64Fixed64,
+            mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+            mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+            mapInt32Float = mapInt32Float,
+            mapInt32Double = mapInt32Double,
+            mapBoolBool = mapBoolBool,
+            mapStringString = mapStringString,
+            mapStringBytes = mapStringBytes,
+            mapStringNestedMessage = mapStringNestedMessage,
+            mapStringForeignMessage = mapStringForeignMessage,
+            mapStringNestedEnum = mapStringNestedEnum,
+            mapStringForeignEnum = mapStringForeignEnum,
+            optionalBoolWrapper = optionalBoolWrapper,
+            optionalInt32Wrapper = optionalInt32Wrapper,
+            optionalInt64Wrapper = optionalInt64Wrapper,
+            optionalUint32Wrapper = optionalUint32Wrapper,
+            optionalUint64Wrapper = optionalUint64Wrapper,
+            optionalFloatWrapper = optionalFloatWrapper,
+            optionalDoubleWrapper = optionalDoubleWrapper,
+            optionalStringWrapper = optionalStringWrapper,
+            optionalBytesWrapper = optionalBytesWrapper,
+            repeatedBoolWrapper = repeatedBoolWrapper,
+            repeatedInt32Wrapper = repeatedInt32Wrapper,
+            repeatedInt64Wrapper = repeatedInt64Wrapper,
+            repeatedUint32Wrapper = repeatedUint32Wrapper,
+            repeatedUint64Wrapper = repeatedUint64Wrapper,
+            repeatedFloatWrapper = repeatedFloatWrapper,
+            repeatedDoubleWrapper = repeatedDoubleWrapper,
+            repeatedStringWrapper = repeatedStringWrapper,
+            repeatedBytesWrapper = repeatedBytesWrapper,
+            optionalDuration = optionalDuration,
+            optionalTimestamp = optionalTimestamp,
+            optionalFieldMask = optionalFieldMask,
+            optionalStruct = optionalStruct,
+            optionalAny = optionalAny,
+            optionalValue = optionalValue,
+            repeatedDuration = repeatedDuration,
+            repeatedTimestamp = repeatedTimestamp,
+            repeatedFieldmask = repeatedFieldmask,
+            repeatedStruct = repeatedStruct,
+            repeatedAny = repeatedAny,
+            repeatedValue = repeatedValue,
+            repeatedListValue = repeatedListValue,
+            fieldname1 = fieldname1,
+            fieldName2 = fieldName2,
+            fieldName3 = fieldName3,
+            field_name4 = field_name4,
+            field0name5 = field0name5,
+            field0Name6 = field0Name6,
+            fieldName7 = fieldName7,
+            fieldName8 = fieldName8,
+            fieldName9 = fieldName9,
+            fieldName10 = fieldName10,
+            fIELDNAME11 = fIELDNAME11,
+            fIELDName12 = fIELDName12,
+            _fieldName13 = _fieldName13,
+            _FieldName14 = _FieldName14,
+            field_name15 = field_name15,
+            field_Name16 = field_Name16,
+            fieldName17_ = fieldName17_,
+            fieldName18_ = fieldName18_,
+            oneofField = oneofField,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3() }
@@ -2041,9 +2041,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 corecursive: pbandk.testpb.TestAllTypesProto3? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.NestedMessage = TestAllTypesProto3_NestedMessage_Impl(
-                a,
-                corecursive,
-                unknownFields
+                a = a,
+                corecursive = corecursive,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.NestedMessage() }
@@ -2095,9 +2095,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Int = 0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapInt32Int32Entry = TestAllTypesProto3_MapInt32Int32Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapInt32Int32Entry() }
@@ -2149,9 +2149,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Long = 0L,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapInt64Int64Entry = TestAllTypesProto3_MapInt64Int64Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapInt64Int64Entry() }
@@ -2203,9 +2203,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Int = 0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapUint32Uint32Entry = TestAllTypesProto3_MapUint32Uint32Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapUint32Uint32Entry() }
@@ -2257,9 +2257,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Long = 0L,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapUint64Uint64Entry = TestAllTypesProto3_MapUint64Uint64Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapUint64Uint64Entry() }
@@ -2311,9 +2311,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Int = 0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapSint32Sint32Entry = TestAllTypesProto3_MapSint32Sint32Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapSint32Sint32Entry() }
@@ -2365,9 +2365,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Long = 0L,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapSint64Sint64Entry = TestAllTypesProto3_MapSint64Sint64Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapSint64Sint64Entry() }
@@ -2419,9 +2419,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Int = 0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapFixed32Fixed32Entry = TestAllTypesProto3_MapFixed32Fixed32Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapFixed32Fixed32Entry() }
@@ -2473,9 +2473,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Long = 0L,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapFixed64Fixed64Entry = TestAllTypesProto3_MapFixed64Fixed64Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapFixed64Fixed64Entry() }
@@ -2527,9 +2527,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Int = 0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapSfixed32Sfixed32Entry = TestAllTypesProto3_MapSfixed32Sfixed32Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapSfixed32Sfixed32Entry() }
@@ -2581,9 +2581,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Long = 0L,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapSfixed64Sfixed64Entry = TestAllTypesProto3_MapSfixed64Sfixed64Entry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapSfixed64Sfixed64Entry() }
@@ -2635,9 +2635,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Float = 0.0F,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapInt32FloatEntry = TestAllTypesProto3_MapInt32FloatEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapInt32FloatEntry() }
@@ -2689,9 +2689,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Double = 0.0,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapInt32DoubleEntry = TestAllTypesProto3_MapInt32DoubleEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapInt32DoubleEntry() }
@@ -2743,9 +2743,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: Boolean = false,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapBoolBoolEntry = TestAllTypesProto3_MapBoolBoolEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapBoolBoolEntry() }
@@ -2797,9 +2797,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: String = "",
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringStringEntry = TestAllTypesProto3_MapStringStringEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringStringEntry() }
@@ -2851,9 +2851,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: pbandk.ByteArr = pbandk.ByteArr.empty,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringBytesEntry = TestAllTypesProto3_MapStringBytesEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringBytesEntry() }
@@ -2905,9 +2905,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: pbandk.testpb.TestAllTypesProto3.NestedMessage? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringNestedMessageEntry = TestAllTypesProto3_MapStringNestedMessageEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringNestedMessageEntry() }
@@ -2959,9 +2959,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: pbandk.testpb.ForeignMessage? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringForeignMessageEntry = TestAllTypesProto3_MapStringForeignMessageEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringForeignMessageEntry() }
@@ -3013,9 +3013,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: pbandk.testpb.TestAllTypesProto3.NestedEnum = pbandk.testpb.TestAllTypesProto3.NestedEnum.fromValue(0),
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringNestedEnumEntry = TestAllTypesProto3_MapStringNestedEnumEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringNestedEnumEntry() }
@@ -3067,9 +3067,9 @@ sealed interface TestAllTypesProto3 : pbandk.Message {
                 value: pbandk.testpb.ForeignEnum = pbandk.testpb.ForeignEnum.fromValue(0),
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.TestAllTypesProto3.MapStringForeignEnumEntry = TestAllTypesProto3_MapStringForeignEnumEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.TestAllTypesProto3.MapStringForeignEnumEntry() }
@@ -3120,8 +3120,8 @@ sealed interface ForeignMessage : pbandk.Message {
             c: Int = 0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.ForeignMessage = ForeignMessage_Impl(
-            c,
-            unknownFields
+            c = c,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.ForeignMessage() }
@@ -3153,291 +3153,291 @@ sealed interface ForeignMessage : pbandk.Message {
 fun TestAllTypesProto3?.orDefault() = this ?: TestAllTypesProto3.defaultInstance
 
 fun TestAllTypesProto3.copy(
-    optionalInt32: Int = 0,
-    optionalInt64: Long = 0L,
-    optionalUint32: Int = 0,
-    optionalUint64: Long = 0L,
-    optionalSint32: Int = 0,
-    optionalSint64: Long = 0L,
-    optionalFixed32: Int = 0,
-    optionalFixed64: Long = 0L,
-    optionalSfixed32: Int = 0,
-    optionalSfixed64: Long = 0L,
-    optionalFloat: Float = 0.0F,
-    optionalDouble: Double = 0.0,
-    optionalBool: Boolean = false,
-    optionalString: String = "",
-    optionalBytes: pbandk.ByteArr = pbandk.ByteArr.empty,
-    optionalNestedMessage: pbandk.testpb.TestAllTypesProto3.NestedMessage? = null,
-    optionalForeignMessage: pbandk.testpb.ForeignMessage? = null,
-    optionalNestedEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum = pbandk.testpb.TestAllTypesProto3.NestedEnum.fromValue(0),
-    optionalForeignEnum: pbandk.testpb.ForeignEnum = pbandk.testpb.ForeignEnum.fromValue(0),
-    optionalAliasedEnum: pbandk.testpb.TestAllTypesProto3.AliasedEnum = pbandk.testpb.TestAllTypesProto3.AliasedEnum.fromValue(0),
-    optionalStringPiece: String = "",
-    optionalCord: String = "",
-    recursiveMessage: pbandk.testpb.TestAllTypesProto3? = null,
-    repeatedInt32: List<Int> = emptyList(),
-    repeatedInt64: List<Long> = emptyList(),
-    repeatedUint32: List<Int> = emptyList(),
-    repeatedUint64: List<Long> = emptyList(),
-    repeatedSint32: List<Int> = emptyList(),
-    repeatedSint64: List<Long> = emptyList(),
-    repeatedFixed32: List<Int> = emptyList(),
-    repeatedFixed64: List<Long> = emptyList(),
-    repeatedSfixed32: List<Int> = emptyList(),
-    repeatedSfixed64: List<Long> = emptyList(),
-    repeatedFloat: List<Float> = emptyList(),
-    repeatedDouble: List<Double> = emptyList(),
-    repeatedBool: List<Boolean> = emptyList(),
-    repeatedString: List<String> = emptyList(),
-    repeatedBytes: List<pbandk.ByteArr> = emptyList(),
-    repeatedNestedMessage: List<pbandk.testpb.TestAllTypesProto3.NestedMessage> = emptyList(),
-    repeatedForeignMessage: List<pbandk.testpb.ForeignMessage> = emptyList(),
-    repeatedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyList(),
-    repeatedForeignEnum: List<pbandk.testpb.ForeignEnum> = emptyList(),
-    repeatedStringPiece: List<String> = emptyList(),
-    repeatedCord: List<String> = emptyList(),
-    packedInt32: List<Int> = emptyList(),
-    packedInt64: List<Long> = emptyList(),
-    packedUint32: List<Int> = emptyList(),
-    packedUint64: List<Long> = emptyList(),
-    packedSint32: List<Int> = emptyList(),
-    packedSint64: List<Long> = emptyList(),
-    packedFixed32: List<Int> = emptyList(),
-    packedFixed64: List<Long> = emptyList(),
-    packedSfixed32: List<Int> = emptyList(),
-    packedSfixed64: List<Long> = emptyList(),
-    packedFloat: List<Float> = emptyList(),
-    packedDouble: List<Double> = emptyList(),
-    packedBool: List<Boolean> = emptyList(),
-    packedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyList(),
-    unpackedInt32: List<Int> = emptyList(),
-    unpackedInt64: List<Long> = emptyList(),
-    unpackedUint32: List<Int> = emptyList(),
-    unpackedUint64: List<Long> = emptyList(),
-    unpackedSint32: List<Int> = emptyList(),
-    unpackedSint64: List<Long> = emptyList(),
-    unpackedFixed32: List<Int> = emptyList(),
-    unpackedFixed64: List<Long> = emptyList(),
-    unpackedSfixed32: List<Int> = emptyList(),
-    unpackedSfixed64: List<Long> = emptyList(),
-    unpackedFloat: List<Float> = emptyList(),
-    unpackedDouble: List<Double> = emptyList(),
-    unpackedBool: List<Boolean> = emptyList(),
-    unpackedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyList(),
-    mapInt32Int32: Map<Int, Int> = emptyMap(),
-    mapInt64Int64: Map<Long, Long> = emptyMap(),
-    mapUint32Uint32: Map<Int, Int> = emptyMap(),
-    mapUint64Uint64: Map<Long, Long> = emptyMap(),
-    mapSint32Sint32: Map<Int, Int> = emptyMap(),
-    mapSint64Sint64: Map<Long, Long> = emptyMap(),
-    mapFixed32Fixed32: Map<Int, Int> = emptyMap(),
-    mapFixed64Fixed64: Map<Long, Long> = emptyMap(),
-    mapSfixed32Sfixed32: Map<Int, Int> = emptyMap(),
-    mapSfixed64Sfixed64: Map<Long, Long> = emptyMap(),
-    mapInt32Float: Map<Int, Float> = emptyMap(),
-    mapInt32Double: Map<Int, Double> = emptyMap(),
-    mapBoolBool: Map<Boolean, Boolean> = emptyMap(),
-    mapStringString: Map<String, String> = emptyMap(),
-    mapStringBytes: Map<String, pbandk.ByteArr> = emptyMap(),
-    mapStringNestedMessage: Map<String, pbandk.testpb.TestAllTypesProto3.NestedMessage?> = emptyMap(),
-    mapStringForeignMessage: Map<String, pbandk.testpb.ForeignMessage?> = emptyMap(),
-    mapStringNestedEnum: Map<String, pbandk.testpb.TestAllTypesProto3.NestedEnum> = emptyMap(),
-    mapStringForeignEnum: Map<String, pbandk.testpb.ForeignEnum> = emptyMap(),
-    optionalBoolWrapper: Boolean? = null,
-    optionalInt32Wrapper: Int? = null,
-    optionalInt64Wrapper: Long? = null,
-    optionalUint32Wrapper: Int? = null,
-    optionalUint64Wrapper: Long? = null,
-    optionalFloatWrapper: Float? = null,
-    optionalDoubleWrapper: Double? = null,
-    optionalStringWrapper: String? = null,
-    optionalBytesWrapper: pbandk.ByteArr? = null,
-    repeatedBoolWrapper: List<Boolean> = emptyList(),
-    repeatedInt32Wrapper: List<Int> = emptyList(),
-    repeatedInt64Wrapper: List<Long> = emptyList(),
-    repeatedUint32Wrapper: List<Int> = emptyList(),
-    repeatedUint64Wrapper: List<Long> = emptyList(),
-    repeatedFloatWrapper: List<Float> = emptyList(),
-    repeatedDoubleWrapper: List<Double> = emptyList(),
-    repeatedStringWrapper: List<String> = emptyList(),
-    repeatedBytesWrapper: List<pbandk.ByteArr> = emptyList(),
-    optionalDuration: pbandk.wkt.Duration? = null,
-    optionalTimestamp: pbandk.wkt.Timestamp? = null,
-    optionalFieldMask: pbandk.wkt.FieldMask? = null,
-    optionalStruct: pbandk.wkt.Struct? = null,
-    optionalAny: pbandk.wkt.Any? = null,
-    optionalValue: pbandk.wkt.Value? = null,
-    repeatedDuration: List<pbandk.wkt.Duration> = emptyList(),
-    repeatedTimestamp: List<pbandk.wkt.Timestamp> = emptyList(),
-    repeatedFieldmask: List<pbandk.wkt.FieldMask> = emptyList(),
-    repeatedStruct: List<pbandk.wkt.Struct> = emptyList(),
-    repeatedAny: List<pbandk.wkt.Any> = emptyList(),
-    repeatedValue: List<pbandk.wkt.Value> = emptyList(),
-    repeatedListValue: List<pbandk.wkt.ListValue> = emptyList(),
-    fieldname1: Int = 0,
-    fieldName2: Int = 0,
-    fieldName3: Int = 0,
-    field_name4: Int = 0,
-    field0name5: Int = 0,
-    field0Name6: Int = 0,
-    fieldName7: Int = 0,
-    fieldName8: Int = 0,
-    fieldName9: Int = 0,
-    fieldName10: Int = 0,
-    fIELDNAME11: Int = 0,
-    fIELDName12: Int = 0,
-    _fieldName13: Int = 0,
-    _FieldName14: Int = 0,
-    field_name15: Int = 0,
-    field_Name16: Int = 0,
-    fieldName17_: Int = 0,
-    fieldName18_: Int = 0,
-    oneofField: pbandk.testpb.TestAllTypesProto3.OneofField<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    optionalInt32: Int = this.optionalInt32,
+    optionalInt64: Long = this.optionalInt64,
+    optionalUint32: Int = this.optionalUint32,
+    optionalUint64: Long = this.optionalUint64,
+    optionalSint32: Int = this.optionalSint32,
+    optionalSint64: Long = this.optionalSint64,
+    optionalFixed32: Int = this.optionalFixed32,
+    optionalFixed64: Long = this.optionalFixed64,
+    optionalSfixed32: Int = this.optionalSfixed32,
+    optionalSfixed64: Long = this.optionalSfixed64,
+    optionalFloat: Float = this.optionalFloat,
+    optionalDouble: Double = this.optionalDouble,
+    optionalBool: Boolean = this.optionalBool,
+    optionalString: String = this.optionalString,
+    optionalBytes: pbandk.ByteArr = this.optionalBytes,
+    optionalNestedMessage: pbandk.testpb.TestAllTypesProto3.NestedMessage? = this.optionalNestedMessage,
+    optionalForeignMessage: pbandk.testpb.ForeignMessage? = this.optionalForeignMessage,
+    optionalNestedEnum: pbandk.testpb.TestAllTypesProto3.NestedEnum = this.optionalNestedEnum,
+    optionalForeignEnum: pbandk.testpb.ForeignEnum = this.optionalForeignEnum,
+    optionalAliasedEnum: pbandk.testpb.TestAllTypesProto3.AliasedEnum = this.optionalAliasedEnum,
+    optionalStringPiece: String = this.optionalStringPiece,
+    optionalCord: String = this.optionalCord,
+    recursiveMessage: pbandk.testpb.TestAllTypesProto3? = this.recursiveMessage,
+    repeatedInt32: List<Int> = this.repeatedInt32,
+    repeatedInt64: List<Long> = this.repeatedInt64,
+    repeatedUint32: List<Int> = this.repeatedUint32,
+    repeatedUint64: List<Long> = this.repeatedUint64,
+    repeatedSint32: List<Int> = this.repeatedSint32,
+    repeatedSint64: List<Long> = this.repeatedSint64,
+    repeatedFixed32: List<Int> = this.repeatedFixed32,
+    repeatedFixed64: List<Long> = this.repeatedFixed64,
+    repeatedSfixed32: List<Int> = this.repeatedSfixed32,
+    repeatedSfixed64: List<Long> = this.repeatedSfixed64,
+    repeatedFloat: List<Float> = this.repeatedFloat,
+    repeatedDouble: List<Double> = this.repeatedDouble,
+    repeatedBool: List<Boolean> = this.repeatedBool,
+    repeatedString: List<String> = this.repeatedString,
+    repeatedBytes: List<pbandk.ByteArr> = this.repeatedBytes,
+    repeatedNestedMessage: List<pbandk.testpb.TestAllTypesProto3.NestedMessage> = this.repeatedNestedMessage,
+    repeatedForeignMessage: List<pbandk.testpb.ForeignMessage> = this.repeatedForeignMessage,
+    repeatedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = this.repeatedNestedEnum,
+    repeatedForeignEnum: List<pbandk.testpb.ForeignEnum> = this.repeatedForeignEnum,
+    repeatedStringPiece: List<String> = this.repeatedStringPiece,
+    repeatedCord: List<String> = this.repeatedCord,
+    packedInt32: List<Int> = this.packedInt32,
+    packedInt64: List<Long> = this.packedInt64,
+    packedUint32: List<Int> = this.packedUint32,
+    packedUint64: List<Long> = this.packedUint64,
+    packedSint32: List<Int> = this.packedSint32,
+    packedSint64: List<Long> = this.packedSint64,
+    packedFixed32: List<Int> = this.packedFixed32,
+    packedFixed64: List<Long> = this.packedFixed64,
+    packedSfixed32: List<Int> = this.packedSfixed32,
+    packedSfixed64: List<Long> = this.packedSfixed64,
+    packedFloat: List<Float> = this.packedFloat,
+    packedDouble: List<Double> = this.packedDouble,
+    packedBool: List<Boolean> = this.packedBool,
+    packedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = this.packedNestedEnum,
+    unpackedInt32: List<Int> = this.unpackedInt32,
+    unpackedInt64: List<Long> = this.unpackedInt64,
+    unpackedUint32: List<Int> = this.unpackedUint32,
+    unpackedUint64: List<Long> = this.unpackedUint64,
+    unpackedSint32: List<Int> = this.unpackedSint32,
+    unpackedSint64: List<Long> = this.unpackedSint64,
+    unpackedFixed32: List<Int> = this.unpackedFixed32,
+    unpackedFixed64: List<Long> = this.unpackedFixed64,
+    unpackedSfixed32: List<Int> = this.unpackedSfixed32,
+    unpackedSfixed64: List<Long> = this.unpackedSfixed64,
+    unpackedFloat: List<Float> = this.unpackedFloat,
+    unpackedDouble: List<Double> = this.unpackedDouble,
+    unpackedBool: List<Boolean> = this.unpackedBool,
+    unpackedNestedEnum: List<pbandk.testpb.TestAllTypesProto3.NestedEnum> = this.unpackedNestedEnum,
+    mapInt32Int32: Map<Int, Int> = this.mapInt32Int32,
+    mapInt64Int64: Map<Long, Long> = this.mapInt64Int64,
+    mapUint32Uint32: Map<Int, Int> = this.mapUint32Uint32,
+    mapUint64Uint64: Map<Long, Long> = this.mapUint64Uint64,
+    mapSint32Sint32: Map<Int, Int> = this.mapSint32Sint32,
+    mapSint64Sint64: Map<Long, Long> = this.mapSint64Sint64,
+    mapFixed32Fixed32: Map<Int, Int> = this.mapFixed32Fixed32,
+    mapFixed64Fixed64: Map<Long, Long> = this.mapFixed64Fixed64,
+    mapSfixed32Sfixed32: Map<Int, Int> = this.mapSfixed32Sfixed32,
+    mapSfixed64Sfixed64: Map<Long, Long> = this.mapSfixed64Sfixed64,
+    mapInt32Float: Map<Int, Float> = this.mapInt32Float,
+    mapInt32Double: Map<Int, Double> = this.mapInt32Double,
+    mapBoolBool: Map<Boolean, Boolean> = this.mapBoolBool,
+    mapStringString: Map<String, String> = this.mapStringString,
+    mapStringBytes: Map<String, pbandk.ByteArr> = this.mapStringBytes,
+    mapStringNestedMessage: Map<String, pbandk.testpb.TestAllTypesProto3.NestedMessage?> = this.mapStringNestedMessage,
+    mapStringForeignMessage: Map<String, pbandk.testpb.ForeignMessage?> = this.mapStringForeignMessage,
+    mapStringNestedEnum: Map<String, pbandk.testpb.TestAllTypesProto3.NestedEnum> = this.mapStringNestedEnum,
+    mapStringForeignEnum: Map<String, pbandk.testpb.ForeignEnum> = this.mapStringForeignEnum,
+    optionalBoolWrapper: Boolean? = this.optionalBoolWrapper,
+    optionalInt32Wrapper: Int? = this.optionalInt32Wrapper,
+    optionalInt64Wrapper: Long? = this.optionalInt64Wrapper,
+    optionalUint32Wrapper: Int? = this.optionalUint32Wrapper,
+    optionalUint64Wrapper: Long? = this.optionalUint64Wrapper,
+    optionalFloatWrapper: Float? = this.optionalFloatWrapper,
+    optionalDoubleWrapper: Double? = this.optionalDoubleWrapper,
+    optionalStringWrapper: String? = this.optionalStringWrapper,
+    optionalBytesWrapper: pbandk.ByteArr? = this.optionalBytesWrapper,
+    repeatedBoolWrapper: List<Boolean> = this.repeatedBoolWrapper,
+    repeatedInt32Wrapper: List<Int> = this.repeatedInt32Wrapper,
+    repeatedInt64Wrapper: List<Long> = this.repeatedInt64Wrapper,
+    repeatedUint32Wrapper: List<Int> = this.repeatedUint32Wrapper,
+    repeatedUint64Wrapper: List<Long> = this.repeatedUint64Wrapper,
+    repeatedFloatWrapper: List<Float> = this.repeatedFloatWrapper,
+    repeatedDoubleWrapper: List<Double> = this.repeatedDoubleWrapper,
+    repeatedStringWrapper: List<String> = this.repeatedStringWrapper,
+    repeatedBytesWrapper: List<pbandk.ByteArr> = this.repeatedBytesWrapper,
+    optionalDuration: pbandk.wkt.Duration? = this.optionalDuration,
+    optionalTimestamp: pbandk.wkt.Timestamp? = this.optionalTimestamp,
+    optionalFieldMask: pbandk.wkt.FieldMask? = this.optionalFieldMask,
+    optionalStruct: pbandk.wkt.Struct? = this.optionalStruct,
+    optionalAny: pbandk.wkt.Any? = this.optionalAny,
+    optionalValue: pbandk.wkt.Value? = this.optionalValue,
+    repeatedDuration: List<pbandk.wkt.Duration> = this.repeatedDuration,
+    repeatedTimestamp: List<pbandk.wkt.Timestamp> = this.repeatedTimestamp,
+    repeatedFieldmask: List<pbandk.wkt.FieldMask> = this.repeatedFieldmask,
+    repeatedStruct: List<pbandk.wkt.Struct> = this.repeatedStruct,
+    repeatedAny: List<pbandk.wkt.Any> = this.repeatedAny,
+    repeatedValue: List<pbandk.wkt.Value> = this.repeatedValue,
+    repeatedListValue: List<pbandk.wkt.ListValue> = this.repeatedListValue,
+    fieldname1: Int = this.fieldname1,
+    fieldName2: Int = this.fieldName2,
+    fieldName3: Int = this.fieldName3,
+    field_name4: Int = this.field_name4,
+    field0name5: Int = this.field0name5,
+    field0Name6: Int = this.field0Name6,
+    fieldName7: Int = this.fieldName7,
+    fieldName8: Int = this.fieldName8,
+    fieldName9: Int = this.fieldName9,
+    fieldName10: Int = this.fieldName10,
+    fIELDNAME11: Int = this.fIELDNAME11,
+    fIELDName12: Int = this.fIELDName12,
+    _fieldName13: Int = this._fieldName13,
+    _FieldName14: Int = this._FieldName14,
+    field_name15: Int = this.field_name15,
+    field_Name16: Int = this.field_Name16,
+    fieldName17_: Int = this.fieldName17_,
+    fieldName18_: Int = this.fieldName18_,
+    oneofField: pbandk.testpb.TestAllTypesProto3.OneofField<*>? = this.oneofField,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3 = (this as TestAllTypesProto3_Impl).copy(
-    optionalInt32,
-    optionalInt64,
-    optionalUint32,
-    optionalUint64,
-    optionalSint32,
-    optionalSint64,
-    optionalFixed32,
-    optionalFixed64,
-    optionalSfixed32,
-    optionalSfixed64,
-    optionalFloat,
-    optionalDouble,
-    optionalBool,
-    optionalString,
-    optionalBytes,
-    optionalNestedMessage,
-    optionalForeignMessage,
-    optionalNestedEnum,
-    optionalForeignEnum,
-    optionalAliasedEnum,
-    optionalStringPiece,
-    optionalCord,
-    recursiveMessage,
-    repeatedInt32,
-    repeatedInt64,
-    repeatedUint32,
-    repeatedUint64,
-    repeatedSint32,
-    repeatedSint64,
-    repeatedFixed32,
-    repeatedFixed64,
-    repeatedSfixed32,
-    repeatedSfixed64,
-    repeatedFloat,
-    repeatedDouble,
-    repeatedBool,
-    repeatedString,
-    repeatedBytes,
-    repeatedNestedMessage,
-    repeatedForeignMessage,
-    repeatedNestedEnum,
-    repeatedForeignEnum,
-    repeatedStringPiece,
-    repeatedCord,
-    packedInt32,
-    packedInt64,
-    packedUint32,
-    packedUint64,
-    packedSint32,
-    packedSint64,
-    packedFixed32,
-    packedFixed64,
-    packedSfixed32,
-    packedSfixed64,
-    packedFloat,
-    packedDouble,
-    packedBool,
-    packedNestedEnum,
-    unpackedInt32,
-    unpackedInt64,
-    unpackedUint32,
-    unpackedUint64,
-    unpackedSint32,
-    unpackedSint64,
-    unpackedFixed32,
-    unpackedFixed64,
-    unpackedSfixed32,
-    unpackedSfixed64,
-    unpackedFloat,
-    unpackedDouble,
-    unpackedBool,
-    unpackedNestedEnum,
-    mapInt32Int32,
-    mapInt64Int64,
-    mapUint32Uint32,
-    mapUint64Uint64,
-    mapSint32Sint32,
-    mapSint64Sint64,
-    mapFixed32Fixed32,
-    mapFixed64Fixed64,
-    mapSfixed32Sfixed32,
-    mapSfixed64Sfixed64,
-    mapInt32Float,
-    mapInt32Double,
-    mapBoolBool,
-    mapStringString,
-    mapStringBytes,
-    mapStringNestedMessage,
-    mapStringForeignMessage,
-    mapStringNestedEnum,
-    mapStringForeignEnum,
-    optionalBoolWrapper,
-    optionalInt32Wrapper,
-    optionalInt64Wrapper,
-    optionalUint32Wrapper,
-    optionalUint64Wrapper,
-    optionalFloatWrapper,
-    optionalDoubleWrapper,
-    optionalStringWrapper,
-    optionalBytesWrapper,
-    repeatedBoolWrapper,
-    repeatedInt32Wrapper,
-    repeatedInt64Wrapper,
-    repeatedUint32Wrapper,
-    repeatedUint64Wrapper,
-    repeatedFloatWrapper,
-    repeatedDoubleWrapper,
-    repeatedStringWrapper,
-    repeatedBytesWrapper,
-    optionalDuration,
-    optionalTimestamp,
-    optionalFieldMask,
-    optionalStruct,
-    optionalAny,
-    optionalValue,
-    repeatedDuration,
-    repeatedTimestamp,
-    repeatedFieldmask,
-    repeatedStruct,
-    repeatedAny,
-    repeatedValue,
-    repeatedListValue,
-    fieldname1,
-    fieldName2,
-    fieldName3,
-    field_name4,
-    field0name5,
-    field0Name6,
-    fieldName7,
-    fieldName8,
-    fieldName9,
-    fieldName10,
-    fIELDNAME11,
-    fIELDName12,
-    _fieldName13,
-    _FieldName14,
-    field_name15,
-    field_Name16,
-    fieldName17_,
-    fieldName18_,
-    oneofField,
-    unknownFields
+    optionalInt32 = optionalInt32,
+    optionalInt64 = optionalInt64,
+    optionalUint32 = optionalUint32,
+    optionalUint64 = optionalUint64,
+    optionalSint32 = optionalSint32,
+    optionalSint64 = optionalSint64,
+    optionalFixed32 = optionalFixed32,
+    optionalFixed64 = optionalFixed64,
+    optionalSfixed32 = optionalSfixed32,
+    optionalSfixed64 = optionalSfixed64,
+    optionalFloat = optionalFloat,
+    optionalDouble = optionalDouble,
+    optionalBool = optionalBool,
+    optionalString = optionalString,
+    optionalBytes = optionalBytes,
+    optionalNestedMessage = optionalNestedMessage,
+    optionalForeignMessage = optionalForeignMessage,
+    optionalNestedEnum = optionalNestedEnum,
+    optionalForeignEnum = optionalForeignEnum,
+    optionalAliasedEnum = optionalAliasedEnum,
+    optionalStringPiece = optionalStringPiece,
+    optionalCord = optionalCord,
+    recursiveMessage = recursiveMessage,
+    repeatedInt32 = repeatedInt32,
+    repeatedInt64 = repeatedInt64,
+    repeatedUint32 = repeatedUint32,
+    repeatedUint64 = repeatedUint64,
+    repeatedSint32 = repeatedSint32,
+    repeatedSint64 = repeatedSint64,
+    repeatedFixed32 = repeatedFixed32,
+    repeatedFixed64 = repeatedFixed64,
+    repeatedSfixed32 = repeatedSfixed32,
+    repeatedSfixed64 = repeatedSfixed64,
+    repeatedFloat = repeatedFloat,
+    repeatedDouble = repeatedDouble,
+    repeatedBool = repeatedBool,
+    repeatedString = repeatedString,
+    repeatedBytes = repeatedBytes,
+    repeatedNestedMessage = repeatedNestedMessage,
+    repeatedForeignMessage = repeatedForeignMessage,
+    repeatedNestedEnum = repeatedNestedEnum,
+    repeatedForeignEnum = repeatedForeignEnum,
+    repeatedStringPiece = repeatedStringPiece,
+    repeatedCord = repeatedCord,
+    packedInt32 = packedInt32,
+    packedInt64 = packedInt64,
+    packedUint32 = packedUint32,
+    packedUint64 = packedUint64,
+    packedSint32 = packedSint32,
+    packedSint64 = packedSint64,
+    packedFixed32 = packedFixed32,
+    packedFixed64 = packedFixed64,
+    packedSfixed32 = packedSfixed32,
+    packedSfixed64 = packedSfixed64,
+    packedFloat = packedFloat,
+    packedDouble = packedDouble,
+    packedBool = packedBool,
+    packedNestedEnum = packedNestedEnum,
+    unpackedInt32 = unpackedInt32,
+    unpackedInt64 = unpackedInt64,
+    unpackedUint32 = unpackedUint32,
+    unpackedUint64 = unpackedUint64,
+    unpackedSint32 = unpackedSint32,
+    unpackedSint64 = unpackedSint64,
+    unpackedFixed32 = unpackedFixed32,
+    unpackedFixed64 = unpackedFixed64,
+    unpackedSfixed32 = unpackedSfixed32,
+    unpackedSfixed64 = unpackedSfixed64,
+    unpackedFloat = unpackedFloat,
+    unpackedDouble = unpackedDouble,
+    unpackedBool = unpackedBool,
+    unpackedNestedEnum = unpackedNestedEnum,
+    mapInt32Int32 = mapInt32Int32,
+    mapInt64Int64 = mapInt64Int64,
+    mapUint32Uint32 = mapUint32Uint32,
+    mapUint64Uint64 = mapUint64Uint64,
+    mapSint32Sint32 = mapSint32Sint32,
+    mapSint64Sint64 = mapSint64Sint64,
+    mapFixed32Fixed32 = mapFixed32Fixed32,
+    mapFixed64Fixed64 = mapFixed64Fixed64,
+    mapSfixed32Sfixed32 = mapSfixed32Sfixed32,
+    mapSfixed64Sfixed64 = mapSfixed64Sfixed64,
+    mapInt32Float = mapInt32Float,
+    mapInt32Double = mapInt32Double,
+    mapBoolBool = mapBoolBool,
+    mapStringString = mapStringString,
+    mapStringBytes = mapStringBytes,
+    mapStringNestedMessage = mapStringNestedMessage,
+    mapStringForeignMessage = mapStringForeignMessage,
+    mapStringNestedEnum = mapStringNestedEnum,
+    mapStringForeignEnum = mapStringForeignEnum,
+    optionalBoolWrapper = optionalBoolWrapper,
+    optionalInt32Wrapper = optionalInt32Wrapper,
+    optionalInt64Wrapper = optionalInt64Wrapper,
+    optionalUint32Wrapper = optionalUint32Wrapper,
+    optionalUint64Wrapper = optionalUint64Wrapper,
+    optionalFloatWrapper = optionalFloatWrapper,
+    optionalDoubleWrapper = optionalDoubleWrapper,
+    optionalStringWrapper = optionalStringWrapper,
+    optionalBytesWrapper = optionalBytesWrapper,
+    repeatedBoolWrapper = repeatedBoolWrapper,
+    repeatedInt32Wrapper = repeatedInt32Wrapper,
+    repeatedInt64Wrapper = repeatedInt64Wrapper,
+    repeatedUint32Wrapper = repeatedUint32Wrapper,
+    repeatedUint64Wrapper = repeatedUint64Wrapper,
+    repeatedFloatWrapper = repeatedFloatWrapper,
+    repeatedDoubleWrapper = repeatedDoubleWrapper,
+    repeatedStringWrapper = repeatedStringWrapper,
+    repeatedBytesWrapper = repeatedBytesWrapper,
+    optionalDuration = optionalDuration,
+    optionalTimestamp = optionalTimestamp,
+    optionalFieldMask = optionalFieldMask,
+    optionalStruct = optionalStruct,
+    optionalAny = optionalAny,
+    optionalValue = optionalValue,
+    repeatedDuration = repeatedDuration,
+    repeatedTimestamp = repeatedTimestamp,
+    repeatedFieldmask = repeatedFieldmask,
+    repeatedStruct = repeatedStruct,
+    repeatedAny = repeatedAny,
+    repeatedValue = repeatedValue,
+    repeatedListValue = repeatedListValue,
+    fieldname1 = fieldname1,
+    fieldName2 = fieldName2,
+    fieldName3 = fieldName3,
+    field_name4 = field_name4,
+    field0name5 = field0name5,
+    field0Name6 = field0Name6,
+    fieldName7 = fieldName7,
+    fieldName8 = fieldName8,
+    fieldName9 = fieldName9,
+    fieldName10 = fieldName10,
+    fIELDNAME11 = fIELDNAME11,
+    fIELDName12 = fIELDName12,
+    _fieldName13 = _fieldName13,
+    _FieldName14 = _FieldName14,
+    field_name15 = field_name15,
+    field_Name16 = field_Name16,
+    fieldName17_ = fieldName17_,
+    fieldName18_ = fieldName18_,
+    oneofField = oneofField,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_Impl(
@@ -4059,13 +4059,13 @@ private fun TestAllTypesProto3.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 fun TestAllTypesProto3.NestedMessage?.orDefault() = this ?: TestAllTypesProto3.NestedMessage.defaultInstance
 
 fun TestAllTypesProto3.NestedMessage.copy(
-    a: Int = 0,
-    corecursive: pbandk.testpb.TestAllTypesProto3? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    a: Int = this.a,
+    corecursive: pbandk.testpb.TestAllTypesProto3? = this.corecursive,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.NestedMessage = (this as TestAllTypesProto3_NestedMessage_Impl).copy(
-    a,
-    corecursive,
-    unknownFields
+    a = a,
+    corecursive = corecursive,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_NestedMessage_Impl(
@@ -4102,13 +4102,13 @@ private fun TestAllTypesProto3.NestedMessage.Companion.decodeWithImpl(u: pbandk.
 fun TestAllTypesProto3.MapInt32Int32Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt32Int32Entry.defaultInstance
 
 fun TestAllTypesProto3.MapInt32Int32Entry.copy(
-    key: Int = 0,
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapInt32Int32Entry = (this as TestAllTypesProto3_MapInt32Int32Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapInt32Int32Entry_Impl(
@@ -4144,13 +4144,13 @@ private fun TestAllTypesProto3.MapInt32Int32Entry.Companion.decodeWithImpl(u: pb
 fun TestAllTypesProto3.MapInt64Int64Entry?.orDefault() = this ?: TestAllTypesProto3.MapInt64Int64Entry.defaultInstance
 
 fun TestAllTypesProto3.MapInt64Int64Entry.copy(
-    key: Long = 0L,
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Long = this.key,
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapInt64Int64Entry = (this as TestAllTypesProto3_MapInt64Int64Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapInt64Int64Entry_Impl(
@@ -4186,13 +4186,13 @@ private fun TestAllTypesProto3.MapInt64Int64Entry.Companion.decodeWithImpl(u: pb
 fun TestAllTypesProto3.MapUint32Uint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint32Uint32Entry.defaultInstance
 
 fun TestAllTypesProto3.MapUint32Uint32Entry.copy(
-    key: Int = 0,
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapUint32Uint32Entry = (this as TestAllTypesProto3_MapUint32Uint32Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapUint32Uint32Entry_Impl(
@@ -4228,13 +4228,13 @@ private fun TestAllTypesProto3.MapUint32Uint32Entry.Companion.decodeWithImpl(u: 
 fun TestAllTypesProto3.MapUint64Uint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapUint64Uint64Entry.defaultInstance
 
 fun TestAllTypesProto3.MapUint64Uint64Entry.copy(
-    key: Long = 0L,
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Long = this.key,
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapUint64Uint64Entry = (this as TestAllTypesProto3_MapUint64Uint64Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapUint64Uint64Entry_Impl(
@@ -4270,13 +4270,13 @@ private fun TestAllTypesProto3.MapUint64Uint64Entry.Companion.decodeWithImpl(u: 
 fun TestAllTypesProto3.MapSint32Sint32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint32Sint32Entry.defaultInstance
 
 fun TestAllTypesProto3.MapSint32Sint32Entry.copy(
-    key: Int = 0,
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapSint32Sint32Entry = (this as TestAllTypesProto3_MapSint32Sint32Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapSint32Sint32Entry_Impl(
@@ -4312,13 +4312,13 @@ private fun TestAllTypesProto3.MapSint32Sint32Entry.Companion.decodeWithImpl(u: 
 fun TestAllTypesProto3.MapSint64Sint64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSint64Sint64Entry.defaultInstance
 
 fun TestAllTypesProto3.MapSint64Sint64Entry.copy(
-    key: Long = 0L,
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Long = this.key,
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapSint64Sint64Entry = (this as TestAllTypesProto3_MapSint64Sint64Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapSint64Sint64Entry_Impl(
@@ -4354,13 +4354,13 @@ private fun TestAllTypesProto3.MapSint64Sint64Entry.Companion.decodeWithImpl(u: 
 fun TestAllTypesProto3.MapFixed32Fixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed32Fixed32Entry.defaultInstance
 
 fun TestAllTypesProto3.MapFixed32Fixed32Entry.copy(
-    key: Int = 0,
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapFixed32Fixed32Entry = (this as TestAllTypesProto3_MapFixed32Fixed32Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapFixed32Fixed32Entry_Impl(
@@ -4396,13 +4396,13 @@ private fun TestAllTypesProto3.MapFixed32Fixed32Entry.Companion.decodeWithImpl(u
 fun TestAllTypesProto3.MapFixed64Fixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapFixed64Fixed64Entry.defaultInstance
 
 fun TestAllTypesProto3.MapFixed64Fixed64Entry.copy(
-    key: Long = 0L,
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Long = this.key,
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapFixed64Fixed64Entry = (this as TestAllTypesProto3_MapFixed64Fixed64Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapFixed64Fixed64Entry_Impl(
@@ -4438,13 +4438,13 @@ private fun TestAllTypesProto3.MapFixed64Fixed64Entry.Companion.decodeWithImpl(u
 fun TestAllTypesProto3.MapSfixed32Sfixed32Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed32Sfixed32Entry.defaultInstance
 
 fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.copy(
-    key: Int = 0,
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapSfixed32Sfixed32Entry = (this as TestAllTypesProto3_MapSfixed32Sfixed32Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapSfixed32Sfixed32Entry_Impl(
@@ -4480,13 +4480,13 @@ private fun TestAllTypesProto3.MapSfixed32Sfixed32Entry.Companion.decodeWithImpl
 fun TestAllTypesProto3.MapSfixed64Sfixed64Entry?.orDefault() = this ?: TestAllTypesProto3.MapSfixed64Sfixed64Entry.defaultInstance
 
 fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.copy(
-    key: Long = 0L,
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Long = this.key,
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapSfixed64Sfixed64Entry = (this as TestAllTypesProto3_MapSfixed64Sfixed64Entry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapSfixed64Sfixed64Entry_Impl(
@@ -4522,13 +4522,13 @@ private fun TestAllTypesProto3.MapSfixed64Sfixed64Entry.Companion.decodeWithImpl
 fun TestAllTypesProto3.MapInt32FloatEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32FloatEntry.defaultInstance
 
 fun TestAllTypesProto3.MapInt32FloatEntry.copy(
-    key: Int = 0,
-    value: Float = 0.0F,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Float = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapInt32FloatEntry = (this as TestAllTypesProto3_MapInt32FloatEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapInt32FloatEntry_Impl(
@@ -4564,13 +4564,13 @@ private fun TestAllTypesProto3.MapInt32FloatEntry.Companion.decodeWithImpl(u: pb
 fun TestAllTypesProto3.MapInt32DoubleEntry?.orDefault() = this ?: TestAllTypesProto3.MapInt32DoubleEntry.defaultInstance
 
 fun TestAllTypesProto3.MapInt32DoubleEntry.copy(
-    key: Int = 0,
-    value: Double = 0.0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Int = this.key,
+    value: Double = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapInt32DoubleEntry = (this as TestAllTypesProto3_MapInt32DoubleEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapInt32DoubleEntry_Impl(
@@ -4606,13 +4606,13 @@ private fun TestAllTypesProto3.MapInt32DoubleEntry.Companion.decodeWithImpl(u: p
 fun TestAllTypesProto3.MapBoolBoolEntry?.orDefault() = this ?: TestAllTypesProto3.MapBoolBoolEntry.defaultInstance
 
 fun TestAllTypesProto3.MapBoolBoolEntry.copy(
-    key: Boolean = false,
-    value: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: Boolean = this.key,
+    value: Boolean = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapBoolBoolEntry = (this as TestAllTypesProto3_MapBoolBoolEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapBoolBoolEntry_Impl(
@@ -4648,13 +4648,13 @@ private fun TestAllTypesProto3.MapBoolBoolEntry.Companion.decodeWithImpl(u: pban
 fun TestAllTypesProto3.MapStringStringEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringStringEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringStringEntry.copy(
-    key: String = "",
-    value: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: String = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringStringEntry = (this as TestAllTypesProto3_MapStringStringEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringStringEntry_Impl(
@@ -4690,13 +4690,13 @@ private fun TestAllTypesProto3.MapStringStringEntry.Companion.decodeWithImpl(u: 
 fun TestAllTypesProto3.MapStringBytesEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringBytesEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringBytesEntry.copy(
-    key: String = "",
-    value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.ByteArr = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringBytesEntry = (this as TestAllTypesProto3_MapStringBytesEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringBytesEntry_Impl(
@@ -4732,13 +4732,13 @@ private fun TestAllTypesProto3.MapStringBytesEntry.Companion.decodeWithImpl(u: p
 fun TestAllTypesProto3.MapStringNestedMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedMessageEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringNestedMessageEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.TestAllTypesProto3.NestedMessage? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.TestAllTypesProto3.NestedMessage? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringNestedMessageEntry = (this as TestAllTypesProto3_MapStringNestedMessageEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringNestedMessageEntry_Impl(
@@ -4775,13 +4775,13 @@ private fun TestAllTypesProto3.MapStringNestedMessageEntry.Companion.decodeWithI
 fun TestAllTypesProto3.MapStringForeignMessageEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignMessageEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringForeignMessageEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.ForeignMessage? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.ForeignMessage? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringForeignMessageEntry = (this as TestAllTypesProto3_MapStringForeignMessageEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringForeignMessageEntry_Impl(
@@ -4818,13 +4818,13 @@ private fun TestAllTypesProto3.MapStringForeignMessageEntry.Companion.decodeWith
 fun TestAllTypesProto3.MapStringNestedEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringNestedEnumEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringNestedEnumEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.TestAllTypesProto3.NestedEnum = pbandk.testpb.TestAllTypesProto3.NestedEnum.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.TestAllTypesProto3.NestedEnum = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringNestedEnumEntry = (this as TestAllTypesProto3_MapStringNestedEnumEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringNestedEnumEntry_Impl(
@@ -4860,13 +4860,13 @@ private fun TestAllTypesProto3.MapStringNestedEnumEntry.Companion.decodeWithImpl
 fun TestAllTypesProto3.MapStringForeignEnumEntry?.orDefault() = this ?: TestAllTypesProto3.MapStringForeignEnumEntry.defaultInstance
 
 fun TestAllTypesProto3.MapStringForeignEnumEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.ForeignEnum = pbandk.testpb.ForeignEnum.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.ForeignEnum = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TestAllTypesProto3.MapStringForeignEnumEntry = (this as TestAllTypesProto3_MapStringForeignEnumEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class TestAllTypesProto3_MapStringForeignEnumEntry_Impl(
@@ -4902,11 +4902,11 @@ private fun TestAllTypesProto3.MapStringForeignEnumEntry.Companion.decodeWithImp
 fun ForeignMessage?.orDefault() = this ?: ForeignMessage.defaultInstance
 
 fun ForeignMessage.copy(
-    c: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    c: Int = this.c,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ForeignMessage = (this as ForeignMessage_Impl).copy(
-    c,
-    unknownFields
+    c = c,
+    unknownFields = unknownFields
 )
 
 private data class ForeignMessage_Impl(

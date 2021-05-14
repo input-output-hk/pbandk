@@ -128,8 +128,8 @@ open class CodeGenerator(
                     }
                     line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
                 }.line("): $typeNameWithPackage = $implName(").indented {
-                    type.fields.forEach { field -> line("${field.kotlinFieldName},") }
-                    line("unknownFields")
+                    type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+                    line("unknownFields = unknownFields")
                 }.line(")").line()
 
                 line("val defaultInstance by lazy { ${typeNameWithPackage}() }")
@@ -291,15 +291,15 @@ open class CodeGenerator(
             type.fields.forEach { field ->
                 lineBegin("${field.kotlinFieldName}: ")
                 when (field) {
-                    is File.Field.Numbered -> lineMid("${field.kotlinValueType(true)} = ${field.defaultValue}")
-                    is File.Field.OneOf -> lineMid("${typeNameWithPackage}.${field.kotlinTypeName}<*>? = null")
+                    is File.Field.Numbered -> lineMid(field.kotlinValueType(true))
+                    is File.Field.OneOf -> lineMid("${typeNameWithPackage}.${field.kotlinTypeName}<*>?")
                 }
-                lineEnd(",")
+                lineEnd(" = this.${field.kotlinFieldName},")
             }
-            line("unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()")
+            line("unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields")
         }.line("): $fullTypeName = (this as $implName).copy(").indented {
-            type.fields.forEach { field -> line("${field.kotlinFieldName},") }
-            line("unknownFields")
+            type.fields.forEach { field -> line("${field.kotlinFieldName} = ${field.kotlinFieldName},") }
+            line("unknownFields = unknownFields")
         }.line(")")
 
         line().line("private data class $implName(").indented {

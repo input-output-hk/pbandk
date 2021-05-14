@@ -25,14 +25,14 @@ sealed interface Api : pbandk.Message {
             syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Api = Api_Impl(
-            name,
-            methods,
-            options,
-            version,
-            sourceContext,
-            mixins,
-            syntax,
-            unknownFields
+            name = name,
+            methods = methods,
+            options = options,
+            version = version,
+            sourceContext = sourceContext,
+            mixins = mixins,
+            syntax = syntax,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Api() }
@@ -144,14 +144,14 @@ sealed interface Method : pbandk.Message {
             syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Method = Method_Impl(
-            name,
-            requestTypeUrl,
-            requestStreaming,
-            responseTypeUrl,
-            responseStreaming,
-            options,
-            syntax,
-            unknownFields
+            name = name,
+            requestTypeUrl = requestTypeUrl,
+            requestStreaming = requestStreaming,
+            responseTypeUrl = responseTypeUrl,
+            responseStreaming = responseStreaming,
+            options = options,
+            syntax = syntax,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Method() }
@@ -253,9 +253,9 @@ sealed interface Mixin : pbandk.Message {
             root: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Mixin = Mixin_Impl(
-            name,
-            root,
-            unknownFields
+            name = name,
+            root = root,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Mixin() }
@@ -297,23 +297,23 @@ sealed interface Mixin : pbandk.Message {
 fun Api?.orDefault() = this ?: Api.defaultInstance
 
 fun Api.copy(
-    name: String = "",
-    methods: List<pbandk.wkt.Method> = emptyList(),
-    options: List<pbandk.wkt.Option> = emptyList(),
-    version: String = "",
-    sourceContext: pbandk.wkt.SourceContext? = null,
-    mixins: List<pbandk.wkt.Mixin> = emptyList(),
-    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    methods: List<pbandk.wkt.Method> = this.methods,
+    options: List<pbandk.wkt.Option> = this.options,
+    version: String = this.version,
+    sourceContext: pbandk.wkt.SourceContext? = this.sourceContext,
+    mixins: List<pbandk.wkt.Mixin> = this.mixins,
+    syntax: pbandk.wkt.Syntax = this.syntax,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Api = (this as Api_Impl).copy(
-    name,
-    methods,
-    options,
-    version,
-    sourceContext,
-    mixins,
-    syntax,
-    unknownFields
+    name = name,
+    methods = methods,
+    options = options,
+    version = version,
+    sourceContext = sourceContext,
+    mixins = mixins,
+    syntax = syntax,
+    unknownFields = unknownFields
 )
 
 private data class Api_Impl(
@@ -369,23 +369,23 @@ private fun Api.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Api {
 fun Method?.orDefault() = this ?: Method.defaultInstance
 
 fun Method.copy(
-    name: String = "",
-    requestTypeUrl: String = "",
-    requestStreaming: Boolean = false,
-    responseTypeUrl: String = "",
-    responseStreaming: Boolean = false,
-    options: List<pbandk.wkt.Option> = emptyList(),
-    syntax: pbandk.wkt.Syntax = pbandk.wkt.Syntax.fromValue(0),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    requestTypeUrl: String = this.requestTypeUrl,
+    requestStreaming: Boolean = this.requestStreaming,
+    responseTypeUrl: String = this.responseTypeUrl,
+    responseStreaming: Boolean = this.responseStreaming,
+    options: List<pbandk.wkt.Option> = this.options,
+    syntax: pbandk.wkt.Syntax = this.syntax,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Method = (this as Method_Impl).copy(
-    name,
-    requestTypeUrl,
-    requestStreaming,
-    responseTypeUrl,
-    responseStreaming,
-    options,
-    syntax,
-    unknownFields
+    name = name,
+    requestTypeUrl = requestTypeUrl,
+    requestStreaming = requestStreaming,
+    responseTypeUrl = responseTypeUrl,
+    responseStreaming = responseStreaming,
+    options = options,
+    syntax = syntax,
+    unknownFields = unknownFields
 )
 
 private data class Method_Impl(
@@ -438,13 +438,13 @@ private fun Method.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Method {
 fun Mixin?.orDefault() = this ?: Mixin.defaultInstance
 
 fun Mixin.copy(
-    name: String = "",
-    root: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String = this.name,
+    root: String = this.root,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Mixin = (this as Mixin_Impl).copy(
-    name,
-    root,
-    unknownFields
+    name = name,
+    root = root,
+    unknownFields = unknownFields
 )
 
 private data class Mixin_Impl(

@@ -78,9 +78,9 @@ sealed interface FieldRules : pbandk.Message {
             type: Type<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.FieldRules = FieldRules_Impl(
-            message,
-            type,
-            unknownFields
+            message = message,
+            type = type,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.FieldRules() }
@@ -363,14 +363,14 @@ sealed interface FloatRules : pbandk.Message {
             notIn: List<Float> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.FloatRules = FloatRules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.FloatRules() }
@@ -482,14 +482,14 @@ sealed interface DoubleRules : pbandk.Message {
             notIn: List<Double> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.DoubleRules = DoubleRules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.DoubleRules() }
@@ -601,14 +601,14 @@ sealed interface Int32Rules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Int32Rules = Int32Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Int32Rules() }
@@ -720,14 +720,14 @@ sealed interface Int64Rules : pbandk.Message {
             notIn: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Int64Rules = Int64Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Int64Rules() }
@@ -839,14 +839,14 @@ sealed interface UInt32Rules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.UInt32Rules = UInt32Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.UInt32Rules() }
@@ -958,14 +958,14 @@ sealed interface UInt64Rules : pbandk.Message {
             notIn: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.UInt64Rules = UInt64Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.UInt64Rules() }
@@ -1077,14 +1077,14 @@ sealed interface SInt32Rules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.SInt32Rules = SInt32Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.SInt32Rules() }
@@ -1196,14 +1196,14 @@ sealed interface SInt64Rules : pbandk.Message {
             notIn: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.SInt64Rules = SInt64Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.SInt64Rules() }
@@ -1315,14 +1315,14 @@ sealed interface Fixed32Rules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Fixed32Rules = Fixed32Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Fixed32Rules() }
@@ -1434,14 +1434,14 @@ sealed interface Fixed64Rules : pbandk.Message {
             notIn: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Fixed64Rules = Fixed64Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Fixed64Rules() }
@@ -1553,14 +1553,14 @@ sealed interface SFixed32Rules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.SFixed32Rules = SFixed32Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.SFixed32Rules() }
@@ -1672,14 +1672,14 @@ sealed interface SFixed64Rules : pbandk.Message {
             notIn: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.SFixed64Rules = SFixed64Rules_Impl(
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.SFixed64Rules() }
@@ -1779,8 +1779,8 @@ sealed interface BoolRules : pbandk.Message {
             const: Boolean? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.BoolRules = BoolRules_Impl(
-            const,
-            unknownFields
+            const = const,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.BoolRules() }
@@ -1874,23 +1874,23 @@ sealed interface StringRules : pbandk.Message {
             wellKnown: WellKnown<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.StringRules = StringRules_Impl(
-            const,
-            len,
-            minLen,
-            maxLen,
-            lenBytes,
-            minBytes,
-            maxBytes,
-            pattern,
-            prefix,
-            suffix,
-            contains,
-            notContains,
-            `in`,
-            notIn,
-            strict,
-            wellKnown,
-            unknownFields
+            const = const,
+            len = len,
+            minLen = minLen,
+            maxLen = maxLen,
+            lenBytes = lenBytes,
+            minBytes = minBytes,
+            maxBytes = maxBytes,
+            pattern = pattern,
+            prefix = prefix,
+            suffix = suffix,
+            contains = contains,
+            notContains = notContains,
+            `in` = `in`,
+            notIn = notIn,
+            strict = strict,
+            wellKnown = wellKnown,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.StringRules() }
@@ -2210,18 +2210,18 @@ sealed interface BytesRules : pbandk.Message {
             wellKnown: WellKnown<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.BytesRules = BytesRules_Impl(
-            const,
-            len,
-            minLen,
-            maxLen,
-            pattern,
-            prefix,
-            suffix,
-            contains,
-            `in`,
-            notIn,
-            wellKnown,
-            unknownFields
+            const = const,
+            len = len,
+            minLen = minLen,
+            maxLen = maxLen,
+            pattern = pattern,
+            prefix = prefix,
+            suffix = suffix,
+            contains = contains,
+            `in` = `in`,
+            notIn = notIn,
+            wellKnown = wellKnown,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.BytesRules() }
@@ -2390,11 +2390,11 @@ sealed interface EnumRules : pbandk.Message {
             notIn: List<Int> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.EnumRules = EnumRules_Impl(
-            const,
-            definedOnly,
-            `in`,
-            notIn,
-            unknownFields
+            const = const,
+            definedOnly = definedOnly,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.EnumRules() }
@@ -2466,9 +2466,9 @@ sealed interface MessageRules : pbandk.Message {
             required: Boolean? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.MessageRules = MessageRules_Impl(
-            skip,
-            required,
-            unknownFields
+            skip = skip,
+            required = required,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.MessageRules() }
@@ -2524,11 +2524,11 @@ sealed interface RepeatedRules : pbandk.Message {
             items: pbandk.testpb.FieldRules? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.RepeatedRules = RepeatedRules_Impl(
-            minItems,
-            maxItems,
-            unique,
-            items,
-            unknownFields
+            minItems = minItems,
+            maxItems = maxItems,
+            unique = unique,
+            items = items,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.RepeatedRules() }
@@ -2606,12 +2606,12 @@ sealed interface MapRules : pbandk.Message {
             values: pbandk.testpb.FieldRules? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.MapRules = MapRules_Impl(
-            minPairs,
-            maxPairs,
-            noSparse,
-            keys,
-            values,
-            unknownFields
+            minPairs = minPairs,
+            maxPairs = maxPairs,
+            noSparse = noSparse,
+            keys = keys,
+            values = values,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.MapRules() }
@@ -2695,10 +2695,10 @@ sealed interface AnyRules : pbandk.Message {
             notIn: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.AnyRules = AnyRules_Impl(
-            required,
-            `in`,
-            notIn,
-            unknownFields
+            required = required,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.AnyRules() }
@@ -2772,15 +2772,15 @@ sealed interface DurationRules : pbandk.Message {
             notIn: List<pbandk.wkt.Duration> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.DurationRules = DurationRules_Impl(
-            required,
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            `in`,
-            notIn,
-            unknownFields
+            required = required,
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            `in` = `in`,
+            notIn = notIn,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.DurationRules() }
@@ -2906,16 +2906,16 @@ sealed interface TimestampRules : pbandk.Message {
             within: pbandk.wkt.Duration? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.TimestampRules = TimestampRules_Impl(
-            required,
-            const,
-            lt,
-            lte,
-            gt,
-            gte,
-            ltNow,
-            gtNow,
-            within,
-            unknownFields
+            required = required,
+            const = const,
+            lt = lt,
+            lte = lte,
+            gt = gt,
+            gte = gte,
+            ltNow = ltNow,
+            gtNow = gtNow,
+            within = within,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.TimestampRules() }
@@ -3063,13 +3063,13 @@ val rules = pbandk.FieldDescriptor(
 fun FieldRules?.orDefault() = this ?: FieldRules.defaultInstance
 
 fun FieldRules.copy(
-    message: pbandk.testpb.MessageRules? = null,
-    type: pbandk.testpb.FieldRules.Type<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    message: pbandk.testpb.MessageRules? = this.message,
+    type: pbandk.testpb.FieldRules.Type<*>? = this.type,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FieldRules = (this as FieldRules_Impl).copy(
-    message,
-    type,
-    unknownFields
+    message = message,
+    type = type,
+    unknownFields = unknownFields
 )
 
 private data class FieldRules_Impl(
@@ -3214,23 +3214,23 @@ private fun FieldRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Field
 fun FloatRules?.orDefault() = this ?: FloatRules.defaultInstance
 
 fun FloatRules.copy(
-    const: Float? = null,
-    lt: Float? = null,
-    lte: Float? = null,
-    gt: Float? = null,
-    gte: Float? = null,
-    `in`: List<Float> = emptyList(),
-    notIn: List<Float> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Float? = this.const,
+    lt: Float? = this.lt,
+    lte: Float? = this.lte,
+    gt: Float? = this.gt,
+    gte: Float? = this.gte,
+    `in`: List<Float> = this.`in`,
+    notIn: List<Float> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FloatRules = (this as FloatRules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class FloatRules_Impl(
@@ -3289,23 +3289,23 @@ private fun FloatRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
 fun DoubleRules?.orDefault() = this ?: DoubleRules.defaultInstance
 
 fun DoubleRules.copy(
-    const: Double? = null,
-    lt: Double? = null,
-    lte: Double? = null,
-    gt: Double? = null,
-    gte: Double? = null,
-    `in`: List<Double> = emptyList(),
-    notIn: List<Double> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Double? = this.const,
+    lt: Double? = this.lt,
+    lte: Double? = this.lte,
+    gt: Double? = this.gt,
+    gte: Double? = this.gte,
+    `in`: List<Double> = this.`in`,
+    notIn: List<Double> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DoubleRules = (this as DoubleRules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class DoubleRules_Impl(
@@ -3364,23 +3364,23 @@ private fun DoubleRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
 fun Int32Rules?.orDefault() = this ?: Int32Rules.defaultInstance
 
 fun Int32Rules.copy(
-    const: Int? = null,
-    lt: Int? = null,
-    lte: Int? = null,
-    gt: Int? = null,
-    gte: Int? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    lt: Int? = this.lt,
+    lte: Int? = this.lte,
+    gt: Int? = this.gt,
+    gte: Int? = this.gte,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Int32Rules = (this as Int32Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class Int32Rules_Impl(
@@ -3439,23 +3439,23 @@ private fun Int32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
 fun Int64Rules?.orDefault() = this ?: Int64Rules.defaultInstance
 
 fun Int64Rules.copy(
-    const: Long? = null,
-    lt: Long? = null,
-    lte: Long? = null,
-    gt: Long? = null,
-    gte: Long? = null,
-    `in`: List<Long> = emptyList(),
-    notIn: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Long? = this.const,
+    lt: Long? = this.lt,
+    lte: Long? = this.lte,
+    gt: Long? = this.gt,
+    gte: Long? = this.gte,
+    `in`: List<Long> = this.`in`,
+    notIn: List<Long> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Int64Rules = (this as Int64Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class Int64Rules_Impl(
@@ -3514,23 +3514,23 @@ private fun Int64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
 fun UInt32Rules?.orDefault() = this ?: UInt32Rules.defaultInstance
 
 fun UInt32Rules.copy(
-    const: Int? = null,
-    lt: Int? = null,
-    lte: Int? = null,
-    gt: Int? = null,
-    gte: Int? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    lt: Int? = this.lt,
+    lte: Int? = this.lte,
+    gt: Int? = this.gt,
+    gte: Int? = this.gte,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UInt32Rules = (this as UInt32Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class UInt32Rules_Impl(
@@ -3589,23 +3589,23 @@ private fun UInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 fun UInt64Rules?.orDefault() = this ?: UInt64Rules.defaultInstance
 
 fun UInt64Rules.copy(
-    const: Long? = null,
-    lt: Long? = null,
-    lte: Long? = null,
-    gt: Long? = null,
-    gte: Long? = null,
-    `in`: List<Long> = emptyList(),
-    notIn: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Long? = this.const,
+    lt: Long? = this.lt,
+    lte: Long? = this.lte,
+    gt: Long? = this.gt,
+    gte: Long? = this.gte,
+    `in`: List<Long> = this.`in`,
+    notIn: List<Long> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UInt64Rules = (this as UInt64Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class UInt64Rules_Impl(
@@ -3664,23 +3664,23 @@ private fun UInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 fun SInt32Rules?.orDefault() = this ?: SInt32Rules.defaultInstance
 
 fun SInt32Rules.copy(
-    const: Int? = null,
-    lt: Int? = null,
-    lte: Int? = null,
-    gt: Int? = null,
-    gte: Int? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    lt: Int? = this.lt,
+    lte: Int? = this.lte,
+    gt: Int? = this.gt,
+    gte: Int? = this.gte,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SInt32Rules = (this as SInt32Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class SInt32Rules_Impl(
@@ -3739,23 +3739,23 @@ private fun SInt32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
 fun SInt64Rules?.orDefault() = this ?: SInt64Rules.defaultInstance
 
 fun SInt64Rules.copy(
-    const: Long? = null,
-    lt: Long? = null,
-    lte: Long? = null,
-    gt: Long? = null,
-    gte: Long? = null,
-    `in`: List<Long> = emptyList(),
-    notIn: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Long? = this.const,
+    lt: Long? = this.lt,
+    lte: Long? = this.lte,
+    gt: Long? = this.gt,
+    gte: Long? = this.gte,
+    `in`: List<Long> = this.`in`,
+    notIn: List<Long> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SInt64Rules = (this as SInt64Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class SInt64Rules_Impl(
@@ -3814,23 +3814,23 @@ private fun SInt64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SInt
 fun Fixed32Rules?.orDefault() = this ?: Fixed32Rules.defaultInstance
 
 fun Fixed32Rules.copy(
-    const: Int? = null,
-    lt: Int? = null,
-    lte: Int? = null,
-    gt: Int? = null,
-    gte: Int? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    lt: Int? = this.lt,
+    lte: Int? = this.lte,
+    gt: Int? = this.gt,
+    gte: Int? = this.gte,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Fixed32Rules = (this as Fixed32Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class Fixed32Rules_Impl(
@@ -3889,23 +3889,23 @@ private fun Fixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
 fun Fixed64Rules?.orDefault() = this ?: Fixed64Rules.defaultInstance
 
 fun Fixed64Rules.copy(
-    const: Long? = null,
-    lt: Long? = null,
-    lte: Long? = null,
-    gt: Long? = null,
-    gte: Long? = null,
-    `in`: List<Long> = emptyList(),
-    notIn: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Long? = this.const,
+    lt: Long? = this.lt,
+    lte: Long? = this.lte,
+    gt: Long? = this.gt,
+    gte: Long? = this.gte,
+    `in`: List<Long> = this.`in`,
+    notIn: List<Long> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Fixed64Rules = (this as Fixed64Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class Fixed64Rules_Impl(
@@ -3964,23 +3964,23 @@ private fun Fixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fix
 fun SFixed32Rules?.orDefault() = this ?: SFixed32Rules.defaultInstance
 
 fun SFixed32Rules.copy(
-    const: Int? = null,
-    lt: Int? = null,
-    lte: Int? = null,
-    gt: Int? = null,
-    gte: Int? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    lt: Int? = this.lt,
+    lte: Int? = this.lte,
+    gt: Int? = this.gt,
+    gte: Int? = this.gte,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SFixed32Rules = (this as SFixed32Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class SFixed32Rules_Impl(
@@ -4039,23 +4039,23 @@ private fun SFixed32Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
 fun SFixed64Rules?.orDefault() = this ?: SFixed64Rules.defaultInstance
 
 fun SFixed64Rules.copy(
-    const: Long? = null,
-    lt: Long? = null,
-    lte: Long? = null,
-    gt: Long? = null,
-    gte: Long? = null,
-    `in`: List<Long> = emptyList(),
-    notIn: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Long? = this.const,
+    lt: Long? = this.lt,
+    lte: Long? = this.lte,
+    gt: Long? = this.gt,
+    gte: Long? = this.gte,
+    `in`: List<Long> = this.`in`,
+    notIn: List<Long> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SFixed64Rules = (this as SFixed64Rules_Impl).copy(
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class SFixed64Rules_Impl(
@@ -4114,11 +4114,11 @@ private fun SFixed64Rules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): SF
 fun BoolRules?.orDefault() = this ?: BoolRules.defaultInstance
 
 fun BoolRules.copy(
-    const: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Boolean? = this.const,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): BoolRules = (this as BoolRules_Impl).copy(
-    const,
-    unknownFields
+    const = const,
+    unknownFields = unknownFields
 )
 
 private data class BoolRules_Impl(
@@ -4152,41 +4152,41 @@ private fun BoolRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolRu
 fun StringRules?.orDefault() = this ?: StringRules.defaultInstance
 
 fun StringRules.copy(
-    const: String? = null,
-    len: Long? = null,
-    minLen: Long? = null,
-    maxLen: Long? = null,
-    lenBytes: Long? = null,
-    minBytes: Long? = null,
-    maxBytes: Long? = null,
-    pattern: String? = null,
-    prefix: String? = null,
-    suffix: String? = null,
-    contains: String? = null,
-    notContains: String? = null,
-    `in`: List<String> = emptyList(),
-    notIn: List<String> = emptyList(),
-    strict: Boolean? = null,
-    wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: String? = this.const,
+    len: Long? = this.len,
+    minLen: Long? = this.minLen,
+    maxLen: Long? = this.maxLen,
+    lenBytes: Long? = this.lenBytes,
+    minBytes: Long? = this.minBytes,
+    maxBytes: Long? = this.maxBytes,
+    pattern: String? = this.pattern,
+    prefix: String? = this.prefix,
+    suffix: String? = this.suffix,
+    contains: String? = this.contains,
+    notContains: String? = this.notContains,
+    `in`: List<String> = this.`in`,
+    notIn: List<String> = this.notIn,
+    strict: Boolean? = this.strict,
+    wellKnown: pbandk.testpb.StringRules.WellKnown<*>? = this.wellKnown,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): StringRules = (this as StringRules_Impl).copy(
-    const,
-    len,
-    minLen,
-    maxLen,
-    lenBytes,
-    minBytes,
-    maxBytes,
-    pattern,
-    prefix,
-    suffix,
-    contains,
-    notContains,
-    `in`,
-    notIn,
-    strict,
-    wellKnown,
-    unknownFields
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    lenBytes = lenBytes,
+    minBytes = minBytes,
+    maxBytes = maxBytes,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    notContains = notContains,
+    `in` = `in`,
+    notIn = notIn,
+    strict = strict,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields
 )
 
 private data class StringRules_Impl(
@@ -4312,31 +4312,31 @@ private fun StringRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
 fun BytesRules?.orDefault() = this ?: BytesRules.defaultInstance
 
 fun BytesRules.copy(
-    const: pbandk.ByteArr? = null,
-    len: Long? = null,
-    minLen: Long? = null,
-    maxLen: Long? = null,
-    pattern: String? = null,
-    prefix: pbandk.ByteArr? = null,
-    suffix: pbandk.ByteArr? = null,
-    contains: pbandk.ByteArr? = null,
-    `in`: List<pbandk.ByteArr> = emptyList(),
-    notIn: List<pbandk.ByteArr> = emptyList(),
-    wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: pbandk.ByteArr? = this.const,
+    len: Long? = this.len,
+    minLen: Long? = this.minLen,
+    maxLen: Long? = this.maxLen,
+    pattern: String? = this.pattern,
+    prefix: pbandk.ByteArr? = this.prefix,
+    suffix: pbandk.ByteArr? = this.suffix,
+    contains: pbandk.ByteArr? = this.contains,
+    `in`: List<pbandk.ByteArr> = this.`in`,
+    notIn: List<pbandk.ByteArr> = this.notIn,
+    wellKnown: pbandk.testpb.BytesRules.WellKnown<*>? = this.wellKnown,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): BytesRules = (this as BytesRules_Impl).copy(
-    const,
-    len,
-    minLen,
-    maxLen,
-    pattern,
-    prefix,
-    suffix,
-    contains,
-    `in`,
-    notIn,
-    wellKnown,
-    unknownFields
+    const = const,
+    len = len,
+    minLen = minLen,
+    maxLen = maxLen,
+    pattern = pattern,
+    prefix = prefix,
+    suffix = suffix,
+    contains = contains,
+    `in` = `in`,
+    notIn = notIn,
+    wellKnown = wellKnown,
+    unknownFields = unknownFields
 )
 
 private data class BytesRules_Impl(
@@ -4420,17 +4420,17 @@ private fun BytesRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bytes
 fun EnumRules?.orDefault() = this ?: EnumRules.defaultInstance
 
 fun EnumRules.copy(
-    const: Int? = null,
-    definedOnly: Boolean? = null,
-    `in`: List<Int> = emptyList(),
-    notIn: List<Int> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    const: Int? = this.const,
+    definedOnly: Boolean? = this.definedOnly,
+    `in`: List<Int> = this.`in`,
+    notIn: List<Int> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumRules = (this as EnumRules_Impl).copy(
-    const,
-    definedOnly,
-    `in`,
-    notIn,
-    unknownFields
+    const = const,
+    definedOnly = definedOnly,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class EnumRules_Impl(
@@ -4476,13 +4476,13 @@ private fun EnumRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): EnumRu
 fun MessageRules?.orDefault() = this ?: MessageRules.defaultInstance
 
 fun MessageRules.copy(
-    skip: Boolean? = null,
-    required: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    skip: Boolean? = this.skip,
+    required: Boolean? = this.required,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MessageRules = (this as MessageRules_Impl).copy(
-    skip,
-    required,
-    unknownFields
+    skip = skip,
+    required = required,
+    unknownFields = unknownFields
 )
 
 private data class MessageRules_Impl(
@@ -4520,17 +4520,17 @@ private fun MessageRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Mes
 fun RepeatedRules?.orDefault() = this ?: RepeatedRules.defaultInstance
 
 fun RepeatedRules.copy(
-    minItems: Long? = null,
-    maxItems: Long? = null,
-    unique: Boolean? = null,
-    items: pbandk.testpb.FieldRules? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    minItems: Long? = this.minItems,
+    maxItems: Long? = this.maxItems,
+    unique: Boolean? = this.unique,
+    items: pbandk.testpb.FieldRules? = this.items,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): RepeatedRules = (this as RepeatedRules_Impl).copy(
-    minItems,
-    maxItems,
-    unique,
-    items,
-    unknownFields
+    minItems = minItems,
+    maxItems = maxItems,
+    unique = unique,
+    items = items,
+    unknownFields = unknownFields
 )
 
 private data class RepeatedRules_Impl(
@@ -4576,19 +4576,19 @@ private fun RepeatedRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Re
 fun MapRules?.orDefault() = this ?: MapRules.defaultInstance
 
 fun MapRules.copy(
-    minPairs: Long? = null,
-    maxPairs: Long? = null,
-    noSparse: Boolean? = null,
-    keys: pbandk.testpb.FieldRules? = null,
-    values: pbandk.testpb.FieldRules? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    minPairs: Long? = this.minPairs,
+    maxPairs: Long? = this.maxPairs,
+    noSparse: Boolean? = this.noSparse,
+    keys: pbandk.testpb.FieldRules? = this.keys,
+    values: pbandk.testpb.FieldRules? = this.values,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MapRules = (this as MapRules_Impl).copy(
-    minPairs,
-    maxPairs,
-    noSparse,
-    keys,
-    values,
-    unknownFields
+    minPairs = minPairs,
+    maxPairs = maxPairs,
+    noSparse = noSparse,
+    keys = keys,
+    values = values,
+    unknownFields = unknownFields
 )
 
 private data class MapRules_Impl(
@@ -4639,15 +4639,15 @@ private fun MapRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): MapRule
 fun AnyRules?.orDefault() = this ?: AnyRules.defaultInstance
 
 fun AnyRules.copy(
-    required: Boolean? = null,
-    `in`: List<String> = emptyList(),
-    notIn: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    required: Boolean? = this.required,
+    `in`: List<String> = this.`in`,
+    notIn: List<String> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): AnyRules = (this as AnyRules_Impl).copy(
-    required,
-    `in`,
-    notIn,
-    unknownFields
+    required = required,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class AnyRules_Impl(
@@ -4689,25 +4689,25 @@ private fun AnyRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): AnyRule
 fun DurationRules?.orDefault() = this ?: DurationRules.defaultInstance
 
 fun DurationRules.copy(
-    required: Boolean? = null,
-    const: pbandk.wkt.Duration? = null,
-    lt: pbandk.wkt.Duration? = null,
-    lte: pbandk.wkt.Duration? = null,
-    gt: pbandk.wkt.Duration? = null,
-    gte: pbandk.wkt.Duration? = null,
-    `in`: List<pbandk.wkt.Duration> = emptyList(),
-    notIn: List<pbandk.wkt.Duration> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    required: Boolean? = this.required,
+    const: pbandk.wkt.Duration? = this.const,
+    lt: pbandk.wkt.Duration? = this.lt,
+    lte: pbandk.wkt.Duration? = this.lte,
+    gt: pbandk.wkt.Duration? = this.gt,
+    gte: pbandk.wkt.Duration? = this.gte,
+    `in`: List<pbandk.wkt.Duration> = this.`in`,
+    notIn: List<pbandk.wkt.Duration> = this.notIn,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DurationRules = (this as DurationRules_Impl).copy(
-    required,
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    `in`,
-    notIn,
-    unknownFields
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    `in` = `in`,
+    notIn = notIn,
+    unknownFields = unknownFields
 )
 
 private data class DurationRules_Impl(
@@ -4770,27 +4770,27 @@ private fun DurationRules.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Du
 fun TimestampRules?.orDefault() = this ?: TimestampRules.defaultInstance
 
 fun TimestampRules.copy(
-    required: Boolean? = null,
-    const: pbandk.wkt.Timestamp? = null,
-    lt: pbandk.wkt.Timestamp? = null,
-    lte: pbandk.wkt.Timestamp? = null,
-    gt: pbandk.wkt.Timestamp? = null,
-    gte: pbandk.wkt.Timestamp? = null,
-    ltNow: Boolean? = null,
-    gtNow: Boolean? = null,
-    within: pbandk.wkt.Duration? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    required: Boolean? = this.required,
+    const: pbandk.wkt.Timestamp? = this.const,
+    lt: pbandk.wkt.Timestamp? = this.lt,
+    lte: pbandk.wkt.Timestamp? = this.lte,
+    gt: pbandk.wkt.Timestamp? = this.gt,
+    gte: pbandk.wkt.Timestamp? = this.gte,
+    ltNow: Boolean? = this.ltNow,
+    gtNow: Boolean? = this.gtNow,
+    within: pbandk.wkt.Duration? = this.within,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): TimestampRules = (this as TimestampRules_Impl).copy(
-    required,
-    const,
-    lt,
-    lte,
-    gt,
-    gte,
-    ltNow,
-    gtNow,
-    within,
-    unknownFields
+    required = required,
+    const = const,
+    lt = lt,
+    lte = lte,
+    gt = gt,
+    gte = gte,
+    ltNow = ltNow,
+    gtNow = gtNow,
+    within = within,
+    unknownFields = unknownFields
 )
 
 private data class TimestampRules_Impl(

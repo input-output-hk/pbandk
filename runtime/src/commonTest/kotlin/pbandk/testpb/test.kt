@@ -13,8 +13,8 @@ sealed interface Foo : pbandk.Message {
             `val`: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Foo = Foo_Impl(
-            `val`,
-            unknownFields
+            `val` = `val`,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Foo() }
@@ -56,9 +56,9 @@ sealed interface Bar : pbandk.Message {
             singleFoo: pbandk.testpb.Foo? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Bar = Bar_Impl(
-            foos,
-            singleFoo,
-            unknownFields
+            foos = foos,
+            singleFoo = singleFoo,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Bar() }
@@ -108,8 +108,8 @@ sealed interface MessageWithMap : pbandk.Message {
             map: Map<String, String> = emptyMap(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.MessageWithMap = MessageWithMap_Impl(
-            map,
-            unknownFields
+            map = map,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.MessageWithMap() }
@@ -150,9 +150,9 @@ sealed interface MessageWithMap : pbandk.Message {
                 value: String = "",
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.MessageWithMap.MapEntry = MessageWithMap_MapEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.MessageWithMap.MapEntry() }
@@ -203,8 +203,8 @@ sealed interface FooMap : pbandk.Message {
             map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.FooMap = FooMap_Impl(
-            map,
-            unknownFields
+            map = map,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.FooMap() }
@@ -245,9 +245,9 @@ sealed interface FooMap : pbandk.Message {
                 value: pbandk.testpb.Foo? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.FooMap.MapEntry = FooMap_MapEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.FooMap.MapEntry() }
@@ -298,8 +298,8 @@ sealed interface FooMapEntries : pbandk.Message {
             map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.FooMapEntries = FooMapEntries_Impl(
-            map,
-            unknownFields
+            map = map,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.FooMapEntries() }
@@ -340,9 +340,9 @@ sealed interface FooMapEntries : pbandk.Message {
                 value: pbandk.testpb.Foo? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.testpb.FooMapEntries.MapEntry = FooMapEntries_MapEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.testpb.FooMapEntries.MapEntry() }
@@ -395,9 +395,9 @@ sealed interface Wrappers : pbandk.Message {
             uint64Values: List<Long> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Wrappers = Wrappers_Impl(
-            stringValue,
-            uint64Values,
-            unknownFields
+            stringValue = stringValue,
+            uint64Values = uint64Values,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Wrappers() }
@@ -439,11 +439,11 @@ sealed interface Wrappers : pbandk.Message {
 fun Foo?.orDefault() = this ?: Foo.defaultInstance
 
 fun Foo.copy(
-    `val`: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    `val`: String = this.`val`,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Foo = (this as Foo_Impl).copy(
-    `val`,
-    unknownFields
+    `val` = `val`,
+    unknownFields = unknownFields
 )
 
 private data class Foo_Impl(
@@ -476,13 +476,13 @@ private fun Foo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Foo {
 fun Bar?.orDefault() = this ?: Bar.defaultInstance
 
 fun Bar.copy(
-    foos: List<pbandk.testpb.Foo> = emptyList(),
-    singleFoo: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    foos: List<pbandk.testpb.Foo> = this.foos,
+    singleFoo: pbandk.testpb.Foo? = this.singleFoo,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Bar = (this as Bar_Impl).copy(
-    foos,
-    singleFoo,
-    unknownFields
+    foos = foos,
+    singleFoo = singleFoo,
+    unknownFields = unknownFields
 )
 
 private data class Bar_Impl(
@@ -520,11 +520,11 @@ private fun Bar.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Bar {
 fun MessageWithMap?.orDefault() = this ?: MessageWithMap.defaultInstance
 
 fun MessageWithMap.copy(
-    map: Map<String, String> = emptyMap(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    map: Map<String, String> = this.map,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MessageWithMap = (this as MessageWithMap_Impl).copy(
-    map,
-    unknownFields
+    map = map,
+    unknownFields = unknownFields
 )
 
 private data class MessageWithMap_Impl(
@@ -558,13 +558,13 @@ private fun MessageWithMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 fun MessageWithMap.MapEntry?.orDefault() = this ?: MessageWithMap.MapEntry.defaultInstance
 
 fun MessageWithMap.MapEntry.copy(
-    key: String = "",
-    value: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: String = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MessageWithMap.MapEntry = (this as MessageWithMap_MapEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class MessageWithMap_MapEntry_Impl(
@@ -600,11 +600,11 @@ private fun MessageWithMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDe
 fun FooMap?.orDefault() = this ?: FooMap.defaultInstance
 
 fun FooMap.copy(
-    map: Map<String, pbandk.testpb.Foo?> = emptyMap(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    map: Map<String, pbandk.testpb.Foo?> = this.map,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FooMap = (this as FooMap_Impl).copy(
-    map,
-    unknownFields
+    map = map,
+    unknownFields = unknownFields
 )
 
 private data class FooMap_Impl(
@@ -638,13 +638,13 @@ private fun FooMap.Companion.decodeWithImpl(u: pbandk.MessageDecoder): FooMap {
 fun FooMap.MapEntry?.orDefault() = this ?: FooMap.MapEntry.defaultInstance
 
 fun FooMap.MapEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.Foo? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FooMap.MapEntry = (this as FooMap_MapEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class FooMap_MapEntry_Impl(
@@ -681,11 +681,11 @@ private fun FooMap.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
 fun FooMapEntries?.orDefault() = this ?: FooMapEntries.defaultInstance
 
 fun FooMapEntries.copy(
-    map: List<pbandk.testpb.FooMapEntries.MapEntry> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    map: List<pbandk.testpb.FooMapEntries.MapEntry> = this.map,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FooMapEntries = (this as FooMapEntries_Impl).copy(
-    map,
-    unknownFields
+    map = map,
+    unknownFields = unknownFields
 )
 
 private data class FooMapEntries_Impl(
@@ -719,13 +719,13 @@ private fun FooMapEntries.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fo
 fun FooMapEntries.MapEntry?.orDefault() = this ?: FooMapEntries.MapEntry.defaultInstance
 
 fun FooMapEntries.MapEntry.copy(
-    key: String = "",
-    value: pbandk.testpb.Foo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.testpb.Foo? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FooMapEntries.MapEntry = (this as FooMapEntries_MapEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class FooMapEntries_MapEntry_Impl(
@@ -762,13 +762,13 @@ private fun FooMapEntries.MapEntry.Companion.decodeWithImpl(u: pbandk.MessageDec
 fun Wrappers?.orDefault() = this ?: Wrappers.defaultInstance
 
 fun Wrappers.copy(
-    stringValue: String? = null,
-    uint64Values: List<Long> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    stringValue: String? = this.stringValue,
+    uint64Values: List<Long> = this.uint64Values,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Wrappers = (this as Wrappers_Impl).copy(
-    stringValue,
-    uint64Values,
-    unknownFields
+    stringValue = stringValue,
+    uint64Values = uint64Values,
+    unknownFields = unknownFields
 )
 
 private data class Wrappers_Impl(

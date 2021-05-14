@@ -19,11 +19,11 @@ sealed interface Version : pbandk.Message {
             suffix: String? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.gen.pb.Version = Version_Impl(
-            major,
-            minor,
-            patch,
-            suffix,
-            unknownFields
+            major = major,
+            minor = minor,
+            patch = patch,
+            suffix = suffix,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.gen.pb.Version() }
@@ -99,11 +99,11 @@ sealed interface CodeGeneratorRequest : pbandk.Message {
             compilerVersion: pbandk.gen.pb.Version? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.gen.pb.CodeGeneratorRequest = CodeGeneratorRequest_Impl(
-            fileToGenerate,
-            parameter,
-            protoFile,
-            compilerVersion,
-            unknownFields
+            fileToGenerate = fileToGenerate,
+            parameter = parameter,
+            protoFile = protoFile,
+            compilerVersion = compilerVersion,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorRequest() }
@@ -177,10 +177,10 @@ sealed interface CodeGeneratorResponse : pbandk.Message {
             file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.gen.pb.CodeGeneratorResponse = CodeGeneratorResponse_Impl(
-            error,
-            supportedFeatures,
-            file,
-            unknownFields
+            error = error,
+            supportedFeatures = supportedFeatures,
+            file = file,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorResponse() }
@@ -261,11 +261,11 @@ sealed interface CodeGeneratorResponse : pbandk.Message {
                 generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.gen.pb.CodeGeneratorResponse.File = CodeGeneratorResponse_File_Impl(
-                name,
-                insertionPoint,
-                content,
-                generatedCodeInfo,
-                unknownFields
+                name = name,
+                insertionPoint = insertionPoint,
+                content = content,
+                generatedCodeInfo = generatedCodeInfo,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.gen.pb.CodeGeneratorResponse.File() }
@@ -328,17 +328,17 @@ sealed interface CodeGeneratorResponse : pbandk.Message {
 fun Version?.orDefault() = this ?: Version.defaultInstance
 
 fun Version.copy(
-    major: Int? = null,
-    minor: Int? = null,
-    patch: Int? = null,
-    suffix: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    major: Int? = this.major,
+    minor: Int? = this.minor,
+    patch: Int? = this.patch,
+    suffix: String? = this.suffix,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Version = (this as Version_Impl).copy(
-    major,
-    minor,
-    patch,
-    suffix,
-    unknownFields
+    major = major,
+    minor = minor,
+    patch = patch,
+    suffix = suffix,
+    unknownFields = unknownFields
 )
 
 private data class Version_Impl(
@@ -384,17 +384,17 @@ private fun Version.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Version 
 fun CodeGeneratorRequest?.orDefault() = this ?: CodeGeneratorRequest.defaultInstance
 
 fun CodeGeneratorRequest.copy(
-    fileToGenerate: List<String> = emptyList(),
-    parameter: String? = null,
-    protoFile: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
-    compilerVersion: pbandk.gen.pb.Version? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    fileToGenerate: List<String> = this.fileToGenerate,
+    parameter: String? = this.parameter,
+    protoFile: List<pbandk.wkt.FileDescriptorProto> = this.protoFile,
+    compilerVersion: pbandk.gen.pb.Version? = this.compilerVersion,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): CodeGeneratorRequest = (this as CodeGeneratorRequest_Impl).copy(
-    fileToGenerate,
-    parameter,
-    protoFile,
-    compilerVersion,
-    unknownFields
+    fileToGenerate = fileToGenerate,
+    parameter = parameter,
+    protoFile = protoFile,
+    compilerVersion = compilerVersion,
+    unknownFields = unknownFields
 )
 
 private data class CodeGeneratorRequest_Impl(
@@ -440,15 +440,15 @@ private fun CodeGeneratorRequest.Companion.decodeWithImpl(u: pbandk.MessageDecod
 fun CodeGeneratorResponse?.orDefault() = this ?: CodeGeneratorResponse.defaultInstance
 
 fun CodeGeneratorResponse.copy(
-    error: String? = null,
-    supportedFeatures: Long? = null,
-    file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    error: String? = this.error,
+    supportedFeatures: Long? = this.supportedFeatures,
+    file: List<pbandk.gen.pb.CodeGeneratorResponse.File> = this.file,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): CodeGeneratorResponse = (this as CodeGeneratorResponse_Impl).copy(
-    error,
-    supportedFeatures,
-    file,
-    unknownFields
+    error = error,
+    supportedFeatures = supportedFeatures,
+    file = file,
+    unknownFields = unknownFields
 )
 
 private data class CodeGeneratorResponse_Impl(
@@ -490,17 +490,17 @@ private fun CodeGeneratorResponse.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun CodeGeneratorResponse.File?.orDefault() = this ?: CodeGeneratorResponse.File.defaultInstance
 
 fun CodeGeneratorResponse.File.copy(
-    name: String? = null,
-    insertionPoint: String? = null,
-    content: String? = null,
-    generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    insertionPoint: String? = this.insertionPoint,
+    content: String? = this.content,
+    generatedCodeInfo: pbandk.wkt.GeneratedCodeInfo? = this.generatedCodeInfo,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): CodeGeneratorResponse.File = (this as CodeGeneratorResponse_File_Impl).copy(
-    name,
-    insertionPoint,
-    content,
-    generatedCodeInfo,
-    unknownFields
+    name = name,
+    insertionPoint = insertionPoint,
+    content = content,
+    generatedCodeInfo = generatedCodeInfo,
+    unknownFields = unknownFields
 )
 
 private data class CodeGeneratorResponse_File_Impl(

@@ -15,9 +15,9 @@ sealed interface Timestamp : pbandk.Message {
             nanos: Int = 0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Timestamp = Timestamp_Impl(
-            seconds,
-            nanos,
-            unknownFields
+            seconds = seconds,
+            nanos = nanos,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Timestamp() }
@@ -59,13 +59,13 @@ sealed interface Timestamp : pbandk.Message {
 fun Timestamp?.orDefault() = this ?: Timestamp.defaultInstance
 
 fun Timestamp.copy(
-    seconds: Long = 0L,
-    nanos: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    seconds: Long = this.seconds,
+    nanos: Int = this.nanos,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Timestamp = (this as Timestamp_Impl).copy(
-    seconds,
-    nanos,
-    unknownFields
+    seconds = seconds,
+    nanos = nanos,
+    unknownFields = unknownFields
 )
 
 private data class Timestamp_Impl(

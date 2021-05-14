@@ -13,8 +13,8 @@ sealed interface SingleRequiredCustomOption : pbandk.Message {
             single: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.SingleRequiredCustomOption = SingleRequiredCustomOption_Impl(
-            single,
-            unknownFields
+            single = single,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.SingleRequiredCustomOption() }
@@ -64,8 +64,8 @@ sealed interface MultipleCustomOptions : pbandk.Message {
             multiple: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.MultipleCustomOptions = MultipleCustomOptions_Impl(
-            multiple,
-            unknownFields
+            multiple = multiple,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptions() }
@@ -116,8 +116,8 @@ sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
             multipleDeprecated: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.MultipleCustomOptionsPlusDeprecated = MultipleCustomOptionsPlusDeprecated_Impl(
-            multipleDeprecated,
-            unknownFields
+            multipleDeprecated = multipleDeprecated,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.MultipleCustomOptionsPlusDeprecated() }
@@ -161,11 +161,11 @@ sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
 fun SingleRequiredCustomOption?.orDefault() = this ?: SingleRequiredCustomOption.defaultInstance
 
 fun SingleRequiredCustomOption.copy(
-    single: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    single: String = this.single,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SingleRequiredCustomOption = (this as SingleRequiredCustomOption_Impl).copy(
-    single,
-    unknownFields
+    single = single,
+    unknownFields = unknownFields
 )
 
 private data class SingleRequiredCustomOption_Impl(
@@ -198,11 +198,11 @@ private fun SingleRequiredCustomOption.Companion.decodeWithImpl(u: pbandk.Messag
 fun MultipleCustomOptions?.orDefault() = this ?: MultipleCustomOptions.defaultInstance
 
 fun MultipleCustomOptions.copy(
-    multiple: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    multiple: String = this.multiple,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MultipleCustomOptions = (this as MultipleCustomOptions_Impl).copy(
-    multiple,
-    unknownFields
+    multiple = multiple,
+    unknownFields = unknownFields
 )
 
 private data class MultipleCustomOptions_Impl(
@@ -235,11 +235,11 @@ private fun MultipleCustomOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun MultipleCustomOptionsPlusDeprecated?.orDefault() = this ?: MultipleCustomOptionsPlusDeprecated.defaultInstance
 
 fun MultipleCustomOptionsPlusDeprecated.copy(
-    multipleDeprecated: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    multipleDeprecated: String = this.multipleDeprecated,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MultipleCustomOptionsPlusDeprecated = (this as MultipleCustomOptionsPlusDeprecated_Impl).copy(
-    multipleDeprecated,
-    unknownFields
+    multipleDeprecated = multipleDeprecated,
+    unknownFields = unknownFields
 )
 
 private data class MultipleCustomOptionsPlusDeprecated_Impl(

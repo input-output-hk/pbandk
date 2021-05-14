@@ -13,8 +13,8 @@ sealed interface FileDescriptorSet : pbandk.Message {
             file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FileDescriptorSet = FileDescriptorSet_Impl(
-            file,
-            unknownFields
+            file = file,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FileDescriptorSet() }
@@ -76,19 +76,19 @@ sealed interface FileDescriptorProto : pbandk.Message {
             syntax: String? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FileDescriptorProto = FileDescriptorProto_Impl(
-            name,
-            `package`,
-            dependency,
-            publicDependency,
-            weakDependency,
-            messageType,
-            enumType,
-            service,
-            extension,
-            options,
-            sourceCodeInfo,
-            syntax,
-            unknownFields
+            name = name,
+            `package` = `package`,
+            dependency = dependency,
+            publicDependency = publicDependency,
+            weakDependency = weakDependency,
+            messageType = messageType,
+            enumType = enumType,
+            service = service,
+            extension = extension,
+            options = options,
+            sourceCodeInfo = sourceCodeInfo,
+            syntax = syntax,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FileDescriptorProto() }
@@ -256,17 +256,17 @@ sealed interface DescriptorProto : pbandk.Message {
             reservedName: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.DescriptorProto = DescriptorProto_Impl(
-            name,
-            field,
-            extension,
-            nestedType,
-            enumType,
-            extensionRange,
-            oneofDecl,
-            options,
-            reservedRange,
-            reservedName,
-            unknownFields
+            name = name,
+            field = field,
+            extension = extension,
+            nestedType = nestedType,
+            enumType = enumType,
+            extensionRange = extensionRange,
+            oneofDecl = oneofDecl,
+            options = options,
+            reservedRange = reservedRange,
+            reservedName = reservedName,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.DescriptorProto() }
@@ -399,10 +399,10 @@ sealed interface DescriptorProto : pbandk.Message {
                 options: pbandk.wkt.ExtensionRangeOptions? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.DescriptorProto.ExtensionRange = DescriptorProto_ExtensionRange_Impl(
-                start,
-                end,
-                options,
-                unknownFields
+                start = start,
+                end = end,
+                options = options,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.DescriptorProto.ExtensionRange() }
@@ -464,9 +464,9 @@ sealed interface DescriptorProto : pbandk.Message {
                 end: Int? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.DescriptorProto.ReservedRange = DescriptorProto_ReservedRange_Impl(
-                start,
-                end,
-                unknownFields
+                start = start,
+                end = end,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.DescriptorProto.ReservedRange() }
@@ -517,8 +517,8 @@ sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.ExtensionRangeOptions = ExtensionRangeOptions_Impl(
-            uninterpretedOption,
-            unknownFields
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.ExtensionRangeOptions() }
@@ -578,18 +578,18 @@ sealed interface FieldDescriptorProto : pbandk.Message {
             proto3Optional: Boolean? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FieldDescriptorProto = FieldDescriptorProto_Impl(
-            name,
-            number,
-            label,
-            type,
-            typeName,
-            extendee,
-            defaultValue,
-            oneofIndex,
-            jsonName,
-            options,
-            proto3Optional,
-            unknownFields
+            name = name,
+            number = number,
+            label = label,
+            type = type,
+            typeName = typeName,
+            extendee = extendee,
+            defaultValue = defaultValue,
+            oneofIndex = oneofIndex,
+            jsonName = jsonName,
+            options = options,
+            proto3Optional = proto3Optional,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FieldDescriptorProto() }
@@ -780,9 +780,9 @@ sealed interface OneofDescriptorProto : pbandk.Message {
             options: pbandk.wkt.OneofOptions? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.OneofDescriptorProto = OneofDescriptorProto_Impl(
-            name,
-            options,
-            unknownFields
+            name = name,
+            options = options,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.OneofDescriptorProto() }
@@ -840,12 +840,12 @@ sealed interface EnumDescriptorProto : pbandk.Message {
             reservedName: List<String> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.EnumDescriptorProto = EnumDescriptorProto_Impl(
-            name,
-            value,
-            options,
-            reservedRange,
-            reservedName,
-            unknownFields
+            name = name,
+            value = value,
+            options = options,
+            reservedRange = reservedRange,
+            reservedName = reservedName,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.EnumDescriptorProto() }
@@ -926,9 +926,9 @@ sealed interface EnumDescriptorProto : pbandk.Message {
                 end: Int? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.EnumDescriptorProto.EnumReservedRange = EnumDescriptorProto_EnumReservedRange_Impl(
-                start,
-                end,
-                unknownFields
+                start = start,
+                end = end,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.EnumDescriptorProto.EnumReservedRange() }
@@ -983,10 +983,10 @@ sealed interface EnumValueDescriptorProto : pbandk.Message {
             options: pbandk.wkt.EnumValueOptions? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.EnumValueDescriptorProto = EnumValueDescriptorProto_Impl(
-            name,
-            number,
-            options,
-            unknownFields
+            name = name,
+            number = number,
+            options = options,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.EnumValueDescriptorProto() }
@@ -1050,10 +1050,10 @@ sealed interface ServiceDescriptorProto : pbandk.Message {
             options: pbandk.wkt.ServiceOptions? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.ServiceDescriptorProto = ServiceDescriptorProto_Impl(
-            name,
-            method,
-            options,
-            unknownFields
+            name = name,
+            method = method,
+            options = options,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.ServiceDescriptorProto() }
@@ -1123,13 +1123,13 @@ sealed interface MethodDescriptorProto : pbandk.Message {
             serverStreaming: Boolean? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.MethodDescriptorProto = MethodDescriptorProto_Impl(
-            name,
-            inputType,
-            outputType,
-            options,
-            clientStreaming,
-            serverStreaming,
-            unknownFields
+            name = name,
+            inputType = inputType,
+            outputType = outputType,
+            options = options,
+            clientStreaming = clientStreaming,
+            serverStreaming = serverStreaming,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.MethodDescriptorProto() }
@@ -1259,28 +1259,28 @@ sealed interface FileOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FileOptions = FileOptions_Impl(
-            javaPackage,
-            javaOuterClassname,
-            javaMultipleFiles,
-            javaGenerateEqualsAndHash,
-            javaStringCheckUtf8,
-            optimizeFor,
-            goPackage,
-            ccGenericServices,
-            javaGenericServices,
-            pyGenericServices,
-            phpGenericServices,
-            deprecated,
-            ccEnableArenas,
-            objcClassPrefix,
-            csharpNamespace,
-            swiftPrefix,
-            phpClassPrefix,
-            phpNamespace,
-            phpMetadataNamespace,
-            rubyPackage,
-            uninterpretedOption,
-            unknownFields
+            javaPackage = javaPackage,
+            javaOuterClassname = javaOuterClassname,
+            javaMultipleFiles = javaMultipleFiles,
+            javaGenerateEqualsAndHash = javaGenerateEqualsAndHash,
+            javaStringCheckUtf8 = javaStringCheckUtf8,
+            optimizeFor = optimizeFor,
+            goPackage = goPackage,
+            ccGenericServices = ccGenericServices,
+            javaGenericServices = javaGenericServices,
+            pyGenericServices = pyGenericServices,
+            phpGenericServices = phpGenericServices,
+            deprecated = deprecated,
+            ccEnableArenas = ccEnableArenas,
+            objcClassPrefix = objcClassPrefix,
+            csharpNamespace = csharpNamespace,
+            swiftPrefix = swiftPrefix,
+            phpClassPrefix = phpClassPrefix,
+            phpNamespace = phpNamespace,
+            phpMetadataNamespace = phpMetadataNamespace,
+            rubyPackage = rubyPackage,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FileOptions() }
@@ -1548,12 +1548,12 @@ sealed interface MessageOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.MessageOptions = MessageOptions_Impl(
-            messageSetWireFormat,
-            noStandardDescriptorAccessor,
-            deprecated,
-            mapEntry,
-            uninterpretedOption,
-            unknownFields
+            messageSetWireFormat = messageSetWireFormat,
+            noStandardDescriptorAccessor = noStandardDescriptorAccessor,
+            deprecated = deprecated,
+            mapEntry = mapEntry,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.MessageOptions() }
@@ -1645,14 +1645,14 @@ sealed interface FieldOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FieldOptions = FieldOptions_Impl(
-            ctype,
-            packed,
-            jstype,
-            lazy,
-            deprecated,
-            weak,
-            uninterpretedOption,
-            unknownFields
+            ctype = ctype,
+            packed = packed,
+            jstype = jstype,
+            lazy = lazy,
+            deprecated = deprecated,
+            weak = weak,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FieldOptions() }
@@ -1786,8 +1786,8 @@ sealed interface OneofOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.OneofOptions = OneofOptions_Impl(
-            uninterpretedOption,
-            unknownFields
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.OneofOptions() }
@@ -1831,10 +1831,10 @@ sealed interface EnumOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.EnumOptions = EnumOptions_Impl(
-            allowAlias,
-            deprecated,
-            uninterpretedOption,
-            unknownFields
+            allowAlias = allowAlias,
+            deprecated = deprecated,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.EnumOptions() }
@@ -1896,9 +1896,9 @@ sealed interface EnumValueOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.EnumValueOptions = EnumValueOptions_Impl(
-            deprecated,
-            uninterpretedOption,
-            unknownFields
+            deprecated = deprecated,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.EnumValueOptions() }
@@ -1950,9 +1950,9 @@ sealed interface ServiceOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.ServiceOptions = ServiceOptions_Impl(
-            deprecated,
-            uninterpretedOption,
-            unknownFields
+            deprecated = deprecated,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.ServiceOptions() }
@@ -2006,10 +2006,10 @@ sealed interface MethodOptions : pbandk.ExtendableMessage {
             uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.MethodOptions = MethodOptions_Impl(
-            deprecated,
-            idempotencyLevel,
-            uninterpretedOption,
-            unknownFields
+            deprecated = deprecated,
+            idempotencyLevel = idempotencyLevel,
+            uninterpretedOption = uninterpretedOption,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.MethodOptions() }
@@ -2098,14 +2098,14 @@ sealed interface UninterpretedOption : pbandk.Message {
             aggregateValue: String? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.UninterpretedOption = UninterpretedOption_Impl(
-            name,
-            identifierValue,
-            positiveIntValue,
-            negativeIntValue,
-            doubleValue,
-            stringValue,
-            aggregateValue,
-            unknownFields
+            name = name,
+            identifierValue = identifierValue,
+            positiveIntValue = positiveIntValue,
+            negativeIntValue = negativeIntValue,
+            doubleValue = doubleValue,
+            stringValue = stringValue,
+            aggregateValue = aggregateValue,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.UninterpretedOption() }
@@ -2206,9 +2206,9 @@ sealed interface UninterpretedOption : pbandk.Message {
                 isExtension: Boolean = false,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.UninterpretedOption.NamePart = UninterpretedOption_NamePart_Impl(
-                namePart,
-                isExtension,
-                unknownFields
+                namePart = namePart,
+                isExtension = isExtension,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.UninterpretedOption.NamePart() }
@@ -2259,8 +2259,8 @@ sealed interface SourceCodeInfo : pbandk.Message {
             location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.SourceCodeInfo = SourceCodeInfo_Impl(
-            location,
-            unknownFields
+            location = location,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.SourceCodeInfo() }
@@ -2307,12 +2307,12 @@ sealed interface SourceCodeInfo : pbandk.Message {
                 leadingDetachedComments: List<String> = emptyList(),
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.SourceCodeInfo.Location = SourceCodeInfo_Location_Impl(
-                path,
-                span,
-                leadingComments,
-                trailingComments,
-                leadingDetachedComments,
-                unknownFields
+                path = path,
+                span = span,
+                leadingComments = leadingComments,
+                trailingComments = trailingComments,
+                leadingDetachedComments = leadingDetachedComments,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.SourceCodeInfo.Location() }
@@ -2393,8 +2393,8 @@ sealed interface GeneratedCodeInfo : pbandk.Message {
             annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.GeneratedCodeInfo = GeneratedCodeInfo_Impl(
-            annotation,
-            unknownFields
+            annotation = annotation,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.GeneratedCodeInfo() }
@@ -2439,11 +2439,11 @@ sealed interface GeneratedCodeInfo : pbandk.Message {
                 end: Int? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.GeneratedCodeInfo.Annotation = GeneratedCodeInfo_Annotation_Impl(
-                path,
-                sourceFile,
-                begin,
-                end,
-                unknownFields
+                path = path,
+                sourceFile = sourceFile,
+                begin = begin,
+                end = end,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.GeneratedCodeInfo.Annotation() }
@@ -2506,11 +2506,11 @@ sealed interface GeneratedCodeInfo : pbandk.Message {
 fun FileDescriptorSet?.orDefault() = this ?: FileDescriptorSet.defaultInstance
 
 fun FileDescriptorSet.copy(
-    file: List<pbandk.wkt.FileDescriptorProto> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    file: List<pbandk.wkt.FileDescriptorProto> = this.file,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FileDescriptorSet = (this as FileDescriptorSet_Impl).copy(
-    file,
-    unknownFields
+    file = file,
+    unknownFields = unknownFields
 )
 
 private data class FileDescriptorSet_Impl(
@@ -2544,33 +2544,33 @@ private fun FileDescriptorSet.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 fun FileDescriptorProto?.orDefault() = this ?: FileDescriptorProto.defaultInstance
 
 fun FileDescriptorProto.copy(
-    name: String? = null,
-    `package`: String? = null,
-    dependency: List<String> = emptyList(),
-    publicDependency: List<Int> = emptyList(),
-    weakDependency: List<Int> = emptyList(),
-    messageType: List<pbandk.wkt.DescriptorProto> = emptyList(),
-    enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList(),
-    service: List<pbandk.wkt.ServiceDescriptorProto> = emptyList(),
-    extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    options: pbandk.wkt.FileOptions? = null,
-    sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = null,
-    syntax: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    `package`: String? = this.`package`,
+    dependency: List<String> = this.dependency,
+    publicDependency: List<Int> = this.publicDependency,
+    weakDependency: List<Int> = this.weakDependency,
+    messageType: List<pbandk.wkt.DescriptorProto> = this.messageType,
+    enumType: List<pbandk.wkt.EnumDescriptorProto> = this.enumType,
+    service: List<pbandk.wkt.ServiceDescriptorProto> = this.service,
+    extension: List<pbandk.wkt.FieldDescriptorProto> = this.extension,
+    options: pbandk.wkt.FileOptions? = this.options,
+    sourceCodeInfo: pbandk.wkt.SourceCodeInfo? = this.sourceCodeInfo,
+    syntax: String? = this.syntax,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FileDescriptorProto = (this as FileDescriptorProto_Impl).copy(
-    name,
-    `package`,
-    dependency,
-    publicDependency,
-    weakDependency,
-    messageType,
-    enumType,
-    service,
-    extension,
-    options,
-    sourceCodeInfo,
-    syntax,
-    unknownFields
+    name = name,
+    `package` = `package`,
+    dependency = dependency,
+    publicDependency = publicDependency,
+    weakDependency = weakDependency,
+    messageType = messageType,
+    enumType = enumType,
+    service = service,
+    extension = extension,
+    options = options,
+    sourceCodeInfo = sourceCodeInfo,
+    syntax = syntax,
+    unknownFields = unknownFields
 )
 
 private data class FileDescriptorProto_Impl(
@@ -2650,29 +2650,29 @@ private fun FileDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
 fun DescriptorProto?.orDefault() = this ?: DescriptorProto.defaultInstance
 
 fun DescriptorProto.copy(
-    name: String? = null,
-    field: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    extension: List<pbandk.wkt.FieldDescriptorProto> = emptyList(),
-    nestedType: List<pbandk.wkt.DescriptorProto> = emptyList(),
-    enumType: List<pbandk.wkt.EnumDescriptorProto> = emptyList(),
-    extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = emptyList(),
-    oneofDecl: List<pbandk.wkt.OneofDescriptorProto> = emptyList(),
-    options: pbandk.wkt.MessageOptions? = null,
-    reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange> = emptyList(),
-    reservedName: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    field: List<pbandk.wkt.FieldDescriptorProto> = this.field,
+    extension: List<pbandk.wkt.FieldDescriptorProto> = this.extension,
+    nestedType: List<pbandk.wkt.DescriptorProto> = this.nestedType,
+    enumType: List<pbandk.wkt.EnumDescriptorProto> = this.enumType,
+    extensionRange: List<pbandk.wkt.DescriptorProto.ExtensionRange> = this.extensionRange,
+    oneofDecl: List<pbandk.wkt.OneofDescriptorProto> = this.oneofDecl,
+    options: pbandk.wkt.MessageOptions? = this.options,
+    reservedRange: List<pbandk.wkt.DescriptorProto.ReservedRange> = this.reservedRange,
+    reservedName: List<String> = this.reservedName,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DescriptorProto = (this as DescriptorProto_Impl).copy(
-    name,
-    field,
-    extension,
-    nestedType,
-    enumType,
-    extensionRange,
-    oneofDecl,
-    options,
-    reservedRange,
-    reservedName,
-    unknownFields
+    name = name,
+    field = field,
+    extension = extension,
+    nestedType = nestedType,
+    enumType = enumType,
+    extensionRange = extensionRange,
+    oneofDecl = oneofDecl,
+    options = options,
+    reservedRange = reservedRange,
+    reservedName = reservedName,
+    unknownFields = unknownFields
 )
 
 private data class DescriptorProto_Impl(
@@ -2744,15 +2744,15 @@ private fun DescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecoder): 
 fun DescriptorProto.ExtensionRange?.orDefault() = this ?: DescriptorProto.ExtensionRange.defaultInstance
 
 fun DescriptorProto.ExtensionRange.copy(
-    start: Int? = null,
-    end: Int? = null,
-    options: pbandk.wkt.ExtensionRangeOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    start: Int? = this.start,
+    end: Int? = this.end,
+    options: pbandk.wkt.ExtensionRangeOptions? = this.options,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DescriptorProto.ExtensionRange = (this as DescriptorProto_ExtensionRange_Impl).copy(
-    start,
-    end,
-    options,
-    unknownFields
+    start = start,
+    end = end,
+    options = options,
+    unknownFields = unknownFields
 )
 
 private data class DescriptorProto_ExtensionRange_Impl(
@@ -2794,13 +2794,13 @@ private fun DescriptorProto.ExtensionRange.Companion.decodeWithImpl(u: pbandk.Me
 fun DescriptorProto.ReservedRange?.orDefault() = this ?: DescriptorProto.ReservedRange.defaultInstance
 
 fun DescriptorProto.ReservedRange.copy(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    start: Int? = this.start,
+    end: Int? = this.end,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DescriptorProto.ReservedRange = (this as DescriptorProto_ReservedRange_Impl).copy(
-    start,
-    end,
-    unknownFields
+    start = start,
+    end = end,
+    unknownFields = unknownFields
 )
 
 private data class DescriptorProto_ReservedRange_Impl(
@@ -2838,11 +2838,11 @@ private fun DescriptorProto.ReservedRange.Companion.decodeWithImpl(u: pbandk.Mes
 fun ExtensionRangeOptions?.orDefault() = this ?: ExtensionRangeOptions.defaultInstance
 
 fun ExtensionRangeOptions.copy(
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ExtensionRangeOptions = (this as ExtensionRangeOptions_Impl).copy(
-    uninterpretedOption,
-    unknownFields
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class ExtensionRangeOptions_Impl(
@@ -2877,31 +2877,31 @@ private fun ExtensionRangeOptions.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun FieldDescriptorProto?.orDefault() = this ?: FieldDescriptorProto.defaultInstance
 
 fun FieldDescriptorProto.copy(
-    name: String? = null,
-    number: Int? = null,
-    label: pbandk.wkt.FieldDescriptorProto.Label? = null,
-    type: pbandk.wkt.FieldDescriptorProto.Type? = null,
-    typeName: String? = null,
-    extendee: String? = null,
-    defaultValue: String? = null,
-    oneofIndex: Int? = null,
-    jsonName: String? = null,
-    options: pbandk.wkt.FieldOptions? = null,
-    proto3Optional: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    number: Int? = this.number,
+    label: pbandk.wkt.FieldDescriptorProto.Label? = this.label,
+    type: pbandk.wkt.FieldDescriptorProto.Type? = this.type,
+    typeName: String? = this.typeName,
+    extendee: String? = this.extendee,
+    defaultValue: String? = this.defaultValue,
+    oneofIndex: Int? = this.oneofIndex,
+    jsonName: String? = this.jsonName,
+    options: pbandk.wkt.FieldOptions? = this.options,
+    proto3Optional: Boolean? = this.proto3Optional,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FieldDescriptorProto = (this as FieldDescriptorProto_Impl).copy(
-    name,
-    number,
-    label,
-    type,
-    typeName,
-    extendee,
-    defaultValue,
-    oneofIndex,
-    jsonName,
-    options,
-    proto3Optional,
-    unknownFields
+    name = name,
+    number = number,
+    label = label,
+    type = type,
+    typeName = typeName,
+    extendee = extendee,
+    defaultValue = defaultValue,
+    oneofIndex = oneofIndex,
+    jsonName = jsonName,
+    options = options,
+    proto3Optional = proto3Optional,
+    unknownFields = unknownFields
 )
 
 private data class FieldDescriptorProto_Impl(
@@ -2977,13 +2977,13 @@ private fun FieldDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
 fun OneofDescriptorProto?.orDefault() = this ?: OneofDescriptorProto.defaultInstance
 
 fun OneofDescriptorProto.copy(
-    name: String? = null,
-    options: pbandk.wkt.OneofOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    options: pbandk.wkt.OneofOptions? = this.options,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): OneofDescriptorProto = (this as OneofDescriptorProto_Impl).copy(
-    name,
-    options,
-    unknownFields
+    name = name,
+    options = options,
+    unknownFields = unknownFields
 )
 
 private data class OneofDescriptorProto_Impl(
@@ -3021,19 +3021,19 @@ private fun OneofDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecod
 fun EnumDescriptorProto?.orDefault() = this ?: EnumDescriptorProto.defaultInstance
 
 fun EnumDescriptorProto.copy(
-    name: String? = null,
-    value: List<pbandk.wkt.EnumValueDescriptorProto> = emptyList(),
-    options: pbandk.wkt.EnumOptions? = null,
-    reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = emptyList(),
-    reservedName: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    value: List<pbandk.wkt.EnumValueDescriptorProto> = this.value,
+    options: pbandk.wkt.EnumOptions? = this.options,
+    reservedRange: List<pbandk.wkt.EnumDescriptorProto.EnumReservedRange> = this.reservedRange,
+    reservedName: List<String> = this.reservedName,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumDescriptorProto = (this as EnumDescriptorProto_Impl).copy(
-    name,
-    value,
-    options,
-    reservedRange,
-    reservedName,
-    unknownFields
+    name = name,
+    value = value,
+    options = options,
+    reservedRange = reservedRange,
+    reservedName = reservedName,
+    unknownFields = unknownFields
 )
 
 private data class EnumDescriptorProto_Impl(
@@ -3084,13 +3084,13 @@ private fun EnumDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDecode
 fun EnumDescriptorProto.EnumReservedRange?.orDefault() = this ?: EnumDescriptorProto.EnumReservedRange.defaultInstance
 
 fun EnumDescriptorProto.EnumReservedRange.copy(
-    start: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    start: Int? = this.start,
+    end: Int? = this.end,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumDescriptorProto.EnumReservedRange = (this as EnumDescriptorProto_EnumReservedRange_Impl).copy(
-    start,
-    end,
-    unknownFields
+    start = start,
+    end = end,
+    unknownFields = unknownFields
 )
 
 private data class EnumDescriptorProto_EnumReservedRange_Impl(
@@ -3128,15 +3128,15 @@ private fun EnumDescriptorProto.EnumReservedRange.Companion.decodeWithImpl(u: pb
 fun EnumValueDescriptorProto?.orDefault() = this ?: EnumValueDescriptorProto.defaultInstance
 
 fun EnumValueDescriptorProto.copy(
-    name: String? = null,
-    number: Int? = null,
-    options: pbandk.wkt.EnumValueOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    number: Int? = this.number,
+    options: pbandk.wkt.EnumValueOptions? = this.options,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumValueDescriptorProto = (this as EnumValueDescriptorProto_Impl).copy(
-    name,
-    number,
-    options,
-    unknownFields
+    name = name,
+    number = number,
+    options = options,
+    unknownFields = unknownFields
 )
 
 private data class EnumValueDescriptorProto_Impl(
@@ -3178,15 +3178,15 @@ private fun EnumValueDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageD
 fun ServiceDescriptorProto?.orDefault() = this ?: ServiceDescriptorProto.defaultInstance
 
 fun ServiceDescriptorProto.copy(
-    name: String? = null,
-    method: List<pbandk.wkt.MethodDescriptorProto> = emptyList(),
-    options: pbandk.wkt.ServiceOptions? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    method: List<pbandk.wkt.MethodDescriptorProto> = this.method,
+    options: pbandk.wkt.ServiceOptions? = this.options,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ServiceDescriptorProto = (this as ServiceDescriptorProto_Impl).copy(
-    name,
-    method,
-    options,
-    unknownFields
+    name = name,
+    method = method,
+    options = options,
+    unknownFields = unknownFields
 )
 
 private data class ServiceDescriptorProto_Impl(
@@ -3228,21 +3228,21 @@ private fun ServiceDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDec
 fun MethodDescriptorProto?.orDefault() = this ?: MethodDescriptorProto.defaultInstance
 
 fun MethodDescriptorProto.copy(
-    name: String? = null,
-    inputType: String? = null,
-    outputType: String? = null,
-    options: pbandk.wkt.MethodOptions? = null,
-    clientStreaming: Boolean? = null,
-    serverStreaming: Boolean? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: String? = this.name,
+    inputType: String? = this.inputType,
+    outputType: String? = this.outputType,
+    options: pbandk.wkt.MethodOptions? = this.options,
+    clientStreaming: Boolean? = this.clientStreaming,
+    serverStreaming: Boolean? = this.serverStreaming,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MethodDescriptorProto = (this as MethodDescriptorProto_Impl).copy(
-    name,
-    inputType,
-    outputType,
-    options,
-    clientStreaming,
-    serverStreaming,
-    unknownFields
+    name = name,
+    inputType = inputType,
+    outputType = outputType,
+    options = options,
+    clientStreaming = clientStreaming,
+    serverStreaming = serverStreaming,
+    unknownFields = unknownFields
 )
 
 private data class MethodDescriptorProto_Impl(
@@ -3297,51 +3297,51 @@ private fun MethodDescriptorProto.Companion.decodeWithImpl(u: pbandk.MessageDeco
 fun FileOptions?.orDefault() = this ?: FileOptions.defaultInstance
 
 fun FileOptions.copy(
-    javaPackage: String? = null,
-    javaOuterClassname: String? = null,
-    javaMultipleFiles: Boolean? = null,
-    javaGenerateEqualsAndHash: Boolean? = null,
-    javaStringCheckUtf8: Boolean? = null,
-    optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = null,
-    goPackage: String? = null,
-    ccGenericServices: Boolean? = null,
-    javaGenericServices: Boolean? = null,
-    pyGenericServices: Boolean? = null,
-    phpGenericServices: Boolean? = null,
-    deprecated: Boolean? = null,
-    ccEnableArenas: Boolean? = null,
-    objcClassPrefix: String? = null,
-    csharpNamespace: String? = null,
-    swiftPrefix: String? = null,
-    phpClassPrefix: String? = null,
-    phpNamespace: String? = null,
-    phpMetadataNamespace: String? = null,
-    rubyPackage: String? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    javaPackage: String? = this.javaPackage,
+    javaOuterClassname: String? = this.javaOuterClassname,
+    javaMultipleFiles: Boolean? = this.javaMultipleFiles,
+    javaGenerateEqualsAndHash: Boolean? = this.javaGenerateEqualsAndHash,
+    javaStringCheckUtf8: Boolean? = this.javaStringCheckUtf8,
+    optimizeFor: pbandk.wkt.FileOptions.OptimizeMode? = this.optimizeFor,
+    goPackage: String? = this.goPackage,
+    ccGenericServices: Boolean? = this.ccGenericServices,
+    javaGenericServices: Boolean? = this.javaGenericServices,
+    pyGenericServices: Boolean? = this.pyGenericServices,
+    phpGenericServices: Boolean? = this.phpGenericServices,
+    deprecated: Boolean? = this.deprecated,
+    ccEnableArenas: Boolean? = this.ccEnableArenas,
+    objcClassPrefix: String? = this.objcClassPrefix,
+    csharpNamespace: String? = this.csharpNamespace,
+    swiftPrefix: String? = this.swiftPrefix,
+    phpClassPrefix: String? = this.phpClassPrefix,
+    phpNamespace: String? = this.phpNamespace,
+    phpMetadataNamespace: String? = this.phpMetadataNamespace,
+    rubyPackage: String? = this.rubyPackage,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FileOptions = (this as FileOptions_Impl).copy(
-    javaPackage,
-    javaOuterClassname,
-    javaMultipleFiles,
-    javaGenerateEqualsAndHash,
-    javaStringCheckUtf8,
-    optimizeFor,
-    goPackage,
-    ccGenericServices,
-    javaGenericServices,
-    pyGenericServices,
-    phpGenericServices,
-    deprecated,
-    ccEnableArenas,
-    objcClassPrefix,
-    csharpNamespace,
-    swiftPrefix,
-    phpClassPrefix,
-    phpNamespace,
-    phpMetadataNamespace,
-    rubyPackage,
-    uninterpretedOption,
-    unknownFields
+    javaPackage = javaPackage,
+    javaOuterClassname = javaOuterClassname,
+    javaMultipleFiles = javaMultipleFiles,
+    javaGenerateEqualsAndHash = javaGenerateEqualsAndHash,
+    javaStringCheckUtf8 = javaStringCheckUtf8,
+    optimizeFor = optimizeFor,
+    goPackage = goPackage,
+    ccGenericServices = ccGenericServices,
+    javaGenericServices = javaGenericServices,
+    pyGenericServices = pyGenericServices,
+    phpGenericServices = phpGenericServices,
+    deprecated = deprecated,
+    ccEnableArenas = ccEnableArenas,
+    objcClassPrefix = objcClassPrefix,
+    csharpNamespace = csharpNamespace,
+    swiftPrefix = swiftPrefix,
+    phpClassPrefix = phpClassPrefix,
+    phpNamespace = phpNamespace,
+    phpMetadataNamespace = phpMetadataNamespace,
+    rubyPackage = rubyPackage,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class FileOptions_Impl(
@@ -3461,19 +3461,19 @@ private fun FileOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): File
 fun MessageOptions?.orDefault() = this ?: MessageOptions.defaultInstance
 
 fun MessageOptions.copy(
-    messageSetWireFormat: Boolean? = null,
-    noStandardDescriptorAccessor: Boolean? = null,
-    deprecated: Boolean? = null,
-    mapEntry: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    messageSetWireFormat: Boolean? = this.messageSetWireFormat,
+    noStandardDescriptorAccessor: Boolean? = this.noStandardDescriptorAccessor,
+    deprecated: Boolean? = this.deprecated,
+    mapEntry: Boolean? = this.mapEntry,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MessageOptions = (this as MessageOptions_Impl).copy(
-    messageSetWireFormat,
-    noStandardDescriptorAccessor,
-    deprecated,
-    mapEntry,
-    uninterpretedOption,
-    unknownFields
+    messageSetWireFormat = messageSetWireFormat,
+    noStandardDescriptorAccessor = noStandardDescriptorAccessor,
+    deprecated = deprecated,
+    mapEntry = mapEntry,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class MessageOptions_Impl(
@@ -3525,23 +3525,23 @@ private fun MessageOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): M
 fun FieldOptions?.orDefault() = this ?: FieldOptions.defaultInstance
 
 fun FieldOptions.copy(
-    ctype: pbandk.wkt.FieldOptions.CType? = null,
-    packed: Boolean? = null,
-    jstype: pbandk.wkt.FieldOptions.JSType? = null,
-    lazy: Boolean? = null,
-    deprecated: Boolean? = null,
-    weak: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    ctype: pbandk.wkt.FieldOptions.CType? = this.ctype,
+    packed: Boolean? = this.packed,
+    jstype: pbandk.wkt.FieldOptions.JSType? = this.jstype,
+    lazy: Boolean? = this.lazy,
+    deprecated: Boolean? = this.deprecated,
+    weak: Boolean? = this.weak,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FieldOptions = (this as FieldOptions_Impl).copy(
-    ctype,
-    packed,
-    jstype,
-    lazy,
-    deprecated,
-    weak,
-    uninterpretedOption,
-    unknownFields
+    ctype = ctype,
+    packed = packed,
+    jstype = jstype,
+    lazy = lazy,
+    deprecated = deprecated,
+    weak = weak,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class FieldOptions_Impl(
@@ -3601,11 +3601,11 @@ private fun FieldOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Fie
 fun OneofOptions?.orDefault() = this ?: OneofOptions.defaultInstance
 
 fun OneofOptions.copy(
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): OneofOptions = (this as OneofOptions_Impl).copy(
-    uninterpretedOption,
-    unknownFields
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class OneofOptions_Impl(
@@ -3640,15 +3640,15 @@ private fun OneofOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): One
 fun EnumOptions?.orDefault() = this ?: EnumOptions.defaultInstance
 
 fun EnumOptions.copy(
-    allowAlias: Boolean? = null,
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    allowAlias: Boolean? = this.allowAlias,
+    deprecated: Boolean? = this.deprecated,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumOptions = (this as EnumOptions_Impl).copy(
-    allowAlias,
-    deprecated,
-    uninterpretedOption,
-    unknownFields
+    allowAlias = allowAlias,
+    deprecated = deprecated,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class EnumOptions_Impl(
@@ -3691,13 +3691,13 @@ private fun EnumOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Enum
 fun EnumValueOptions?.orDefault() = this ?: EnumValueOptions.defaultInstance
 
 fun EnumValueOptions.copy(
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    deprecated: Boolean? = this.deprecated,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): EnumValueOptions = (this as EnumValueOptions_Impl).copy(
-    deprecated,
-    uninterpretedOption,
-    unknownFields
+    deprecated = deprecated,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class EnumValueOptions_Impl(
@@ -3736,13 +3736,13 @@ private fun EnumValueOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder):
 fun ServiceOptions?.orDefault() = this ?: ServiceOptions.defaultInstance
 
 fun ServiceOptions.copy(
-    deprecated: Boolean? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    deprecated: Boolean? = this.deprecated,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ServiceOptions = (this as ServiceOptions_Impl).copy(
-    deprecated,
-    uninterpretedOption,
-    unknownFields
+    deprecated = deprecated,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class ServiceOptions_Impl(
@@ -3781,15 +3781,15 @@ private fun ServiceOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
 fun MethodOptions?.orDefault() = this ?: MethodOptions.defaultInstance
 
 fun MethodOptions.copy(
-    deprecated: Boolean? = null,
-    idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = null,
-    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    deprecated: Boolean? = this.deprecated,
+    idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel? = this.idempotencyLevel,
+    uninterpretedOption: List<pbandk.wkt.UninterpretedOption> = this.uninterpretedOption,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): MethodOptions = (this as MethodOptions_Impl).copy(
-    deprecated,
-    idempotencyLevel,
-    uninterpretedOption,
-    unknownFields
+    deprecated = deprecated,
+    idempotencyLevel = idempotencyLevel,
+    uninterpretedOption = uninterpretedOption,
+    unknownFields = unknownFields
 )
 
 private data class MethodOptions_Impl(
@@ -3832,23 +3832,23 @@ private fun MethodOptions.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Me
 fun UninterpretedOption?.orDefault() = this ?: UninterpretedOption.defaultInstance
 
 fun UninterpretedOption.copy(
-    name: List<pbandk.wkt.UninterpretedOption.NamePart> = emptyList(),
-    identifierValue: String? = null,
-    positiveIntValue: Long? = null,
-    negativeIntValue: Long? = null,
-    doubleValue: Double? = null,
-    stringValue: pbandk.ByteArr? = null,
-    aggregateValue: String? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    name: List<pbandk.wkt.UninterpretedOption.NamePart> = this.name,
+    identifierValue: String? = this.identifierValue,
+    positiveIntValue: Long? = this.positiveIntValue,
+    negativeIntValue: Long? = this.negativeIntValue,
+    doubleValue: Double? = this.doubleValue,
+    stringValue: pbandk.ByteArr? = this.stringValue,
+    aggregateValue: String? = this.aggregateValue,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UninterpretedOption = (this as UninterpretedOption_Impl).copy(
-    name,
-    identifierValue,
-    positiveIntValue,
-    negativeIntValue,
-    doubleValue,
-    stringValue,
-    aggregateValue,
-    unknownFields
+    name = name,
+    identifierValue = identifierValue,
+    positiveIntValue = positiveIntValue,
+    negativeIntValue = negativeIntValue,
+    doubleValue = doubleValue,
+    stringValue = stringValue,
+    aggregateValue = aggregateValue,
+    unknownFields = unknownFields
 )
 
 private data class UninterpretedOption_Impl(
@@ -3907,13 +3907,13 @@ private fun UninterpretedOption.Companion.decodeWithImpl(u: pbandk.MessageDecode
 fun UninterpretedOption.NamePart?.orDefault() = this ?: UninterpretedOption.NamePart.defaultInstance
 
 fun UninterpretedOption.NamePart.copy(
-    namePart: String = "",
-    isExtension: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    namePart: String = this.namePart,
+    isExtension: Boolean = this.isExtension,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UninterpretedOption.NamePart = (this as UninterpretedOption_NamePart_Impl).copy(
-    namePart,
-    isExtension,
-    unknownFields
+    namePart = namePart,
+    isExtension = isExtension,
+    unknownFields = unknownFields
 )
 
 private data class UninterpretedOption_NamePart_Impl(
@@ -3949,11 +3949,11 @@ private fun UninterpretedOption.NamePart.Companion.decodeWithImpl(u: pbandk.Mess
 fun SourceCodeInfo?.orDefault() = this ?: SourceCodeInfo.defaultInstance
 
 fun SourceCodeInfo.copy(
-    location: List<pbandk.wkt.SourceCodeInfo.Location> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    location: List<pbandk.wkt.SourceCodeInfo.Location> = this.location,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SourceCodeInfo = (this as SourceCodeInfo_Impl).copy(
-    location,
-    unknownFields
+    location = location,
+    unknownFields = unknownFields
 )
 
 private data class SourceCodeInfo_Impl(
@@ -3987,19 +3987,19 @@ private fun SourceCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder): S
 fun SourceCodeInfo.Location?.orDefault() = this ?: SourceCodeInfo.Location.defaultInstance
 
 fun SourceCodeInfo.Location.copy(
-    path: List<Int> = emptyList(),
-    span: List<Int> = emptyList(),
-    leadingComments: String? = null,
-    trailingComments: String? = null,
-    leadingDetachedComments: List<String> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    path: List<Int> = this.path,
+    span: List<Int> = this.span,
+    leadingComments: String? = this.leadingComments,
+    trailingComments: String? = this.trailingComments,
+    leadingDetachedComments: List<String> = this.leadingDetachedComments,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): SourceCodeInfo.Location = (this as SourceCodeInfo_Location_Impl).copy(
-    path,
-    span,
-    leadingComments,
-    trailingComments,
-    leadingDetachedComments,
-    unknownFields
+    path = path,
+    span = span,
+    leadingComments = leadingComments,
+    trailingComments = trailingComments,
+    leadingDetachedComments = leadingDetachedComments,
+    unknownFields = unknownFields
 )
 
 private data class SourceCodeInfo_Location_Impl(
@@ -4050,11 +4050,11 @@ private fun SourceCodeInfo.Location.Companion.decodeWithImpl(u: pbandk.MessageDe
 fun GeneratedCodeInfo?.orDefault() = this ?: GeneratedCodeInfo.defaultInstance
 
 fun GeneratedCodeInfo.copy(
-    annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation> = this.annotation,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): GeneratedCodeInfo = (this as GeneratedCodeInfo_Impl).copy(
-    annotation,
-    unknownFields
+    annotation = annotation,
+    unknownFields = unknownFields
 )
 
 private data class GeneratedCodeInfo_Impl(
@@ -4088,17 +4088,17 @@ private fun GeneratedCodeInfo.Companion.decodeWithImpl(u: pbandk.MessageDecoder)
 fun GeneratedCodeInfo.Annotation?.orDefault() = this ?: GeneratedCodeInfo.Annotation.defaultInstance
 
 fun GeneratedCodeInfo.Annotation.copy(
-    path: List<Int> = emptyList(),
-    sourceFile: String? = null,
-    begin: Int? = null,
-    end: Int? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    path: List<Int> = this.path,
+    sourceFile: String? = this.sourceFile,
+    begin: Int? = this.begin,
+    end: Int? = this.end,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): GeneratedCodeInfo.Annotation = (this as GeneratedCodeInfo_Annotation_Impl).copy(
-    path,
-    sourceFile,
-    begin,
-    end,
-    unknownFields
+    path = path,
+    sourceFile = sourceFile,
+    begin = begin,
+    end = end,
+    unknownFields = unknownFields
 )
 
 private data class GeneratedCodeInfo_Annotation_Impl(

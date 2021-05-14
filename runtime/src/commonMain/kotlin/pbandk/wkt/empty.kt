@@ -11,7 +11,7 @@ sealed interface Empty : pbandk.Message {
         operator fun invoke(
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Empty = Empty_Impl(
-            unknownFields
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Empty() }
@@ -33,9 +33,9 @@ sealed interface Empty : pbandk.Message {
 fun Empty?.orDefault() = this ?: Empty.defaultInstance
 
 fun Empty.copy(
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Empty = (this as Empty_Impl).copy(
-    unknownFields
+    unknownFields = unknownFields
 )
 
 private data class Empty_Impl(

@@ -28,8 +28,8 @@ sealed interface Struct : pbandk.Message {
             fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Struct = Struct_Impl(
-            fields,
-            unknownFields
+            fields = fields,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Struct() }
@@ -70,9 +70,9 @@ sealed interface Struct : pbandk.Message {
                 value: pbandk.wkt.Value? = null,
                 unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
             ): pbandk.wkt.Struct.FieldsEntry = Struct_FieldsEntry_Impl(
-                key,
-                value,
-                unknownFields
+                key = key,
+                value = value,
+                unknownFields = unknownFields
             )
 
             val defaultInstance by lazy { pbandk.wkt.Struct.FieldsEntry() }
@@ -139,8 +139,8 @@ sealed interface Value : pbandk.Message {
             kind: Kind<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Value = Value_Impl(
-            kind,
-            unknownFields
+            kind = kind,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Value() }
@@ -236,8 +236,8 @@ sealed interface ListValue : pbandk.Message {
             values: List<pbandk.wkt.Value> = emptyList(),
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.ListValue = ListValue_Impl(
-            values,
-            unknownFields
+            values = values,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.ListValue() }
@@ -269,11 +269,11 @@ sealed interface ListValue : pbandk.Message {
 fun Struct?.orDefault() = this ?: Struct.defaultInstance
 
 fun Struct.copy(
-    fields: Map<String, pbandk.wkt.Value?> = emptyMap(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    fields: Map<String, pbandk.wkt.Value?> = this.fields,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Struct = (this as Struct_Impl).copy(
-    fields,
-    unknownFields
+    fields = fields,
+    unknownFields = unknownFields
 )
 
 private data class Struct_Impl(
@@ -307,13 +307,13 @@ private fun Struct.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Struct {
 fun Struct.FieldsEntry?.orDefault() = this ?: Struct.FieldsEntry.defaultInstance
 
 fun Struct.FieldsEntry.copy(
-    key: String = "",
-    value: pbandk.wkt.Value? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    key: String = this.key,
+    value: pbandk.wkt.Value? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Struct.FieldsEntry = (this as Struct_FieldsEntry_Impl).copy(
-    key,
-    value,
-    unknownFields
+    key = key,
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Struct_FieldsEntry_Impl(
@@ -350,11 +350,11 @@ private fun Struct.FieldsEntry.Companion.decodeWithImpl(u: pbandk.MessageDecoder
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
 fun Value.copy(
-    kind: pbandk.wkt.Value.Kind<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    kind: pbandk.wkt.Value.Kind<*>? = this.kind,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Value = (this as Value_Impl).copy(
-    kind,
-    unknownFields
+    kind = kind,
+    unknownFields = unknownFields
 )
 
 private data class Value_Impl(
@@ -412,11 +412,11 @@ private fun Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Value {
 fun ListValue?.orDefault() = this ?: ListValue.defaultInstance
 
 fun ListValue.copy(
-    values: List<pbandk.wkt.Value> = emptyList(),
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    values: List<pbandk.wkt.Value> = this.values,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): ListValue = (this as ListValue_Impl).copy(
-    values,
-    unknownFields
+    values = values,
+    unknownFields = unknownFields
 )
 
 private data class ListValue_Impl(

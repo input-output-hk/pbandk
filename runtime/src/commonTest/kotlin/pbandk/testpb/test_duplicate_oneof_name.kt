@@ -23,8 +23,8 @@ sealed interface Value : pbandk.Message {
             value: Value<*>? = null,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.testpb.Value = Value_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.testpb.Value() }
@@ -79,11 +79,11 @@ sealed interface Value : pbandk.Message {
 fun Value?.orDefault() = this ?: Value.defaultInstance
 
 fun Value.copy(
-    value: pbandk.testpb.Value.Value<*>? = null,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: pbandk.testpb.Value.Value<*>? = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Value = (this as Value_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Value_Impl(

@@ -13,8 +13,8 @@ sealed interface DoubleValue : pbandk.Message {
             value: Double = 0.0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.DoubleValue = DoubleValue_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.DoubleValue() }
@@ -54,8 +54,8 @@ sealed interface FloatValue : pbandk.Message {
             value: Float = 0.0F,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.FloatValue = FloatValue_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.FloatValue() }
@@ -95,8 +95,8 @@ sealed interface Int64Value : pbandk.Message {
             value: Long = 0L,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Int64Value = Int64Value_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Int64Value() }
@@ -136,8 +136,8 @@ sealed interface UInt64Value : pbandk.Message {
             value: Long = 0L,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.UInt64Value = UInt64Value_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.UInt64Value() }
@@ -177,8 +177,8 @@ sealed interface Int32Value : pbandk.Message {
             value: Int = 0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.Int32Value = Int32Value_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.Int32Value() }
@@ -218,8 +218,8 @@ sealed interface UInt32Value : pbandk.Message {
             value: Int = 0,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.UInt32Value = UInt32Value_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.UInt32Value() }
@@ -259,8 +259,8 @@ sealed interface BoolValue : pbandk.Message {
             value: Boolean = false,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.BoolValue = BoolValue_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.BoolValue() }
@@ -300,8 +300,8 @@ sealed interface StringValue : pbandk.Message {
             value: String = "",
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.StringValue = StringValue_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.StringValue() }
@@ -341,8 +341,8 @@ sealed interface BytesValue : pbandk.Message {
             value: pbandk.ByteArr = pbandk.ByteArr.empty,
             unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
         ): pbandk.wkt.BytesValue = BytesValue_Impl(
-            value,
-            unknownFields
+            value = value,
+            unknownFields = unknownFields
         )
 
         val defaultInstance by lazy { pbandk.wkt.BytesValue() }
@@ -374,11 +374,11 @@ sealed interface BytesValue : pbandk.Message {
 fun DoubleValue?.orDefault() = this ?: DoubleValue.defaultInstance
 
 fun DoubleValue.copy(
-    value: Double = 0.0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Double = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): DoubleValue = (this as DoubleValue_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class DoubleValue_Impl(
@@ -411,11 +411,11 @@ private fun DoubleValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Doub
 fun FloatValue?.orDefault() = this ?: FloatValue.defaultInstance
 
 fun FloatValue.copy(
-    value: Float = 0.0F,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Float = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): FloatValue = (this as FloatValue_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class FloatValue_Impl(
@@ -448,11 +448,11 @@ private fun FloatValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Float
 fun Int64Value?.orDefault() = this ?: Int64Value.defaultInstance
 
 fun Int64Value.copy(
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Int64Value = (this as Int64Value_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Int64Value_Impl(
@@ -485,11 +485,11 @@ private fun Int64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int64
 fun UInt64Value?.orDefault() = this ?: UInt64Value.defaultInstance
 
 fun UInt64Value.copy(
-    value: Long = 0L,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Long = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UInt64Value = (this as UInt64Value_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class UInt64Value_Impl(
@@ -522,11 +522,11 @@ private fun UInt64Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 fun Int32Value?.orDefault() = this ?: Int32Value.defaultInstance
 
 fun Int32Value.copy(
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): Int32Value = (this as Int32Value_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class Int32Value_Impl(
@@ -559,11 +559,11 @@ private fun Int32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Int32
 fun UInt32Value?.orDefault() = this ?: UInt32Value.defaultInstance
 
 fun UInt32Value.copy(
-    value: Int = 0,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Int = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): UInt32Value = (this as UInt32Value_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class UInt32Value_Impl(
@@ -596,11 +596,11 @@ private fun UInt32Value.Companion.decodeWithImpl(u: pbandk.MessageDecoder): UInt
 fun BoolValue?.orDefault() = this ?: BoolValue.defaultInstance
 
 fun BoolValue.copy(
-    value: Boolean = false,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: Boolean = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): BoolValue = (this as BoolValue_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class BoolValue_Impl(
@@ -633,11 +633,11 @@ private fun BoolValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): BoolVa
 fun StringValue?.orDefault() = this ?: StringValue.defaultInstance
 
 fun StringValue.copy(
-    value: String = "",
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: String = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): StringValue = (this as StringValue_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class StringValue_Impl(
@@ -670,11 +670,11 @@ private fun StringValue.Companion.decodeWithImpl(u: pbandk.MessageDecoder): Stri
 fun BytesValue?.orDefault() = this ?: BytesValue.defaultInstance
 
 fun BytesValue.copy(
-    value: pbandk.ByteArr = pbandk.ByteArr.empty,
-    unknownFields: Map<Int, pbandk.UnknownField> = emptyMap()
+    value: pbandk.ByteArr = this.value,
+    unknownFields: Map<Int, pbandk.UnknownField> = this.unknownFields
 ): BytesValue = (this as BytesValue_Impl).copy(
-    value,
-    unknownFields
+    value = value,
+    unknownFields = unknownFields
 )
 
 private data class BytesValue_Impl(
