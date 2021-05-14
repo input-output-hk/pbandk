@@ -23,7 +23,7 @@ class CodeGeneratorTest {
     fun testSimple() {
         val result = compileProto("simple.proto")
 
-        assertEquals(result.exitCode, ExitCode.OK)
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
         val message1Clazz = result.classLoader.loadClass("foobar.Message1")
         val message2Clazz = result.classLoader.loadClass("foobar.Message2")
         message1Clazz.getDeclaredField("intVal")
@@ -34,7 +34,7 @@ class CodeGeneratorTest {
     fun testOneOf_SameNameField() {
         val result = compileProto("oneof_same_name.proto")
 
-        assertEquals(result.exitCode, ExitCode.OK)
+        assertEquals(ExitCode.OK, result.exitCode, result.messages)
         val valueClazz = result.classLoader.loadClass("foobar.Value")
         valueClazz.classLoader.loadClass("foobar.Value\$Value")
     }
