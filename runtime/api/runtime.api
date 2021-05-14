@@ -29,137 +29,220 @@ public final class pbandk/ExtendableMessage$DefaultImpls {
 
 public final class pbandk/ExtensionFieldSet {
 	public fun <init> ()V
+	public final fun get$runtime (I)Ljava/lang/Object;
+	public final fun set$runtime (ILjava/lang/Object;)V
 }
 
 public final class pbandk/FieldDescriptor {
 	public fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;)V
 	public synthetic fun <init> (Lkotlin/reflect/KProperty0;Ljava/lang/String;ILpbandk/FieldDescriptor$Type;Lkotlin/reflect/KProperty1;ZLjava/lang/String;Lpbandk/wkt/FieldOptions;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getJsonName$runtime ()Ljava/lang/String;
+	public final fun getMessageDescriptor$runtime ()Lpbandk/MessageDescriptor;
 	public final fun getName ()Ljava/lang/String;
+	public final fun getNumber$runtime ()I
+	public final fun getOneofMember$runtime ()Z
 	public final fun getOptions ()Lpbandk/wkt/FieldOptions;
+	public final fun getType$runtime ()Lpbandk/FieldDescriptor$Type;
+	public final fun getValue$runtime ()Lkotlin/reflect/KProperty1;
 }
 
 public abstract class pbandk/FieldDescriptor$Type {
+	public abstract fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public abstract fun getHasPresence$runtime ()Z
+	public abstract fun getWireType-K6X5YLY$runtime ()I
+	public abstract fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public abstract fun isPackable$runtime ()Z
 }
 
 public final class pbandk/FieldDescriptor$Type$Enum : pbandk/FieldDescriptor$Type {
 	public fun <init> (Lpbandk/Message$Enum$Companion;Z)V
 	public synthetic fun <init> (Lpbandk/Message$Enum$Companion;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public final fun getEnumCompanion$runtime ()Lpbandk/Message$Enum$Companion;
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
+	public fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public fun isPackable$runtime ()Z
 }
 
 public final class pbandk/FieldDescriptor$Type$Map : pbandk/FieldDescriptor$Type {
 	public fun <init> (Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;)V
+	public fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public final fun getEntryCompanion$runtime ()Lpbandk/MessageMap$Entry$Companion;
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
+	public fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public fun isPackable$runtime ()Z
 }
 
 public final class pbandk/FieldDescriptor$Type$Message : pbandk/FieldDescriptor$Type {
 	public fun <init> (Lpbandk/Message$Companion;)V
+	public fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public fun getHasPresence$runtime ()Z
+	public final fun getMessageCompanion$runtime ()Lpbandk/Message$Companion;
+	public fun getWireType-K6X5YLY$runtime ()I
+	public fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public fun isPackable$runtime ()Z
 }
 
 public abstract class pbandk/FieldDescriptor$Type$Primitive : pbandk/FieldDescriptor$Type {
 	public synthetic fun <init> (Ljava/lang/Object;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public fun isPackable$runtime ()Z
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Bool : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Bytes : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Double : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Fixed32 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Fixed64 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Float : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Int32 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$Int64 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$SFixed32 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$SFixed64 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$SInt32 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$SInt64 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$String : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$UInt32 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Primitive$UInt64 : pbandk/FieldDescriptor$Type$Primitive {
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getHasPresence$runtime ()Z
+	public fun getWireType-K6X5YLY$runtime ()I
 }
 
 public final class pbandk/FieldDescriptor$Type$Repeated : pbandk/FieldDescriptor$Type {
 	public fun <init> (Lpbandk/FieldDescriptor$Type;Z)V
 	public synthetic fun <init> (Lpbandk/FieldDescriptor$Type;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDefaultValue$runtime ()Ljava/lang/Object;
+	public fun getHasPresence$runtime ()Z
 	public final fun getPacked ()Z
+	public final fun getValueType$runtime ()Lpbandk/FieldDescriptor$Type;
+	public fun getWireType-K6X5YLY$runtime ()I
+	public fun isDefaultValue$runtime (Ljava/lang/Object;)Z
+	public fun isPackable$runtime ()Z
 }
 
 public final class pbandk/InvalidProtocolBufferException : java/lang/RuntimeException {
 	public static final field Companion Lpbandk/InvalidProtocolBufferException$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class pbandk/InvalidProtocolBufferException$Companion {
+	public final fun invalidEndTag$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun invalidTag$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun invalidWireType$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun malformedVarint$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun negativeSize$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun sizeLimitExceeded$runtime ()Lpbandk/InvalidProtocolBufferException;
+	public final fun truncatedMessage$runtime ()Lpbandk/InvalidProtocolBufferException;
 }
 
 public final class pbandk/ListWithSize : java/util/List, kotlin/jvm/internal/markers/KMappedMarker {
 	public static final field Companion Lpbandk/ListWithSize$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/Integer;)V
 	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
 	public fun add (ILjava/lang/Object;)V
 	public fun add (Ljava/lang/Object;)Z
@@ -230,6 +313,10 @@ public final class pbandk/ListWithSize$Builder$Companion {
 	public final fun fixed (Lpbandk/ListWithSize$Builder;)Lpbandk/ListWithSize;
 }
 
+public final class pbandk/ListWithSize$Companion {
+	public final fun getEmpty ()Lpbandk/ListWithSize;
+}
+
 public abstract interface class pbandk/Message {
 	public abstract fun getDescriptor ()Lpbandk/MessageDescriptor;
 	public abstract fun getProtoSize ()I
@@ -271,6 +358,7 @@ public abstract interface class pbandk/MessageDecoder {
 public final class pbandk/MessageDescriptor {
 	public fun <init> (Lkotlin/reflect/KClass;Lpbandk/Message$Companion;Ljava/util/Collection;)V
 	public final fun getFields ()Ljava/util/Collection;
+	public final fun getMessageClass$runtime ()Lkotlin/reflect/KClass;
 	public final fun getMessageCompanion ()Lpbandk/Message$Companion;
 }
 
@@ -295,6 +383,7 @@ public final class pbandk/MessageKt {
 
 public final class pbandk/MessageMap : kotlin/collections/AbstractMap {
 	public static final field Companion Lpbandk/MessageMap$Companion;
+	public fun <init> (Ljava/util/Set;)V
 	public fun getEntries ()Ljava/util/Set;
 }
 
@@ -307,6 +396,11 @@ public final class pbandk/MessageMap$Builder {
 
 public final class pbandk/MessageMap$Builder$Companion {
 	public final fun fixed (Lpbandk/MessageMap$Builder;)Lpbandk/MessageMap;
+}
+
+public final class pbandk/MessageMap$Companion {
+	public final fun getEmpty ()Lpbandk/MessageMap;
+	public final fun of$runtime (Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;[Lkotlin/Pair;)Lpbandk/MessageMap;
 }
 
 public final class pbandk/MessageMap$Entry : java/util/Map$Entry, kotlin/jvm/internal/markers/KMappedMarker, pbandk/Message {
@@ -327,6 +421,8 @@ public final class pbandk/MessageMap$Entry$Companion : pbandk/Message$Companion 
 	public synthetic fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/Message;
 	public fun decodeWith (Lpbandk/MessageDecoder;)Lpbandk/MessageMap$Entry;
 	public fun getDescriptor ()Lpbandk/MessageDescriptor;
+	public final fun getKeyType$runtime ()Lpbandk/FieldDescriptor$Type;
+	public final fun getValueType$runtime ()Lpbandk/FieldDescriptor$Type;
 }
 
 public abstract interface annotation class pbandk/PbandkInternal : java/lang/annotation/Annotation {
@@ -343,6 +439,7 @@ public final class pbandk/UnknownField {
 	public static synthetic fun copy$default (Lpbandk/UnknownField;ILjava/util/List;ILjava/lang/Object;)Lpbandk/UnknownField;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFieldNum ()I
+	public final fun getSize$runtime ()I
 	public final fun getValues ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -357,9 +454,416 @@ public final class pbandk/UnknownField$Value {
 	public static synthetic fun copy$default (Lpbandk/UnknownField$Value;ILpbandk/ByteArr;ILjava/lang/Object;)Lpbandk/UnknownField$Value;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getRawBytes ()Lpbandk/ByteArr;
+	public final fun getSize$runtime ()I
 	public final fun getWireType ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class pbandk/UnknownFieldKt {
+	public static final fun decodeAs (Lpbandk/UnknownField;Lpbandk/FieldDescriptor;)Ljava/lang/Object;
+}
+
+public abstract class pbandk/internal/AbstractUtil {
+	public fun <init> ()V
+	public fun base64ToBytes (Ljava/lang/String;)[B
+	public fun bytesToBase64 ([B)Ljava/lang/String;
+	public final fun durationToString (Lpbandk/wkt/Duration;)Ljava/lang/String;
+	public final fun stringToDuration (Ljava/lang/String;)Lpbandk/wkt/Duration;
+	public final fun stringToTimestamp (Ljava/lang/String;)Lpbandk/wkt/Timestamp;
+	public final fun timestampToString (Lpbandk/wkt/Timestamp;)Ljava/lang/String;
+}
+
+public final class pbandk/internal/AtomicReference {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun get ()Ljava/lang/Object;
+	public final fun set (Ljava/lang/Object;)V
+}
+
+public final class pbandk/internal/Base64Kt {
+	public static final fun decodeBase64ToArray (Ljava/lang/String;)[B
+	public static final fun encodeBase64 ([B[B)[B
+	public static synthetic fun encodeBase64$default ([B[BILjava/lang/Object;)[B
+	public static final fun getBASE64 ()[B
+	public static final fun getBASE64_URL_SAFE ()[B
+}
+
+public final class pbandk/internal/TimeUtilKt {
+	public static final fun formatDuration (Lpbandk/wkt/Duration;)Ljava/lang/String;
+	public static final fun formatTime (JI)Ljava/lang/String;
+	public static final fun parseDuration (Ljava/lang/String;)Lpbandk/wkt/Duration;
+	public static final fun parseTime (Ljava/lang/String;)Lpbandk/wkt/Timestamp;
+}
+
+public final class pbandk/internal/Util : pbandk/internal/AbstractUtil {
+	public static final field INSTANCE Lpbandk/internal/Util;
+	public fun base64ToBytes (Ljava/lang/String;)[B
+	public fun bytesToBase64 ([B)Ljava/lang/String;
+}
+
+public final class pbandk/internal/UtilKt {
+	public static final fun underscoreToCamelCase (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public abstract class pbandk/internal/binary/AbstractSizer {
+	public fun <init> ()V
+	public final fun boolSize (Z)I
+	public final fun bytesSize (Lpbandk/ByteArr;)I
+	public final fun doubleSize (D)I
+	public final fun enumSize (Lpbandk/Message$Enum;)I
+	public final fun fixed32Size (I)I
+	public final fun fixed64Size (J)I
+	public final fun floatSize (F)I
+	public final fun int32Size (I)I
+	public final fun int64Size (J)I
+	public final fun mapSize (Ljava/util/Map;Lpbandk/MessageMap$Entry$Companion;)I
+	public final fun messageSize (Lpbandk/Message;)I
+	public final fun packedRepeatedSize (Ljava/util/List;Lkotlin/jvm/functions/Function1;)I
+	public final fun rawMessageSize (Lpbandk/Message;)I
+	public final fun repeatedSize (Ljava/util/List;Lpbandk/FieldDescriptor$Type;Z)I
+	public final fun sFixed32Size (I)I
+	public final fun sFixed64Size (J)I
+	public final fun sInt32Size (I)I
+	public final fun sInt64Size (J)I
+	public fun stringSize (Ljava/lang/String;)I
+	public final fun tagSize (I)I
+	public final fun uInt32Size (I)I
+	public final fun uInt64Size (J)I
+}
+
+public final class pbandk/internal/binary/AbstractSizerKt {
+	public static final fun protoSize (Lpbandk/FieldDescriptor$Type;Ljava/lang/Object;)I
+}
+
+public final class pbandk/internal/binary/BinaryMessageDecoder : pbandk/MessageDecoder {
+	public static final field Companion Lpbandk/internal/binary/BinaryMessageDecoder$Companion;
+	public fun <init> (Lpbandk/internal/binary/BinaryWireDecoder;)V
+	public fun readMessage (Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function2;)Ljava/util/Map;
+}
+
+public final class pbandk/internal/binary/BinaryMessageDecoder$Companion {
+	public final fun readRepeatedField-9N1wL9M (Lpbandk/FieldDescriptor$Type$Repeated;ILpbandk/internal/binary/BinaryWireDecoder;)Lkotlin/sequences/Sequence;
+}
+
+public final class pbandk/internal/binary/BinaryMessageDecoderJvmKt {
+	public static final fun fromByteArray (Lpbandk/internal/binary/BinaryMessageDecoder$Companion;[B)Lpbandk/MessageDecoder;
+	public static final fun fromByteBuffer (Lpbandk/internal/binary/BinaryMessageDecoder$Companion;Ljava/nio/ByteBuffer;)Lpbandk/MessageDecoder;
+	public static final fun fromInputStream (Lpbandk/internal/binary/BinaryMessageDecoder$Companion;Ljava/io/InputStream;I)Lpbandk/MessageDecoder;
+	public static synthetic fun fromInputStream$default (Lpbandk/internal/binary/BinaryMessageDecoder$Companion;Ljava/io/InputStream;IILjava/lang/Object;)Lpbandk/MessageDecoder;
+}
+
+public final class pbandk/internal/binary/BinaryMessageDecoderKt {
+	public static final fun allowedWireType-nHk__68 (Lpbandk/FieldDescriptor$Type;I)Z
+	public static final fun getBinaryReadFn (Lpbandk/FieldDescriptor$Type;)Lkotlin/jvm/functions/Function1;
+}
+
+public class pbandk/internal/binary/BinaryMessageEncoder : pbandk/MessageEncoder {
+	public static final field Companion Lpbandk/internal/binary/BinaryMessageEncoder$Companion;
+	public fun <init> (Lpbandk/internal/binary/BinaryWireEncoder;)V
+	public fun writeMessage (Lpbandk/Message;)V
+}
+
+public final class pbandk/internal/binary/BinaryMessageEncoder$Companion {
+}
+
+public final class pbandk/internal/binary/BinaryMessageEncoderJvmKt {
+	public static final fun allocate (Lpbandk/internal/binary/BinaryMessageEncoder$Companion;I)Lpbandk/internal/binary/ByteArrayMessageEncoder;
+}
+
+public final class pbandk/internal/binary/BinaryMessageEncoderKt {
+	public static final fun shouldOutputValue (Lpbandk/FieldDescriptor$Type;Ljava/lang/Object;)Z
+}
+
+public abstract interface class pbandk/internal/binary/BinaryWireDecoder {
+	public abstract fun readBool ()Z
+	public abstract fun readBytes ()Lpbandk/ByteArr;
+	public abstract fun readDouble ()D
+	public abstract fun readEnum (Lpbandk/Message$Enum$Companion;)Lpbandk/Message$Enum;
+	public abstract fun readFixed32 ()I
+	public abstract fun readFixed64 ()J
+	public abstract fun readFloat ()F
+	public abstract fun readInt32 ()I
+	public abstract fun readInt64 ()J
+	public abstract fun readMessage (Lpbandk/Message$Companion;)Lpbandk/Message;
+	public abstract fun readPackedRepeated (Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
+	public abstract fun readRawBytes-zkGAPX0 (I)[B
+	public abstract fun readSFixed32 ()I
+	public abstract fun readSFixed64 ()J
+	public abstract fun readSInt32 ()I
+	public abstract fun readSInt64 ()J
+	public abstract fun readString ()Ljava/lang/String;
+	public abstract fun readTag-KrpQ4NI ()I
+	public abstract fun readUInt32 ()I
+	public abstract fun readUInt64 ()J
+	public abstract fun readUnknownFieldValue-zkGAPX0 (I)Lpbandk/UnknownField$Value;
+}
+
+public final class pbandk/internal/binary/BinaryWireDecoder$DefaultImpls {
+	public static fun readUnknownFieldValue-zkGAPX0 (Lpbandk/internal/binary/BinaryWireDecoder;I)Lpbandk/UnknownField$Value;
+}
+
+public abstract interface class pbandk/internal/binary/BinaryWireEncoder {
+	public abstract fun writeBool (IZ)V
+	public abstract fun writeBytes (ILpbandk/ByteArr;)V
+	public abstract fun writeDouble (ID)V
+	public abstract fun writeEnum (ILpbandk/Message$Enum;)V
+	public abstract fun writeFixed32 (II)V
+	public abstract fun writeFixed64 (IJ)V
+	public abstract fun writeFloat (IF)V
+	public abstract fun writeInt32 (II)V
+	public abstract fun writeInt64 (IJ)V
+	public abstract fun writeLengthDelimitedHeader (II)V
+	public abstract fun writePackedRepeated (ILjava/util/List;Lpbandk/FieldDescriptor$Type;)V
+	public abstract fun writeRawBytes-9N1wL9M (II[B)V
+	public abstract fun writeSFixed32 (II)V
+	public abstract fun writeSFixed64 (IJ)V
+	public abstract fun writeSInt32 (II)V
+	public abstract fun writeSInt64 (IJ)V
+	public abstract fun writeString (ILjava/lang/String;)V
+	public abstract fun writeUInt32 (II)V
+	public abstract fun writeUInt64 (IJ)V
+}
+
+public final class pbandk/internal/binary/BinaryWireEncoderKt {
+	public static final fun writePrimitiveValue (Lpbandk/internal/binary/BinaryWireEncoder;ILpbandk/FieldDescriptor$Type$Primitive;Ljava/lang/Object;)V
+}
+
+public abstract interface class pbandk/internal/binary/ByteArrayMessageEncoder : pbandk/MessageEncoder {
+	public abstract fun toByteArray ()[B
+}
+
+public final class pbandk/internal/binary/InputStreamWireReader : pbandk/internal/binary/kotlin/WireReader {
+	public fun <init> (Ljava/io/InputStream;II)V
+	public synthetic fun <init> (Ljava/io/InputStream;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun isAtEnd ()Z
+	public fun read (I)[B
+	public fun skipRawBytes (I)V
+}
+
+public final class pbandk/internal/binary/NumberExtensionsKt {
+	public static final fun getZigZagEncoded (I)I
+	public static final fun getZigZagEncoded (J)J
+}
+
+public final class pbandk/internal/binary/OutputStreamWireWriter : pbandk/internal/binary/kotlin/WireWriter {
+	public fun <init> (Ljava/io/OutputStream;I)V
+	public synthetic fun <init> (Ljava/io/OutputStream;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun flush ()V
+	public fun getTotalBytesWritten ()I
+	public fun write ([BII)V
+}
+
+public final class pbandk/internal/binary/Sizer : pbandk/internal/binary/AbstractSizer {
+	public static final field INSTANCE Lpbandk/internal/binary/Sizer;
+}
+
+public final class pbandk/internal/binary/SizerKt {
+	public static final field MAX_VARINT_SIZE I
+}
+
+public final class pbandk/internal/binary/Tag {
+	public static final synthetic fun box-impl (I)Lpbandk/internal/binary/Tag;
+	public static fun constructor-impl (I)I
+	public static fun constructor-impl (II)I
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public static final fun getFieldNumber-impl (I)I
+	public final fun getValue ()I
+	public static final fun getWireType-K6X5YLY (I)I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class pbandk/internal/binary/TagKt {
+}
+
+public final class pbandk/internal/binary/WireType {
+	public static final field Companion Lpbandk/internal/binary/WireType$Companion;
+	public static final synthetic fun box-impl (I)Lpbandk/internal/binary/WireType;
+	public static fun constructor-impl (I)I
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public final fun getValue ()I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class pbandk/internal/binary/WireType$Companion {
+	public final fun getEND_GROUP-K6X5YLY ()I
+	public final fun getFIXED32-K6X5YLY ()I
+	public final fun getFIXED64-K6X5YLY ()I
+	public final fun getLENGTH_DELIMITED-K6X5YLY ()I
+	public final fun getSTART_GROUP-K6X5YLY ()I
+	public final fun getVARINT-K6X5YLY ()I
+}
+
+public final class pbandk/internal/binary/kotlin/ByteArrayWireReader : pbandk/internal/binary/kotlin/WireReader {
+	public fun <init> ([B)V
+	public fun <init> ([BII)V
+	public fun isAtEnd ()Z
+	public fun read (I)[B
+	public fun skipRawBytes (I)V
+}
+
+public final class pbandk/internal/binary/kotlin/ByteArrayWireWriter : pbandk/internal/binary/kotlin/WireWriter {
+	public static final field Companion Lpbandk/internal/binary/kotlin/ByteArrayWireWriter$Companion;
+	public synthetic fun <init> ([BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getTotalBytesWritten ()I
+	public final fun toByteArray ()[B
+	public fun write ([BII)V
+}
+
+public final class pbandk/internal/binary/kotlin/ByteArrayWireWriter$Companion {
+	public final fun allocate (I)Lpbandk/internal/binary/kotlin/ByteArrayWireWriter;
+}
+
+public final class pbandk/internal/binary/kotlin/KotlinBinaryMessageEncoder : pbandk/internal/binary/BinaryMessageEncoder, pbandk/internal/binary/ByteArrayMessageEncoder {
+	public static final field Companion Lpbandk/internal/binary/kotlin/KotlinBinaryMessageEncoder$Companion;
+	public synthetic fun <init> (Lpbandk/internal/binary/kotlin/ByteArrayWireWriter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun toByteArray ()[B
+}
+
+public final class pbandk/internal/binary/kotlin/KotlinBinaryMessageEncoder$Companion {
+	public final fun allocate (I)Lpbandk/internal/binary/kotlin/KotlinBinaryMessageEncoder;
+}
+
+public final class pbandk/internal/binary/kotlin/KotlinBinaryWireDecoder : pbandk/internal/binary/BinaryWireDecoder {
+	public fun <init> (Lpbandk/internal/binary/kotlin/WireReader;)V
+	public fun readBool ()Z
+	public fun readBytes ()Lpbandk/ByteArr;
+	public fun readDouble ()D
+	public fun readEnum (Lpbandk/Message$Enum$Companion;)Lpbandk/Message$Enum;
+	public fun readFixed32 ()I
+	public fun readFixed64 ()J
+	public fun readFloat ()F
+	public fun readInt32 ()I
+	public fun readInt64 ()J
+	public fun readMessage (Lpbandk/Message$Companion;)Lpbandk/Message;
+	public fun readPackedRepeated (Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
+	public fun readRawBytes-zkGAPX0 (I)[B
+	public fun readSFixed32 ()I
+	public fun readSFixed64 ()J
+	public fun readSInt32 ()I
+	public fun readSInt64 ()J
+	public fun readString ()Ljava/lang/String;
+	public fun readTag-KrpQ4NI ()I
+	public fun readUInt32 ()I
+	public fun readUInt64 ()J
+	public fun readUnknownFieldValue-zkGAPX0 (I)Lpbandk/UnknownField$Value;
+}
+
+public final class pbandk/internal/binary/kotlin/KotlinBinaryWireEncoder : pbandk/internal/binary/BinaryWireEncoder {
+	public fun <init> (Lpbandk/internal/binary/kotlin/WireWriter;)V
+	public fun writeBool (IZ)V
+	public fun writeBytes (ILpbandk/ByteArr;)V
+	public fun writeDouble (ID)V
+	public fun writeEnum (ILpbandk/Message$Enum;)V
+	public fun writeFixed32 (II)V
+	public fun writeFixed64 (IJ)V
+	public fun writeFloat (IF)V
+	public fun writeInt32 (II)V
+	public fun writeInt64 (IJ)V
+	public fun writeLengthDelimitedHeader (II)V
+	public fun writePackedRepeated (ILjava/util/List;Lpbandk/FieldDescriptor$Type;)V
+	public fun writeRawBytes-9N1wL9M (II[B)V
+	public fun writeSFixed32 (II)V
+	public fun writeSFixed64 (IJ)V
+	public fun writeSInt32 (II)V
+	public fun writeSInt64 (IJ)V
+	public fun writeString (ILjava/lang/String;)V
+	public fun writeUInt32 (II)V
+	public fun writeUInt64 (IJ)V
+}
+
+public abstract interface class pbandk/internal/binary/kotlin/WireReader {
+	public abstract fun isAtEnd ()Z
+	public abstract fun read (I)[B
+	public abstract fun skipRawBytes (I)V
+}
+
+public abstract interface class pbandk/internal/binary/kotlin/WireWriter {
+	public abstract fun getTotalBytesWritten ()I
+	public abstract fun write ([BII)V
+}
+
+public final class pbandk/internal/json/JsonMessageDecoder : pbandk/MessageDecoder {
+	public static final field Companion Lpbandk/internal/json/JsonMessageDecoder$Companion;
+	public fun <init> (Lkotlinx/serialization/json/JsonElement;Lpbandk/json/JsonConfig;)V
+	public fun readMessage (Lpbandk/Message$Companion;Lkotlin/jvm/functions/Function2;)Ljava/util/Map;
+}
+
+public final class pbandk/internal/json/JsonMessageDecoder$Companion {
+	public final fun fromString (Ljava/lang/String;Lpbandk/json/JsonConfig;)Lpbandk/internal/json/JsonMessageDecoder;
+	public static synthetic fun fromString$default (Lpbandk/internal/json/JsonMessageDecoder$Companion;Ljava/lang/String;Lpbandk/json/JsonConfig;ILjava/lang/Object;)Lpbandk/internal/json/JsonMessageDecoder;
+}
+
+public final class pbandk/internal/json/JsonMessageDecoderKt {
+}
+
+public final class pbandk/internal/json/JsonMessageEncoder : pbandk/MessageEncoder {
+	public fun <init> (Lpbandk/json/JsonConfig;)V
+	public final fun toJsonElement$runtime ()Lkotlinx/serialization/json/JsonElement;
+	public final fun toJsonString ()Ljava/lang/String;
+	public fun writeMessage (Lpbandk/Message;)V
+}
+
+public final class pbandk/internal/json/JsonValueDecoder {
+	public static final field Companion Lpbandk/internal/json/JsonValueDecoder$Companion;
+	public fun <init> (Lpbandk/json/JsonConfig;)V
+	public final fun readBool (Lkotlinx/serialization/json/JsonElement;Z)Z
+	public static synthetic fun readBool$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)Z
+	public final fun readBytes (Lkotlinx/serialization/json/JsonElement;)Lpbandk/ByteArr;
+	public final fun readDouble (Lkotlinx/serialization/json/JsonElement;)D
+	public final fun readDynamicListValue (Lkotlinx/serialization/json/JsonElement;)Lpbandk/wkt/ListValue;
+	public final fun readDynamicValue (Lkotlinx/serialization/json/JsonElement;)Lpbandk/wkt/Value;
+	public final fun readEnum (Lkotlinx/serialization/json/JsonElement;Lpbandk/Message$Enum$Companion;)Lpbandk/Message$Enum;
+	public final fun readFloat (Lkotlinx/serialization/json/JsonElement;)F
+	public final fun readInteger32 (Lkotlinx/serialization/json/JsonElement;Z)I
+	public static synthetic fun readInteger32$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)I
+	public final fun readInteger64 (Lkotlinx/serialization/json/JsonElement;Z)J
+	public static synthetic fun readInteger64$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)J
+	public final fun readMap (Lkotlinx/serialization/json/JsonElement;Lpbandk/FieldDescriptor$Type$Map;)Lkotlin/sequences/Sequence;
+	public final fun readMessage (Lkotlinx/serialization/json/JsonElement;Lpbandk/Message$Companion;)Lpbandk/Message;
+	public final fun readRepeated (Lkotlinx/serialization/json/JsonElement;Lpbandk/FieldDescriptor$Type;)Lkotlin/sequences/Sequence;
+	public final fun readString (Lkotlinx/serialization/json/JsonElement;Z)Ljava/lang/String;
+	public static synthetic fun readString$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)Ljava/lang/String;
+	public final fun readStruct (Lkotlinx/serialization/json/JsonElement;)Lpbandk/wkt/Struct;
+	public final fun readUnsignedInteger32 (Lkotlinx/serialization/json/JsonElement;Z)I
+	public static synthetic fun readUnsignedInteger32$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)I
+	public final fun readUnsignedInteger64 (Lkotlinx/serialization/json/JsonElement;Z)J
+	public static synthetic fun readUnsignedInteger64$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;ZILjava/lang/Object;)J
+	public final fun readValue (Lkotlinx/serialization/json/JsonElement;Lpbandk/FieldDescriptor$Type;Z)Ljava/lang/Object;
+	public static synthetic fun readValue$default (Lpbandk/internal/json/JsonValueDecoder;Lkotlinx/serialization/json/JsonElement;Lpbandk/FieldDescriptor$Type;ZILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class pbandk/internal/json/JsonValueDecoder$Companion {
+}
+
+public final class pbandk/internal/json/JsonValueEncoder {
+	public fun <init> (Lpbandk/json/JsonConfig;)V
+	public final fun writeBool (Z)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeBytes (Lpbandk/ByteArr;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeDouble (D)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeDynamicValue (Lpbandk/wkt/Value;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeEnum (Lpbandk/Message$Enum;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeFloat (F)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeInteger32 (I)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeInteger64 (J)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeMap (Ljava/util/Map;Lpbandk/FieldDescriptor$Type;Lpbandk/FieldDescriptor$Type;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeMessage (Lpbandk/Message;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeRepeated (Ljava/util/List;Lpbandk/FieldDescriptor$Type;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeString (Ljava/lang/String;)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeUnsignedInteger32 (I)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeUnsignedInteger64 (J)Lkotlinx/serialization/json/JsonElement;
+	public final fun writeValue (Ljava/lang/Object;Lpbandk/FieldDescriptor$Type;)Lkotlinx/serialization/json/JsonElement;
 }
 
 public final class pbandk/json/JsonConfig {
@@ -376,6 +880,7 @@ public final class pbandk/json/JsonConfig {
 	public static synthetic fun copy$default (Lpbandk/json/JsonConfig;ZZZZZILjava/lang/Object;)Lpbandk/json/JsonConfig;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCompactOutput ()Z
+	public final fun getFieldJsonName$runtime (Lpbandk/FieldDescriptor;)Ljava/lang/String;
 	public final fun getIgnoreUnknownFieldsInInput ()Z
 	public final fun getOutputDefaultStringsAsNull ()Z
 	public final fun getOutputDefaultValues ()Z
@@ -1045,6 +1550,7 @@ public final class pbandk/wkt/Field : pbandk/Message {
 
 public abstract class pbandk/wkt/Field$Cardinality : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Field$Cardinality$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1090,6 +1596,7 @@ public final class pbandk/wkt/Field$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/Field$Kind : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Field$Kind$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1235,6 +1742,7 @@ public final class pbandk/wkt/FieldDescriptorProto$Companion : pbandk/Message$Co
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Label : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldDescriptorProto$Label$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1269,6 +1777,7 @@ public final class pbandk/wkt/FieldDescriptorProto$Label$UNRECOGNIZED : pbandk/w
 
 public abstract class pbandk/wkt/FieldDescriptorProto$Type : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldDescriptorProto$Type$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1424,6 +1933,7 @@ public final class pbandk/wkt/FieldOptions : pbandk/ExtendableMessage {
 
 public abstract class pbandk/wkt/FieldOptions$CType : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldOptions$CType$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1465,6 +1975,7 @@ public final class pbandk/wkt/FieldOptions$Companion : pbandk/Message$Companion 
 
 public abstract class pbandk/wkt/FieldOptions$JSType : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FieldOptions$JSType$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1648,6 +2159,7 @@ public final class pbandk/wkt/FileOptions$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/FileOptions$OptimizeMode : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/FileOptions$OptimizeMode$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -1996,6 +2508,7 @@ public final class pbandk/wkt/MethodOptions$Companion : pbandk/Message$Companion
 
 public abstract class pbandk/wkt/MethodOptions$IdempotencyLevel : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/MethodOptions$IdempotencyLevel$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -2059,6 +2572,7 @@ public final class pbandk/wkt/Mixin$Companion : pbandk/Message$Companion {
 
 public abstract class pbandk/wkt/NullValue : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/NullValue$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;
@@ -2421,6 +2935,7 @@ public final class pbandk/wkt/StructKt {
 
 public abstract class pbandk/wkt/Syntax : pbandk/Message$Enum {
 	public static final field Companion Lpbandk/wkt/Syntax$Companion;
+	public synthetic fun <init> (ILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (ILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getName ()Ljava/lang/String;

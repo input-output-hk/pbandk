@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -130,6 +131,10 @@ android {
 val extractWellKnownTypeProtos = rootProject.tasks.named<Sync>("extractWellKnownTypeProtos")
 
 tasks {
+    withType<KotlinJvmCompile> {
+        kotlinOptions.useOldBackend = true
+    }
+
     val generateWellKnownTypes by registering(KotlinProtocTask::class) {
         includeDir.set(layout.dir(extractWellKnownTypeProtos.map { it.destinationDir }))
         outputDir.set(project.file("src/commonMain/kotlin"))
