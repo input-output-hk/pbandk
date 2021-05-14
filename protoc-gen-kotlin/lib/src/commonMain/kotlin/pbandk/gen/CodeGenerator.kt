@@ -50,6 +50,7 @@ open class CodeGenerator(
                 }
                 line(")")
             }
+            is File.Field.OneOf -> error("Got unexpected oneof extension field")
         }
     }
 
@@ -67,7 +68,7 @@ open class CodeGenerator(
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line().line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
-                line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
+                line("override fun equals(other: kotlin.Any?) = other is $typeName && other.value == value")
                 line("override fun hashCode() = value.hashCode()")
                 line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
@@ -425,9 +426,9 @@ open class CodeGenerator(
             else parent.nestedTypes to protoName
         // Go deeper if there's a dot
         typeName.indexOf('.').let {
-            if (it == -1) return lookIn.find { it.name == typeName }
+            if (it == -1) return lookIn.find { type -> type.name == typeName }
             return findLocalType(typeName.substring(it + 1), typeName.substring(0, it).let { parentTypeName ->
-                lookIn.find { it.name == parentTypeName } as? File.Type.Message
+                lookIn.find { type -> type.name == parentTypeName } as? File.Type.Message
             } ?: return null)
         }
     }
@@ -481,7 +482,7 @@ open class CodeGenerator(
                 repeated -> "Repeated<$kotlinQualifiedTypeName>(valueType = ${copy(repeated = false).fieldDescriptorType()}${if (packed) ", packed = true" else ""})"
                 type == File.Field.Type.MESSAGE -> "Message(messageCompanion = $kotlinQualifiedTypeName.Companion)"
                 type == File.Field.Type.ENUM -> "Enum(enumCompanion = $kotlinQualifiedTypeName.Companion" + (if (hasPresence || isOneOfMember) ", hasPresence = true" else "") + ")"
-                else -> "Primitive.${type.string.capitalize()}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
+                else -> "Primitive.${type.string.replaceFirstChar { it.titlecase() }}(" + (if (hasPresence || isOneOfMember) "hasPresence = true" else "") + ")"
             }
             is File.Field.Numbered.Wrapper -> when {
                 repeated -> "Repeated<${wrappedType.standardTypeName}>(valueType = ${copy(repeated = false).fieldDescriptorType()})"
@@ -511,10 +512,11 @@ open class CodeGenerator(
             else -> "var $kotlinFieldName = $defaultValue"
         }
     protected val File.Field.Numbered.Standard.decodeWithVarDone
-        get() =
-            if (map) "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
-            else if (repeated) "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
-            else kotlinFieldName
+        get() = when {
+            map -> "pbandk.MessageMap.Builder.fixed($kotlinFieldName)"
+            repeated -> "pbandk.ListWithSize.Builder.fixed($kotlinFieldName)"
+            else -> kotlinFieldName
+        }
 
     protected fun File.Field.Numbered.Standard.kotlinValueType(nullableIfMessage: Boolean): String = when {
         map -> mapEntry()!!.let { "Map<${it.mapEntryKeyKotlinType}, ${it.mapEntryValueKotlinType}>" }
