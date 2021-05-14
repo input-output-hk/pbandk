@@ -41,7 +41,7 @@ sealed class TestCategory(override val value: Int, override val name: String? = 
     }
 }
 
-interface FailureSet : pbandk.Message {
+sealed interface FailureSet : pbandk.Message {
     val failure: List<String>
 
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.FailureSet
@@ -82,7 +82,7 @@ interface FailureSet : pbandk.Message {
     }
 }
 
-interface ConformanceRequest : pbandk.Message {
+sealed interface ConformanceRequest : pbandk.Message {
     val requestedOutputFormat: pbandk.conformance.pb.WireFormat
     val messageType: String
     val testCategory: pbandk.conformance.pb.TestCategory
@@ -234,7 +234,7 @@ interface ConformanceRequest : pbandk.Message {
     }
 }
 
-interface ConformanceResponse : pbandk.Message {
+sealed interface ConformanceResponse : pbandk.Message {
     val result: Result<*>?
 
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ConformanceResponse
@@ -373,7 +373,7 @@ interface ConformanceResponse : pbandk.Message {
     }
 }
 
-interface JspbEncodingConfig : pbandk.Message {
+sealed interface JspbEncodingConfig : pbandk.Message {
     val useJspbArrayAnyFormat: Boolean
 
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.JspbEncodingConfig

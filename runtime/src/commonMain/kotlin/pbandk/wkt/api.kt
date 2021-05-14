@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface Api : pbandk.Message {
+sealed interface Api : pbandk.Message {
     val name: String
     val methods: List<pbandk.wkt.Method>
     val options: List<pbandk.wkt.Option>
@@ -121,7 +121,7 @@ interface Api : pbandk.Message {
     }
 }
 
-interface Method : pbandk.Message {
+sealed interface Method : pbandk.Message {
     val name: String
     val requestTypeUrl: String
     val requestStreaming: Boolean
@@ -240,7 +240,7 @@ interface Method : pbandk.Message {
     }
 }
 
-interface Mixin : pbandk.Message {
+sealed interface Mixin : pbandk.Message {
     val name: String
     val root: String
 

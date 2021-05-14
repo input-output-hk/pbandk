@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface Duration : pbandk.Message {
+sealed interface Duration : pbandk.Message {
     val seconds: Long
     val nanos: Int
 

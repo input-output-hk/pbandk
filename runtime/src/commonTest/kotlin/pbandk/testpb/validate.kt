@@ -19,7 +19,7 @@ sealed class KnownRegex(override val value: Int, override val name: String? = nu
     }
 }
 
-interface FieldRules : pbandk.Message {
+sealed interface FieldRules : pbandk.Message {
     val message: pbandk.testpb.MessageRules?
     val type: Type<*>?
 
@@ -340,7 +340,7 @@ interface FieldRules : pbandk.Message {
     }
 }
 
-interface FloatRules : pbandk.Message {
+sealed interface FloatRules : pbandk.Message {
     val const: Float?
     val lt: Float?
     val lte: Float?
@@ -459,7 +459,7 @@ interface FloatRules : pbandk.Message {
     }
 }
 
-interface DoubleRules : pbandk.Message {
+sealed interface DoubleRules : pbandk.Message {
     val const: Double?
     val lt: Double?
     val lte: Double?
@@ -578,7 +578,7 @@ interface DoubleRules : pbandk.Message {
     }
 }
 
-interface Int32Rules : pbandk.Message {
+sealed interface Int32Rules : pbandk.Message {
     val const: Int?
     val lt: Int?
     val lte: Int?
@@ -697,7 +697,7 @@ interface Int32Rules : pbandk.Message {
     }
 }
 
-interface Int64Rules : pbandk.Message {
+sealed interface Int64Rules : pbandk.Message {
     val const: Long?
     val lt: Long?
     val lte: Long?
@@ -816,7 +816,7 @@ interface Int64Rules : pbandk.Message {
     }
 }
 
-interface UInt32Rules : pbandk.Message {
+sealed interface UInt32Rules : pbandk.Message {
     val const: Int?
     val lt: Int?
     val lte: Int?
@@ -935,7 +935,7 @@ interface UInt32Rules : pbandk.Message {
     }
 }
 
-interface UInt64Rules : pbandk.Message {
+sealed interface UInt64Rules : pbandk.Message {
     val const: Long?
     val lt: Long?
     val lte: Long?
@@ -1054,7 +1054,7 @@ interface UInt64Rules : pbandk.Message {
     }
 }
 
-interface SInt32Rules : pbandk.Message {
+sealed interface SInt32Rules : pbandk.Message {
     val const: Int?
     val lt: Int?
     val lte: Int?
@@ -1173,7 +1173,7 @@ interface SInt32Rules : pbandk.Message {
     }
 }
 
-interface SInt64Rules : pbandk.Message {
+sealed interface SInt64Rules : pbandk.Message {
     val const: Long?
     val lt: Long?
     val lte: Long?
@@ -1292,7 +1292,7 @@ interface SInt64Rules : pbandk.Message {
     }
 }
 
-interface Fixed32Rules : pbandk.Message {
+sealed interface Fixed32Rules : pbandk.Message {
     val const: Int?
     val lt: Int?
     val lte: Int?
@@ -1411,7 +1411,7 @@ interface Fixed32Rules : pbandk.Message {
     }
 }
 
-interface Fixed64Rules : pbandk.Message {
+sealed interface Fixed64Rules : pbandk.Message {
     val const: Long?
     val lt: Long?
     val lte: Long?
@@ -1530,7 +1530,7 @@ interface Fixed64Rules : pbandk.Message {
     }
 }
 
-interface SFixed32Rules : pbandk.Message {
+sealed interface SFixed32Rules : pbandk.Message {
     val const: Int?
     val lt: Int?
     val lte: Int?
@@ -1649,7 +1649,7 @@ interface SFixed32Rules : pbandk.Message {
     }
 }
 
-interface SFixed64Rules : pbandk.Message {
+sealed interface SFixed64Rules : pbandk.Message {
     val const: Long?
     val lt: Long?
     val lte: Long?
@@ -1768,7 +1768,7 @@ interface SFixed64Rules : pbandk.Message {
     }
 }
 
-interface BoolRules : pbandk.Message {
+sealed interface BoolRules : pbandk.Message {
     val const: Boolean?
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.BoolRules
@@ -1809,7 +1809,7 @@ interface BoolRules : pbandk.Message {
     }
 }
 
-interface StringRules : pbandk.Message {
+sealed interface StringRules : pbandk.Message {
     val const: String?
     val len: Long?
     val minLen: Long?
@@ -2169,7 +2169,7 @@ interface StringRules : pbandk.Message {
     }
 }
 
-interface BytesRules : pbandk.Message {
+sealed interface BytesRules : pbandk.Message {
     val const: pbandk.ByteArr?
     val len: Long?
     val minLen: Long?
@@ -2373,7 +2373,7 @@ interface BytesRules : pbandk.Message {
     }
 }
 
-interface EnumRules : pbandk.Message {
+sealed interface EnumRules : pbandk.Message {
     val const: Int?
     val definedOnly: Boolean?
     val `in`: List<Int>
@@ -2453,7 +2453,7 @@ interface EnumRules : pbandk.Message {
     }
 }
 
-interface MessageRules : pbandk.Message {
+sealed interface MessageRules : pbandk.Message {
     val skip: Boolean?
     val required: Boolean?
 
@@ -2507,7 +2507,7 @@ interface MessageRules : pbandk.Message {
     }
 }
 
-interface RepeatedRules : pbandk.Message {
+sealed interface RepeatedRules : pbandk.Message {
     val minItems: Long?
     val maxItems: Long?
     val unique: Boolean?
@@ -2587,7 +2587,7 @@ interface RepeatedRules : pbandk.Message {
     }
 }
 
-interface MapRules : pbandk.Message {
+sealed interface MapRules : pbandk.Message {
     val minPairs: Long?
     val maxPairs: Long?
     val noSparse: Boolean?
@@ -2680,7 +2680,7 @@ interface MapRules : pbandk.Message {
     }
 }
 
-interface AnyRules : pbandk.Message {
+sealed interface AnyRules : pbandk.Message {
     val required: Boolean?
     val `in`: List<String>
     val notIn: List<String>
@@ -2747,7 +2747,7 @@ interface AnyRules : pbandk.Message {
     }
 }
 
-interface DurationRules : pbandk.Message {
+sealed interface DurationRules : pbandk.Message {
     val required: Boolean?
     val const: pbandk.wkt.Duration?
     val lt: pbandk.wkt.Duration?
@@ -2879,7 +2879,7 @@ interface DurationRules : pbandk.Message {
     }
 }
 
-interface TimestampRules : pbandk.Message {
+sealed interface TimestampRules : pbandk.Message {
     val required: Boolean?
     val const: pbandk.wkt.Timestamp?
     val lt: pbandk.wkt.Timestamp?

@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface FieldMask : pbandk.Message {
+sealed interface FieldMask : pbandk.Message {
     val paths: List<String>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FieldMask

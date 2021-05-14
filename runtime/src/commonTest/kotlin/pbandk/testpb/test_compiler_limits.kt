@@ -1017,7 +1017,7 @@ sealed class HugeEnum(override val value: Int, override val name: String? = null
     }
 }
 
-interface MessageWithLotsOfFields : pbandk.Message {
+sealed interface MessageWithLotsOfFields : pbandk.Message {
     val field1000: String
     val field1001: String
     val field1002: String
@@ -14068,7 +14068,7 @@ interface MessageWithLotsOfFields : pbandk.Message {
     }
 }
 
-interface MessageWithHugeOneof : pbandk.Message {
+sealed interface MessageWithHugeOneof : pbandk.Message {
     val hugeOneof: HugeOneof<*>?
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithHugeOneof

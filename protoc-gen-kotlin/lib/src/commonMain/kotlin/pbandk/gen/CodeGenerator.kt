@@ -96,7 +96,7 @@ open class CodeGenerator(
 
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
-        line().line("interface ${type.kotlinTypeName} : $messageInterface {").indented {
+        line().line("sealed interface ${type.kotlinTypeName} : $messageInterface {").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
 
             type.fields.forEach { field ->

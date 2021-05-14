@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface FileDescriptorSet : pbandk.Message {
+sealed interface FileDescriptorSet : pbandk.Message {
     val file: List<pbandk.wkt.FileDescriptorProto>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FileDescriptorSet
@@ -43,7 +43,7 @@ interface FileDescriptorSet : pbandk.Message {
     }
 }
 
-interface FileDescriptorProto : pbandk.Message {
+sealed interface FileDescriptorProto : pbandk.Message {
     val name: String?
     val `package`: String?
     val dependency: List<String>
@@ -227,7 +227,7 @@ interface FileDescriptorProto : pbandk.Message {
     }
 }
 
-interface DescriptorProto : pbandk.Message {
+sealed interface DescriptorProto : pbandk.Message {
     val name: String?
     val field: List<pbandk.wkt.FieldDescriptorProto>
     val extension: List<pbandk.wkt.FieldDescriptorProto>
@@ -384,7 +384,7 @@ interface DescriptorProto : pbandk.Message {
         }
     }
 
-    interface ExtensionRange : pbandk.Message {
+    sealed interface ExtensionRange : pbandk.Message {
         val start: Int?
         val end: Int?
         val options: pbandk.wkt.ExtensionRangeOptions?
@@ -451,7 +451,7 @@ interface DescriptorProto : pbandk.Message {
         }
     }
 
-    interface ReservedRange : pbandk.Message {
+    sealed interface ReservedRange : pbandk.Message {
         val start: Int?
         val end: Int?
 
@@ -506,7 +506,7 @@ interface DescriptorProto : pbandk.Message {
     }
 }
 
-interface ExtensionRangeOptions : pbandk.ExtendableMessage {
+sealed interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ExtensionRangeOptions
@@ -547,7 +547,7 @@ interface ExtensionRangeOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface FieldDescriptorProto : pbandk.Message {
+sealed interface FieldDescriptorProto : pbandk.Message {
     val name: String?
     val number: Int?
     val label: pbandk.wkt.FieldDescriptorProto.Label?
@@ -767,7 +767,7 @@ interface FieldDescriptorProto : pbandk.Message {
     }
 }
 
-interface OneofDescriptorProto : pbandk.Message {
+sealed interface OneofDescriptorProto : pbandk.Message {
     val name: String?
     val options: pbandk.wkt.OneofOptions?
 
@@ -821,7 +821,7 @@ interface OneofDescriptorProto : pbandk.Message {
     }
 }
 
-interface EnumDescriptorProto : pbandk.Message {
+sealed interface EnumDescriptorProto : pbandk.Message {
     val name: String?
     val value: List<pbandk.wkt.EnumValueDescriptorProto>
     val options: pbandk.wkt.EnumOptions?
@@ -913,7 +913,7 @@ interface EnumDescriptorProto : pbandk.Message {
         }
     }
 
-    interface EnumReservedRange : pbandk.Message {
+    sealed interface EnumReservedRange : pbandk.Message {
         val start: Int?
         val end: Int?
 
@@ -968,7 +968,7 @@ interface EnumDescriptorProto : pbandk.Message {
     }
 }
 
-interface EnumValueDescriptorProto : pbandk.Message {
+sealed interface EnumValueDescriptorProto : pbandk.Message {
     val name: String?
     val number: Int?
     val options: pbandk.wkt.EnumValueOptions?
@@ -1035,7 +1035,7 @@ interface EnumValueDescriptorProto : pbandk.Message {
     }
 }
 
-interface ServiceDescriptorProto : pbandk.Message {
+sealed interface ServiceDescriptorProto : pbandk.Message {
     val name: String?
     val method: List<pbandk.wkt.MethodDescriptorProto>
     val options: pbandk.wkt.ServiceOptions?
@@ -1102,7 +1102,7 @@ interface ServiceDescriptorProto : pbandk.Message {
     }
 }
 
-interface MethodDescriptorProto : pbandk.Message {
+sealed interface MethodDescriptorProto : pbandk.Message {
     val name: String?
     val inputType: String?
     val outputType: String?
@@ -1208,7 +1208,7 @@ interface MethodDescriptorProto : pbandk.Message {
     }
 }
 
-interface FileOptions : pbandk.ExtendableMessage {
+sealed interface FileOptions : pbandk.ExtendableMessage {
     val javaPackage: String?
     val javaOuterClassname: String?
     val javaMultipleFiles: Boolean?
@@ -1529,7 +1529,7 @@ interface FileOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface MessageOptions : pbandk.ExtendableMessage {
+sealed interface MessageOptions : pbandk.ExtendableMessage {
     val messageSetWireFormat: Boolean?
     val noStandardDescriptorAccessor: Boolean?
     val deprecated: Boolean?
@@ -1622,7 +1622,7 @@ interface MessageOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface FieldOptions : pbandk.ExtendableMessage {
+sealed interface FieldOptions : pbandk.ExtendableMessage {
     val ctype: pbandk.wkt.FieldOptions.CType?
     val packed: Boolean?
     val jstype: pbandk.wkt.FieldOptions.JSType?
@@ -1775,7 +1775,7 @@ interface FieldOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface OneofOptions : pbandk.ExtendableMessage {
+sealed interface OneofOptions : pbandk.ExtendableMessage {
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.OneofOptions
@@ -1816,7 +1816,7 @@ interface OneofOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface EnumOptions : pbandk.ExtendableMessage {
+sealed interface EnumOptions : pbandk.ExtendableMessage {
     val allowAlias: Boolean?
     val deprecated: Boolean?
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -1883,7 +1883,7 @@ interface EnumOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface EnumValueOptions : pbandk.ExtendableMessage {
+sealed interface EnumValueOptions : pbandk.ExtendableMessage {
     val deprecated: Boolean?
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -1937,7 +1937,7 @@ interface EnumValueOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface ServiceOptions : pbandk.ExtendableMessage {
+sealed interface ServiceOptions : pbandk.ExtendableMessage {
     val deprecated: Boolean?
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
 
@@ -1991,7 +1991,7 @@ interface ServiceOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface MethodOptions : pbandk.ExtendableMessage {
+sealed interface MethodOptions : pbandk.ExtendableMessage {
     val deprecated: Boolean?
     val idempotencyLevel: pbandk.wkt.MethodOptions.IdempotencyLevel?
     val uninterpretedOption: List<pbandk.wkt.UninterpretedOption>
@@ -2075,7 +2075,7 @@ interface MethodOptions : pbandk.ExtendableMessage {
     }
 }
 
-interface UninterpretedOption : pbandk.Message {
+sealed interface UninterpretedOption : pbandk.Message {
     val name: List<pbandk.wkt.UninterpretedOption.NamePart>
     val identifierValue: String?
     val positiveIntValue: Long?
@@ -2193,7 +2193,7 @@ interface UninterpretedOption : pbandk.Message {
         }
     }
 
-    interface NamePart : pbandk.Message {
+    sealed interface NamePart : pbandk.Message {
         val namePart: String
         val isExtension: Boolean
 
@@ -2248,7 +2248,7 @@ interface UninterpretedOption : pbandk.Message {
     }
 }
 
-interface SourceCodeInfo : pbandk.Message {
+sealed interface SourceCodeInfo : pbandk.Message {
     val location: List<pbandk.wkt.SourceCodeInfo.Location>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceCodeInfo
@@ -2288,7 +2288,7 @@ interface SourceCodeInfo : pbandk.Message {
         }
     }
 
-    interface Location : pbandk.Message {
+    sealed interface Location : pbandk.Message {
         val path: List<Int>
         val span: List<Int>
         val leadingComments: String?
@@ -2382,7 +2382,7 @@ interface SourceCodeInfo : pbandk.Message {
     }
 }
 
-interface GeneratedCodeInfo : pbandk.Message {
+sealed interface GeneratedCodeInfo : pbandk.Message {
     val annotation: List<pbandk.wkt.GeneratedCodeInfo.Annotation>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.GeneratedCodeInfo
@@ -2422,7 +2422,7 @@ interface GeneratedCodeInfo : pbandk.Message {
         }
     }
 
-    interface Annotation : pbandk.Message {
+    sealed interface Annotation : pbandk.Message {
         val path: List<Int>
         val sourceFile: String?
         val begin: Int?

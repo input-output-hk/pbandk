@@ -2,7 +2,7 @@
 
 package pbandk.testpb
 
-interface Foo : pbandk.Message {
+sealed interface Foo : pbandk.Message {
     val `val`: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Foo
@@ -43,7 +43,7 @@ interface Foo : pbandk.Message {
     }
 }
 
-interface Bar : pbandk.Message {
+sealed interface Bar : pbandk.Message {
     val foos: List<pbandk.testpb.Foo>
     val singleFoo: pbandk.testpb.Foo?
 
@@ -97,7 +97,7 @@ interface Bar : pbandk.Message {
     }
 }
 
-interface MessageWithMap : pbandk.Message {
+sealed interface MessageWithMap : pbandk.Message {
     val map: Map<String, String>
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MessageWithMap
@@ -137,7 +137,7 @@ interface MessageWithMap : pbandk.Message {
         }
     }
 
-    interface MapEntry : pbandk.Message, Map.Entry<String, String> {
+    sealed interface MapEntry : pbandk.Message, Map.Entry<String, String> {
         override val key: String
         override val value: String
 
@@ -192,7 +192,7 @@ interface MessageWithMap : pbandk.Message {
     }
 }
 
-interface FooMap : pbandk.Message {
+sealed interface FooMap : pbandk.Message {
     val map: Map<String, pbandk.testpb.Foo?>
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMap
@@ -232,7 +232,7 @@ interface FooMap : pbandk.Message {
         }
     }
 
-    interface MapEntry : pbandk.Message, Map.Entry<String, pbandk.testpb.Foo?> {
+    sealed interface MapEntry : pbandk.Message, Map.Entry<String, pbandk.testpb.Foo?> {
         override val key: String
         override val value: pbandk.testpb.Foo?
 
@@ -287,7 +287,7 @@ interface FooMap : pbandk.Message {
     }
 }
 
-interface FooMapEntries : pbandk.Message {
+sealed interface FooMapEntries : pbandk.Message {
     val map: List<pbandk.testpb.FooMapEntries.MapEntry>
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.FooMapEntries
@@ -327,7 +327,7 @@ interface FooMapEntries : pbandk.Message {
         }
     }
 
-    interface MapEntry : pbandk.Message {
+    sealed interface MapEntry : pbandk.Message {
         val key: String
         val value: pbandk.testpb.Foo?
 
@@ -382,7 +382,7 @@ interface FooMapEntries : pbandk.Message {
     }
 }
 
-interface Wrappers : pbandk.Message {
+sealed interface Wrappers : pbandk.Message {
     val stringValue: String?
     val uint64Values: List<Long>
 

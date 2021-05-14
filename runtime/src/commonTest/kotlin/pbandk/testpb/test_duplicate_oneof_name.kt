@@ -2,7 +2,7 @@
 
 package pbandk.testpb
 
-interface Value : pbandk.Message {
+sealed interface Value : pbandk.Message {
     val value: Value<*>?
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.Value

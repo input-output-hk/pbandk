@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface SourceContext : pbandk.Message {
+sealed interface SourceContext : pbandk.Message {
     val fileName: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.SourceContext

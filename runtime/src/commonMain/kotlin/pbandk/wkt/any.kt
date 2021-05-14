@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface Any : pbandk.Message {
+sealed interface Any : pbandk.Message {
     val typeUrl: String
     val value: pbandk.ByteArr
 

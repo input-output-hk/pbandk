@@ -2,7 +2,7 @@
 
 package pbandk.testpb
 
-interface SingleRequiredCustomOption : pbandk.Message {
+sealed interface SingleRequiredCustomOption : pbandk.Message {
     val single: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.SingleRequiredCustomOption
@@ -53,7 +53,7 @@ interface SingleRequiredCustomOption : pbandk.Message {
     }
 }
 
-interface MultipleCustomOptions : pbandk.Message {
+sealed interface MultipleCustomOptions : pbandk.Message {
     val multiple: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptions
@@ -105,7 +105,7 @@ interface MultipleCustomOptions : pbandk.Message {
     }
 }
 
-interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
+sealed interface MultipleCustomOptionsPlusDeprecated : pbandk.Message {
     val multipleDeprecated: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.testpb.MultipleCustomOptionsPlusDeprecated

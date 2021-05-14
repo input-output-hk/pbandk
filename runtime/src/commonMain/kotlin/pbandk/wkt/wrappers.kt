@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface DoubleValue : pbandk.Message {
+sealed interface DoubleValue : pbandk.Message {
     val value: Double
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.DoubleValue
@@ -43,7 +43,7 @@ interface DoubleValue : pbandk.Message {
     }
 }
 
-interface FloatValue : pbandk.Message {
+sealed interface FloatValue : pbandk.Message {
     val value: Float
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.FloatValue
@@ -84,7 +84,7 @@ interface FloatValue : pbandk.Message {
     }
 }
 
-interface Int64Value : pbandk.Message {
+sealed interface Int64Value : pbandk.Message {
     val value: Long
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Int64Value
@@ -125,7 +125,7 @@ interface Int64Value : pbandk.Message {
     }
 }
 
-interface UInt64Value : pbandk.Message {
+sealed interface UInt64Value : pbandk.Message {
     val value: Long
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.UInt64Value
@@ -166,7 +166,7 @@ interface UInt64Value : pbandk.Message {
     }
 }
 
-interface Int32Value : pbandk.Message {
+sealed interface Int32Value : pbandk.Message {
     val value: Int
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Int32Value
@@ -207,7 +207,7 @@ interface Int32Value : pbandk.Message {
     }
 }
 
-interface UInt32Value : pbandk.Message {
+sealed interface UInt32Value : pbandk.Message {
     val value: Int
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.UInt32Value
@@ -248,7 +248,7 @@ interface UInt32Value : pbandk.Message {
     }
 }
 
-interface BoolValue : pbandk.Message {
+sealed interface BoolValue : pbandk.Message {
     val value: Boolean
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.BoolValue
@@ -289,7 +289,7 @@ interface BoolValue : pbandk.Message {
     }
 }
 
-interface StringValue : pbandk.Message {
+sealed interface StringValue : pbandk.Message {
     val value: String
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.StringValue
@@ -330,7 +330,7 @@ interface StringValue : pbandk.Message {
     }
 }
 
-interface BytesValue : pbandk.Message {
+sealed interface BytesValue : pbandk.Message {
     val value: pbandk.ByteArr
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.BytesValue

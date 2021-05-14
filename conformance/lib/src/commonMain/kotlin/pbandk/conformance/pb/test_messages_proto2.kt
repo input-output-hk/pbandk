@@ -19,7 +19,7 @@ sealed class ForeignEnumProto2(override val value: Int, override val name: Strin
     }
 }
 
-interface TestAllTypesProto2 : pbandk.ExtendableMessage {
+sealed interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     val optionalInt32: Int?
     val optionalInt64: Long?
     val optionalUint32: Int?
@@ -1592,7 +1592,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface NestedMessage : pbandk.Message {
+    sealed interface NestedMessage : pbandk.Message {
         val a: Int?
         val corecursive: pbandk.conformance.pb.TestAllTypesProto2?
 
@@ -1646,7 +1646,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapInt32Int32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
+    sealed interface MapInt32Int32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
         override val key: Int?
         override val value: Int?
 
@@ -1700,7 +1700,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapInt64Int64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
+    sealed interface MapInt64Int64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
         override val key: Long?
         override val value: Long?
 
@@ -1754,7 +1754,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapUint32Uint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
+    sealed interface MapUint32Uint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
         override val key: Int?
         override val value: Int?
 
@@ -1808,7 +1808,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapUint64Uint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
+    sealed interface MapUint64Uint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
         override val key: Long?
         override val value: Long?
 
@@ -1862,7 +1862,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapSint32Sint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
+    sealed interface MapSint32Sint32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
         override val key: Int?
         override val value: Int?
 
@@ -1916,7 +1916,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapSint64Sint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
+    sealed interface MapSint64Sint64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
         override val key: Long?
         override val value: Long?
 
@@ -1970,7 +1970,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapFixed32Fixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
+    sealed interface MapFixed32Fixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
         override val key: Int?
         override val value: Int?
 
@@ -2024,7 +2024,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapFixed64Fixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
+    sealed interface MapFixed64Fixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
         override val key: Long?
         override val value: Long?
 
@@ -2078,7 +2078,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapSfixed32Sfixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
+    sealed interface MapSfixed32Sfixed32Entry : pbandk.Message, Map.Entry<Int?, Int?> {
         override val key: Int?
         override val value: Int?
 
@@ -2132,7 +2132,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapSfixed64Sfixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
+    sealed interface MapSfixed64Sfixed64Entry : pbandk.Message, Map.Entry<Long?, Long?> {
         override val key: Long?
         override val value: Long?
 
@@ -2186,7 +2186,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapInt32FloatEntry : pbandk.Message, Map.Entry<Int?, Float?> {
+    sealed interface MapInt32FloatEntry : pbandk.Message, Map.Entry<Int?, Float?> {
         override val key: Int?
         override val value: Float?
 
@@ -2240,7 +2240,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapInt32DoubleEntry : pbandk.Message, Map.Entry<Int?, Double?> {
+    sealed interface MapInt32DoubleEntry : pbandk.Message, Map.Entry<Int?, Double?> {
         override val key: Int?
         override val value: Double?
 
@@ -2294,7 +2294,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapBoolBoolEntry : pbandk.Message, Map.Entry<Boolean?, Boolean?> {
+    sealed interface MapBoolBoolEntry : pbandk.Message, Map.Entry<Boolean?, Boolean?> {
         override val key: Boolean?
         override val value: Boolean?
 
@@ -2348,7 +2348,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringStringEntry : pbandk.Message, Map.Entry<String?, String?> {
+    sealed interface MapStringStringEntry : pbandk.Message, Map.Entry<String?, String?> {
         override val key: String?
         override val value: String?
 
@@ -2402,7 +2402,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringBytesEntry : pbandk.Message, Map.Entry<String?, pbandk.ByteArr?> {
+    sealed interface MapStringBytesEntry : pbandk.Message, Map.Entry<String?, pbandk.ByteArr?> {
         override val key: String?
         override val value: pbandk.ByteArr?
 
@@ -2456,7 +2456,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringNestedMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> {
+    sealed interface MapStringNestedMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?> {
         override val key: String?
         override val value: pbandk.conformance.pb.TestAllTypesProto2.NestedMessage?
 
@@ -2510,7 +2510,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringForeignMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignMessageProto2?> {
+    sealed interface MapStringForeignMessageEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignMessageProto2?> {
         override val key: String?
         override val value: pbandk.conformance.pb.ForeignMessageProto2?
 
@@ -2564,7 +2564,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringNestedEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> {
+    sealed interface MapStringNestedEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?> {
         override val key: String?
         override val value: pbandk.conformance.pb.TestAllTypesProto2.NestedEnum?
 
@@ -2618,7 +2618,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MapStringForeignEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignEnumProto2?> {
+    sealed interface MapStringForeignEnumEntry : pbandk.Message, Map.Entry<String?, pbandk.conformance.pb.ForeignEnumProto2?> {
         override val key: String?
         override val value: pbandk.conformance.pb.ForeignEnumProto2?
 
@@ -2672,7 +2672,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface Data : pbandk.Message {
+    sealed interface Data : pbandk.Message {
         val groupInt32: Int?
         val groupUint32: Int?
 
@@ -2726,7 +2726,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MessageSetCorrect : pbandk.ExtendableMessage {
+    sealed interface MessageSetCorrect : pbandk.ExtendableMessage {
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect
         override val descriptor: pbandk.MessageDescriptor<pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrect>
@@ -2754,7 +2754,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MessageSetCorrectExtension1 : pbandk.Message {
+    sealed interface MessageSetCorrectExtension1 : pbandk.Message {
         val str: String?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension1
@@ -2795,7 +2795,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
         }
     }
 
-    interface MessageSetCorrectExtension2 : pbandk.Message {
+    sealed interface MessageSetCorrectExtension2 : pbandk.Message {
         val i: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.TestAllTypesProto2.MessageSetCorrectExtension2
@@ -2837,7 +2837,7 @@ interface TestAllTypesProto2 : pbandk.ExtendableMessage {
     }
 }
 
-interface ForeignMessageProto2 : pbandk.Message {
+sealed interface ForeignMessageProto2 : pbandk.Message {
     val c: Int?
 
     override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.ForeignMessageProto2
@@ -2878,7 +2878,7 @@ interface ForeignMessageProto2 : pbandk.Message {
     }
 }
 
-interface UnknownToTestAllTypes : pbandk.Message {
+sealed interface UnknownToTestAllTypes : pbandk.Message {
     val optionalInt32: Int?
     val optionalString: String?
     val nestedMessage: pbandk.conformance.pb.ForeignMessageProto2?
@@ -2970,7 +2970,7 @@ interface UnknownToTestAllTypes : pbandk.Message {
         }
     }
 
-    interface OptionalGroup : pbandk.Message {
+    sealed interface OptionalGroup : pbandk.Message {
         val a: Int?
 
         override operator fun plus(other: pbandk.Message?): pbandk.conformance.pb.UnknownToTestAllTypes.OptionalGroup

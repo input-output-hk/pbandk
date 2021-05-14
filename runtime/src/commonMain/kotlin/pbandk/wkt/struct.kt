@@ -17,7 +17,7 @@ sealed class NullValue(override val value: Int, override val name: String? = nul
     }
 }
 
-interface Struct : pbandk.Message {
+sealed interface Struct : pbandk.Message {
     val fields: Map<String, pbandk.wkt.Value?>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Struct
@@ -57,7 +57,7 @@ interface Struct : pbandk.Message {
         }
     }
 
-    interface FieldsEntry : pbandk.Message, Map.Entry<String, pbandk.wkt.Value?> {
+    sealed interface FieldsEntry : pbandk.Message, Map.Entry<String, pbandk.wkt.Value?> {
         override val key: String
         override val value: pbandk.wkt.Value?
 
@@ -112,7 +112,7 @@ interface Struct : pbandk.Message {
     }
 }
 
-interface Value : pbandk.Message {
+sealed interface Value : pbandk.Message {
     val kind: Kind<*>?
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Value
@@ -225,7 +225,7 @@ interface Value : pbandk.Message {
     }
 }
 
-interface ListValue : pbandk.Message {
+sealed interface ListValue : pbandk.Message {
     val values: List<pbandk.wkt.Value>
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.ListValue

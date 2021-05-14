@@ -18,7 +18,7 @@ sealed class Syntax(override val value: Int, override val name: String? = null) 
     }
 }
 
-interface Type : pbandk.Message {
+sealed interface Type : pbandk.Message {
     val name: String
     val fields: List<pbandk.wkt.Field>
     val oneofs: List<String>
@@ -124,7 +124,7 @@ interface Type : pbandk.Message {
     }
 }
 
-interface Field : pbandk.Message {
+sealed interface Field : pbandk.Message {
     val kind: pbandk.wkt.Field.Kind
     val cardinality: pbandk.wkt.Field.Cardinality
     val number: Int
@@ -333,7 +333,7 @@ interface Field : pbandk.Message {
     }
 }
 
-interface Enum : pbandk.Message {
+sealed interface Enum : pbandk.Message {
     val name: String
     val enumvalue: List<pbandk.wkt.EnumValue>
     val options: List<pbandk.wkt.Option>
@@ -426,7 +426,7 @@ interface Enum : pbandk.Message {
     }
 }
 
-interface EnumValue : pbandk.Message {
+sealed interface EnumValue : pbandk.Message {
     val name: String
     val number: Int
     val options: List<pbandk.wkt.Option>
@@ -493,7 +493,7 @@ interface EnumValue : pbandk.Message {
     }
 }
 
-interface Option : pbandk.Message {
+sealed interface Option : pbandk.Message {
     val name: String
     val value: pbandk.wkt.Any?
 

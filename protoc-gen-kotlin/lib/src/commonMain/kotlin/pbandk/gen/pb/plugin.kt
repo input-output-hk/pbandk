@@ -2,7 +2,7 @@
 
 package pbandk.gen.pb
 
-interface Version : pbandk.Message {
+sealed interface Version : pbandk.Message {
     val major: Int?
     val minor: Int?
     val patch: Int?
@@ -82,7 +82,7 @@ interface Version : pbandk.Message {
     }
 }
 
-interface CodeGeneratorRequest : pbandk.Message {
+sealed interface CodeGeneratorRequest : pbandk.Message {
     val fileToGenerate: List<String>
     val parameter: String?
     val protoFile: List<pbandk.wkt.FileDescriptorProto>
@@ -162,7 +162,7 @@ interface CodeGeneratorRequest : pbandk.Message {
     }
 }
 
-interface CodeGeneratorResponse : pbandk.Message {
+sealed interface CodeGeneratorResponse : pbandk.Message {
     val error: String?
     val supportedFeatures: Long?
     val file: List<pbandk.gen.pb.CodeGeneratorResponse.File>
@@ -244,7 +244,7 @@ interface CodeGeneratorResponse : pbandk.Message {
         }
     }
 
-    interface File : pbandk.Message {
+    sealed interface File : pbandk.Message {
         val name: String?
         val insertionPoint: String?
         val content: String?

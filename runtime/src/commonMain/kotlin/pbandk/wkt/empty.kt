@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface Empty : pbandk.Message {
+sealed interface Empty : pbandk.Message {
 
     override operator fun plus(other: pbandk.Message?): pbandk.wkt.Empty
     override val descriptor: pbandk.MessageDescriptor<pbandk.wkt.Empty>

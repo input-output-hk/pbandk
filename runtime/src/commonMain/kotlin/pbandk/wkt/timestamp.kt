@@ -2,7 +2,7 @@
 
 package pbandk.wkt
 
-interface Timestamp : pbandk.Message {
+sealed interface Timestamp : pbandk.Message {
     val seconds: Long
     val nanos: Int
 
