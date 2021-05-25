@@ -19,13 +19,7 @@ kotlin {
         publishAllLibraryVariants()
     }
 
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                useOldBackend = true
-            }
-        }
-    }
+    jvm()
 
     js {
         useCommonJs()
