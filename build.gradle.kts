@@ -2,6 +2,7 @@ import io.github.gradlenexus.publishplugin.NexusPublishExtension
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import java.net.URI
 
 // Top-level build configuration
 
@@ -13,6 +14,7 @@ plugins {
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
     id("io.github.gradle-nexus.publish-plugin") version Versions.nexusPublishGradlePlugin
+    `maven-publish`
 }
 
 configure<ApiValidationExtension> {
@@ -98,6 +100,21 @@ allprojects {
                 TestLogEvent.SKIPPED,
                 TestLogEvent.FAILED
             )
+        }
+    }
+
+    apply(plugin = "org.gradle.maven-publish")
+
+    publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = URI("https://maven.pkg.github.com/input-output-hk/pbandk")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
         }
     }
 }
