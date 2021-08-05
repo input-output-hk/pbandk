@@ -28,13 +28,14 @@ if (!publishToSonatype) {
     logger.info("Sonatype API key not defined, skipping configuration of Maven Central publishing repository")
 }
 
-val signingKeyAsciiArmored = providers.gradlePropertyOrEnvironmentVariable("signingKeyAsciiArmored")
-if (signingKeyAsciiArmored.isPresent) {
+if (true) {
     subprojects {
         plugins.withType<SigningPlugin> {
             configure<SigningExtension> {
                 @Suppress("UnstableApiUsage")
-                useInMemoryPgpKeys(signingKeyAsciiArmored.get(), "")
+                val signingKey: String? by project
+                val signingPassword: String? by project
+                useInMemoryPgpKeys(signingKey, signingPassword)
                 sign(extensions.getByType<PublishingExtension>().publications)
             }
         }
