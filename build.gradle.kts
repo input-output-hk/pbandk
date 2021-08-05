@@ -2,7 +2,6 @@ import io.github.gradlenexus.publishplugin.NexusPublishExtension
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import java.net.URI
 
 // Top-level build configuration
 
@@ -14,7 +13,6 @@ plugins {
     id("com.google.osdetector") version Versions.osDetectorGradlePlugin
     id("binary-compatibility-validator") version Versions.binaryCompatibilityValidatorGradlePlugin
     id("io.github.gradle-nexus.publish-plugin") version Versions.nexusPublishGradlePlugin
-    `maven-publish`
 }
 
 configure<ApiValidationExtension> {
@@ -24,16 +22,17 @@ configure<ApiValidationExtension> {
     nonPublicMarkers.add("pbandk.PbandkInternal")
 }
 
-val sonatypeApiUser = providers.gradlePropertyOrEnvironmentVariable("sonatypeApiUser")
-val sonatypeApiKey = providers.gradlePropertyOrEnvironmentVariable("sonatypeApiKey")
-if (sonatypeApiUser.isPresent && sonatypeApiKey.isPresent) {
+if (true) {
     configure<NexusPublishExtension> {
         repositories {
             sonatype {
-                nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-                snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+                val sonatypeApiUser: String? by project
+                val sonatypeApiPass: String? by project
+
+                nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
+                snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
                 username.set(sonatypeApiUser)
-                password.set(sonatypeApiKey)
+                password.set(sonatypeApiPass)
             }
         }
     }
@@ -41,13 +40,14 @@ if (sonatypeApiUser.isPresent && sonatypeApiKey.isPresent) {
     logger.info("Sonatype API key not defined, skipping configuration of Maven Central publishing repository")
 }
 
-val signingKeyAsciiArmored = providers.gradlePropertyOrEnvironmentVariable("signingKeyAsciiArmored")
-if (signingKeyAsciiArmored.isPresent) {
+if (true) {
     subprojects {
         plugins.withType<SigningPlugin> {
             configure<SigningExtension> {
                 @Suppress("UnstableApiUsage")
-                useInMemoryPgpKeys(signingKeyAsciiArmored.get(), "")
+                val signingKey: String? by project
+                val signingPassword: String? by project
+                useInMemoryPgpKeys(signingKey, signingPassword)
                 sign(extensions.getByType<PublishingExtension>().publications)
             }
         }
@@ -100,21 +100,6 @@ allprojects {
                 TestLogEvent.SKIPPED,
                 TestLogEvent.FAILED
             )
-        }
-    }
-
-    apply(plugin = "org.gradle.maven-publish")
-
-    publishing {
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = URI("https://maven.pkg.github.com/input-output-hk/pbandk")
-                credentials {
-                    username = System.getenv("GITHUB_ACTOR")
-                    password = System.getenv("GITHUB_TOKEN")
-                }
-            }
         }
     }
 }

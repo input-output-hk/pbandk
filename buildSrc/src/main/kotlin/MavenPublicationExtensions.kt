@@ -5,7 +5,7 @@ fun MavenPublication.configurePbandkPom(pomDescription: String) {
     pom {
         name.set(pomName)
         description.set(pomDescription)
-        url.set("https://github.com/streem/pbandk")
+        url.set("https://github.com/input-output-hk/pbandk")
 
         licenses {
             license {
@@ -15,22 +15,22 @@ fun MavenPublication.configurePbandkPom(pomDescription: String) {
         }
 
         organization {
-            name.set("Streem, LLC")
-            url.set("https://github.com/streem")
+            name.set("Input Output HK")
+            url.set("https://github.com/input-output-hk")
         }
 
         developers {
             developer {
-                id.set("streem")
-                name.set("Streem, LLC")
-                url.set("https://github.com/streem")
+                id.set("iohk")
+                name.set("IOHK")
+                url.set("https://github.com/input-output-hk")
             }
         }
 
         scm {
-            connection.set("scm:git:git@github.com:streem/pbandk.git")
-            developerConnection.set("scm:git:git@github.com:streem/pbandk.git")
-            url.set("git@github.com:streem/pbandk.git")
+            connection.set("scm:git:git@github.com:input-output-hk/pbandk.git")
+            developerConnection.set("scm:git:git@github.com:input-output-hk/pbandk.git")
+            url.set("git@github.com:input-output-hk/pbandk.git")
         }
     }
 }
