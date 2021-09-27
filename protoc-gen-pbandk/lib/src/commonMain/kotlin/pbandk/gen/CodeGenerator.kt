@@ -8,10 +8,17 @@ open class CodeGenerator(
     val kotlinTypeMappings: Map<String, String>,
     @Suppress("unused") val params: Map<String, String>
 ) {
+    private val WITH_ANNOTATIONS_PARAM: String = "with_annotations"
+
     protected val bld = StringBuilder()
     protected var indent = ""
 
+    private val annotations: List<String> = params[WITH_ANNOTATIONS_PARAM]?.split(",") ?: ArrayList()
+
     fun generate(): String {
+        annotations.forEach { annotation ->
+            require(annotation.startsWith("@")) { "Annotation should start with '@'" }
+        }
         line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
@@ -42,6 +49,7 @@ open class CodeGenerator(
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
+                this.annotations.forEach { line(it) }
                 line("@pbandk.Export")
                 addDeprecatedAnnotation(field)
                 line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
@@ -70,6 +78,7 @@ open class CodeGenerator(
         val typeName = "${parentPrefix}${type.kotlinTypeName}"
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line()
+        this.annotations.forEach { line(it) }
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (parentType == null) line("@pbandk.Export")
         line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
@@ -78,9 +87,13 @@ open class CodeGenerator(
                 line("override fun hashCode() = value.hashCode()")
                 line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                type.values.forEach {
+                    this.annotations.forEach { line(it) }
+                    line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")")
+                }
                 line("class UNRECOGNIZED(value: Int) : ${typeName}(value)")
                 line()
+                this.annotations.forEach { line(it) }
                 line("companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
                     line("val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                     line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
@@ -100,6 +113,7 @@ open class CodeGenerator(
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
         line()
+        this.annotations.forEach { line(it) }
         if (parentType == null) line("@pbandk.Export")
         line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
@@ -135,6 +149,7 @@ open class CodeGenerator(
             line("override val protoSize by lazy { super.protoSize }")
 
             // Companion object
+            this.annotations.forEach { line(it) }
             line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
                 line("val defaultInstance by lazy { ${typeName}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder) = ${typeName}.decodeWithImpl(u)")
@@ -154,8 +169,10 @@ open class CodeGenerator(
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
+        this.annotations.forEach { line(it) }
         line("sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
+                this.annotations.forEach { line(it) }
                 addDeprecatedAnnotation(field)
                 lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
@@ -294,6 +311,7 @@ open class CodeGenerator(
         //
         // Also, if current type is an inner class, `fullTypeName` will contains dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
+        this.annotations.forEach { line(it) }
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
         line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
@@ -348,6 +366,7 @@ open class CodeGenerator(
         }
 
         line()
+        this.annotations.forEach { line(it) }
         line("private fun $fullTypeName.protoMergeImpl(plus: pbandk.Message?): $fullTypeName = (plus as? $fullTypeName)?.let {").indented {
             line("it.copy(").indented {
                 type.fields.forEach { field ->
@@ -364,6 +383,7 @@ open class CodeGenerator(
     }
 
     protected fun writeMessageDecodeWithExtension(type: File.Type.Message, fullTypeName: String) {
+        this.annotations.forEach { line(it) }
         val lineStr = "private fun $fullTypeName.Companion." +
             "decodeWithImpl(u: pbandk.MessageDecoder): $fullTypeName {"
         line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
