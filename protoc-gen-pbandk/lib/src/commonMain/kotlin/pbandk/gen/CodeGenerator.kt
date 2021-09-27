@@ -9,10 +9,12 @@ open class CodeGenerator(
     @Suppress("unused") val params: Map<String, String>
 ) {
     private val WITH_ANNOTATIONS_PARAM: String = "with_annotations"
+    private val VISIBILITY_PARAM: String = "visibility"
 
     protected val bld = StringBuilder()
     protected var indent = ""
     private val annotations: List<String> = params[WITH_ANNOTATIONS_PARAM]?.split(",") ?: ArrayList()
+    private val visibilityExplicit: String = params[VISIBILITY_PARAM]?.plus(" ") ?: ""
 
     fun generate(): String {
         line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
@@ -74,17 +76,17 @@ open class CodeGenerator(
         this.annotations.forEach { line(it) }
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (parentType == null) line("@pbandk.Export")
-        line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
+        line("${visibilityExplicit}sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
                 line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
                 line("override fun hashCode() = value.hashCode()")
                 line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
-                line("class UNRECOGNIZED(value: Int) : ${typeName}(value)")
+                type.values.forEach { line("${visibilityExplicit}object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                line("${visibilityExplicit}class UNRECOGNIZED(value: Int) : ${typeName}(value)")
                 line()
-                line("companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
-                    line("val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
+                line("${visibilityExplicit}companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
+                    line("${visibilityExplicit}val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                     line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
                     line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
                 }.line("}")
@@ -104,7 +106,7 @@ open class CodeGenerator(
         line()
         this.annotations.forEach { line(it) }
         if (parentType == null) line("@pbandk.Export")
-        line("data class ${type.kotlinTypeName}(").indented {
+        line("${visibilityExplicit}data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
             type.fields.forEach { field ->
                 when (field) {
@@ -135,8 +137,8 @@ open class CodeGenerator(
             line("override val protoSize by lazy { super.protoSize }")
 
             // Companion object
-            line("companion object : pbandk.Message.Companion<${typeName}> {").indented {
-                line("val defaultInstance by lazy { ${typeName}() }")
+            line("${visibilityExplicit}companion object : pbandk.Message.Companion<${typeName}> {").indented {
+                line("${visibilityExplicit}val defaultInstance by lazy { ${typeName}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder) = ${typeName}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type, typeName)
@@ -148,15 +150,15 @@ open class CodeGenerator(
     }
 
     protected fun writeConstructorField(field: File.Field.Numbered, nullableIfMessage: Boolean): CodeGenerator {
-        lineMid("val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
+        lineMid("${visibilityExplicit}val ${field.kotlinFieldName}: ${field.kotlinValueType(nullableIfMessage)}")
         if (field.type != File.Field.Type.MESSAGE || nullableIfMessage) lineMid(" = ${field.defaultValue}")
         return this
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
-        line("sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
+        line("${visibilityExplicit}sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
-                lineBegin("class ${oneOf.kotlinFieldTypeNames[field.name]}(")
+                lineBegin("${visibilityExplicit}class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
                 if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
                 lineEnd(") : ${oneOf.kotlinTypeName}<${field.kotlinValueType(false)}>(${field.kotlinFieldName})")
@@ -164,7 +166,7 @@ open class CodeGenerator(
         }.line("}").line()
 
         oneOf.fields.forEach { field ->
-            line("val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
+            line("${visibilityExplicit}val ${field.kotlinFieldName}: ${field.kotlinValueType(false)}?").indented {
                 lineBegin("get() = ")
                 lineMid("(${oneOf.kotlinFieldName} as? ${oneOf.kotlinTypeName}.${oneOf.kotlinFieldTypeNames[field.name]})")
                 lineEnd("?.value")
@@ -295,7 +297,7 @@ open class CodeGenerator(
         this.annotations.forEach { line(it) }
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
-        line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
+        line("${visibilityExplicit}fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
     }
 
     protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
