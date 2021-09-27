@@ -8,8 +8,11 @@ open class CodeGenerator(
     val kotlinTypeMappings: Map<String, String>,
     @Suppress("unused") val params: Map<String, String>
 ) {
+    private val WITH_ANNOTATIONS_PARAM: String = "with_annotations"
+
     protected val bld = StringBuilder()
     protected var indent = ""
+    private val annotations: List<String> = params[WITH_ANNOTATIONS_PARAM]?.split(",") ?: ArrayList()
 
     fun generate(): String {
         line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
@@ -40,6 +43,7 @@ open class CodeGenerator(
                 ).indented {
                     line("get() = getExtension(${file.kotlinPackageName}.${field.kotlinFieldName})")
                 }.line()
+                this.annotations.forEach { line(it) }
                 line("@pbandk.Export")
                 line("val ${field.kotlinFieldName} = pbandk.FieldDescriptor(").indented {
                     generateFieldDescriptorConstructorValues(
@@ -67,6 +71,7 @@ open class CodeGenerator(
         val typeName = "${parentPrefix}${type.kotlinTypeName}"
         // Enums are sealed classes w/ a value and a name, and a companion object with all values
         line()
+        this.annotations.forEach { line(it) }
         // Only mark top-level classes for export, internal classes will be exported transitively
         if (parentType == null) line("@pbandk.Export")
         line("sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
@@ -97,6 +102,7 @@ open class CodeGenerator(
         if (type.mapEntry) messageInterface += ", Map.Entry<${type.mapEntryKeyKotlinType}, ${type.mapEntryValueKotlinType}>"
 
         line()
+        this.annotations.forEach { line(it) }
         if (parentType == null) line("@pbandk.Export")
         line("data class ${type.kotlinTypeName}(").indented {
             val fieldBegin = if (type.mapEntry) "override " else ""
@@ -286,6 +292,7 @@ open class CodeGenerator(
         //
         // Also, if current type is an inner class, `fullTypeName` will contains dots which we
         // have to get rid of (i.e. `Person.AddressBook` becomes `PersonAddressBook`).
+        this.annotations.forEach { line(it) }
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
         line("fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
