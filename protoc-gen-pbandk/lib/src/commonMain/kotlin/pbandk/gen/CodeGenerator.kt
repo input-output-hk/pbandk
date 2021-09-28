@@ -85,9 +85,9 @@ open class CodeGenerator(
         if (parentType == null) line("@pbandk.Export")
         line("${visibilityExplicit}sealed class ${type.kotlinTypeName}(override val value: Int, override val name: String? = null) : pbandk.Message.Enum {")
             .indented {
-                line("override fun equals(other: kotlin.Any?) = other is ${typeName} && other.value == value")
-                line("override fun hashCode() = value.hashCode()")
-                line("override fun toString() = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
+                line("override fun equals(other: kotlin.Any?): Boolean = other is ${typeName} && other.value == value")
+                line("override fun hashCode(): Int = value.hashCode()")
+                line("override fun toString(): String = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
                 type.values.forEach {
                     this.annotations.forEach { line(it) }
@@ -98,8 +98,8 @@ open class CodeGenerator(
                 this.annotations.forEach { line(it) }
                 line("${visibilityExplicit}companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
                     line("${visibilityExplicit}val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
-                    line("override fun fromValue(value: Int) = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
-                    line("override fun fromName(name: String) = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
+                    line("override fun fromValue(value: Int): $typeName = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
+                    line("override fun fromName(name: String): $typeName = values.firstOrNull { it.name == name } ?: throw IllegalArgumentException(\"No ${type.kotlinTypeName} with name: \$name\")")
                 }.line("}")
             }.line("}")
     }
@@ -146,15 +146,15 @@ open class CodeGenerator(
             // One-ofs as sealed class hierarchies
             type.fields.filterIsInstance<File.Field.OneOf>().forEach(::writeOneOfType)
 
-            line("override operator fun plus(other: pbandk.Message?) = protoMergeImpl(other)")
-            line("override val descriptor get() = Companion.descriptor")
-            line("override val protoSize by lazy { super.protoSize }")
+            line("override operator fun plus(other: pbandk.Message?): $typeName = protoMergeImpl(other)")
+            line("override val descriptor: pbandk.MessageDescriptor<$typeName> get() = Companion.descriptor")
+            line("override val protoSize: Int by lazy { super.protoSize }")
 
             // Companion object
             this.annotations.forEach { line(it) }
             line("${visibilityExplicit}companion object : pbandk.Message.Companion<${typeName}> {").indented {
-                line("${visibilityExplicit}val defaultInstance by lazy { ${typeName}() }")
-                line("override fun decodeWith(u: pbandk.MessageDecoder) = ${typeName}.decodeWithImpl(u)")
+                line("${visibilityExplicit}val defaultInstance: $typeName by lazy { ${typeName}() }")
+                line("override fun decodeWith(u: pbandk.MessageDecoder): $typeName = ${typeName}.decodeWithImpl(u)")
                 line()
                 writeMessageDescriptor(type, typeName)
             }.line("}")
@@ -316,7 +316,7 @@ open class CodeGenerator(
         this.annotations.forEach { line(it) }
         line("@pbandk.Export")
         line("@pbandk.JsName(\"orDefaultFor${fullTypeName.replace(".", "")}\")")
-        line("${visibilityExplicit}fun $fullTypeName?.orDefault() = this ?: $fullTypeName.defaultInstance")
+        line("${visibilityExplicit}fun $fullTypeName?.orDefault(): $fullTypeName = this ?: $fullTypeName.defaultInstance")
     }
 
     protected fun writeMessageMergeExtension(type: File.Type.Message, fullTypeName: String) {
