@@ -13,10 +13,15 @@ open class CodeGenerator(
 
     protected val bld = StringBuilder()
     protected var indent = ""
+
     private val annotations: List<String> = params[WITH_ANNOTATIONS_PARAM]?.split(",") ?: ArrayList()
+
     private val visibilityExplicit: String = params[VISIBILITY_PARAM]?.plus(" ") ?: ""
 
     fun generate(): String {
+        annotations.forEach { annotation ->
+            require(annotation.startsWith("@")) { "Annotation should start with '@'" }
+        }
         line("@file:OptIn(pbandk.PublicForGeneratedCode::class)").line()
         file.kotlinPackageName?.let { line("package $it") }
         file.types.forEach { writeType(it) }
