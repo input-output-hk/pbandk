@@ -90,6 +90,7 @@ open class CodeGenerator(
                 type.values.forEach { line("${visibilityExplicit}object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
                 line("${visibilityExplicit}class UNRECOGNIZED(value: Int) : ${typeName}(value)")
                 line()
+                this.annotations.forEach { line(it) }
                 line("${visibilityExplicit}companion object : pbandk.Message.Enum.Companion<${typeName}> {").indented {
                     line("${visibilityExplicit}val values: List<${typeName}> by lazy { listOf(${type.values.joinToString(", ") { it.kotlinValueTypeName }}) }")
                     line("override fun fromValue(value: Int): $typeName = values.firstOrNull { it.value == value } ?: UNRECOGNIZED(value)")
@@ -142,6 +143,7 @@ open class CodeGenerator(
             line("override val protoSize: Int by lazy { super.protoSize }")
 
             // Companion object
+            this.annotations.forEach { line(it) }
             line("${visibilityExplicit}companion object : pbandk.Message.Companion<${typeName}> {").indented {
                 line("${visibilityExplicit}val defaultInstance: $typeName by lazy { ${typeName}() }")
                 line("override fun decodeWith(u: pbandk.MessageDecoder): $typeName = ${typeName}.decodeWithImpl(u)")
@@ -161,8 +163,10 @@ open class CodeGenerator(
     }
 
     protected fun writeOneOfType(oneOf: File.Field.OneOf) {
+        this.annotations.forEach { line(it) }
         line("${visibilityExplicit}sealed class ${oneOf.kotlinTypeName}<V>(value: V) : pbandk.Message.OneOf<V>(value) {").indented {
             oneOf.fields.forEach { field ->
+                this.annotations.forEach { line(it) }
                 lineBegin("${visibilityExplicit}class ${oneOf.kotlinFieldTypeNames[field.name]}(")
                 lineMid("${field.kotlinFieldName}: ${field.kotlinValueType(false)}")
                 if (field.type != File.Field.Type.MESSAGE) lineMid(" = ${field.defaultValue}")
@@ -354,6 +358,7 @@ open class CodeGenerator(
         }
 
         line()
+        this.annotations.forEach { line(it) }
         line("private fun $fullTypeName.protoMergeImpl(plus: pbandk.Message?): $fullTypeName = (plus as? $fullTypeName)?.let {").indented {
             line("it.copy(").indented {
                 type.fields.forEach { field ->
@@ -370,6 +375,7 @@ open class CodeGenerator(
     }
 
     protected fun writeMessageDecodeWithExtension(type: File.Type.Message, fullTypeName: String) {
+        this.annotations.forEach { line(it) }
         val lineStr = "private fun $fullTypeName.Companion." +
             "decodeWithImpl(u: pbandk.MessageDecoder): $fullTypeName {"
         line().line("@Suppress(\"UNCHECKED_CAST\")").line(lineStr).indented {
