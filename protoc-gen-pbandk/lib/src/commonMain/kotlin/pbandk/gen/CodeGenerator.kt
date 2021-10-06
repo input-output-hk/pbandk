@@ -87,7 +87,10 @@ open class CodeGenerator(
                 line("override fun hashCode(): Int = value.hashCode()")
                 line("override fun toString(): String = \"${typeName}.\${name ?: \"UNRECOGNIZED\"}(value=\$value)\"")
                 line()
-                type.values.forEach { line("${visibilityExplicit}object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")") }
+                type.values.forEach {
+                    this.annotations.forEach { line(it) }
+                    line("${visibilityExplicit}object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")")
+                }
                 line("${visibilityExplicit}class UNRECOGNIZED(value: Int) : ${typeName}(value)")
                 line()
                 this.annotations.forEach { line(it) }
