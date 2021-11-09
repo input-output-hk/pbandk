@@ -186,7 +186,6 @@ class Generator : ServiceGenerator {
             """
                     package $javaPackageName.async
                     
-                    import io.grpc.stub.StreamObserver
                     import io.iohk.atala.prism.protos.${service.name}Coroutine
                     import io.iohk.atala.prism.protos.GrpcClient
                     import io.iohk.atala.prism.protos.GrpcOptions
