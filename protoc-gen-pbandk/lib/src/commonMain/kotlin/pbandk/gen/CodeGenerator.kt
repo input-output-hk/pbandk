@@ -91,6 +91,7 @@ open class CodeGenerator(
                     this.annotations.forEach { line(it) }
                     line("${visibilityExplicit}object ${it.kotlinValueTypeName} : ${type.kotlinTypeName}(${it.number}, \"${it.name}\")")
                 }
+                this.annotations.forEach { line(it) }
                 line("${visibilityExplicit}class UNRECOGNIZED(value: Int) : ${typeName}(value)")
                 line()
                 this.annotations.forEach { line(it) }
