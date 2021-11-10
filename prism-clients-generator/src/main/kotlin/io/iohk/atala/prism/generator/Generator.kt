@@ -8,6 +8,16 @@ class Generator : ServiceGenerator {
         var interfaceMethods = emptyList<String>()
         var clientMethods = emptyList<String>()
         service.methods.forEach { method ->
+            // TODO lookup in the service.kotlinTypeMappings has an issue:
+            // 1. We have vault_api.proto files
+            //    which depends on prism model proto files (HealthCheckRequest and HealthCheckResponse).
+            // 2. We have HealthCheck rpc method
+            //    where I explicitly specify package of HealthCheckRequest and HealthCheckResponse
+            //    rpc HealthCheck(io.iohk.atala.prism.protos.HealthCheckRequest) returns (io.iohk.atala.prism.protos.HealthCheckResponse) {}
+            // 3. method.inputType = .io.iohk.atala.prism.protos.HealthCheckRequest looking up in the service.kotlinTypeMappings returns
+            //     reqType = io.iohk.atala.prism.vault.protos.HealthCheckRequest
+            // I guess it's a bug, a workaround for it is to use the same kotlin_package=io.iohk.atala.prism.protos
+            // in the vault during code generation
             val reqType = service.kotlinTypeMappings[method.inputType!!]!!
             val respType = service.kotlinTypeMappings[method.outputType!!]!!
             val serviceNameLit = "\"${service.file.packageName}.${service.name}\""
@@ -141,7 +151,7 @@ class Generator : ServiceGenerator {
             """
                     package $javaPackageName.sync
                     
-                    import io.iohk.atala.prism.protos.${service.name}Coroutine
+                    import $javaPackageName.${service.name}Coroutine
                     import io.iohk.atala.prism.protos.GrpcClient
                     import io.iohk.atala.prism.protos.GrpcOptions
                     import io.iohk.atala.prism.protos.PrismMetadata
@@ -195,7 +205,7 @@ class Generator : ServiceGenerator {
                     package $javaPackageName.async
                     
                     import io.grpc.stub.StreamObserver
-                    import io.iohk.atala.prism.protos.${service.name}Coroutine
+                    import $javaPackageName.${service.name}Coroutine
                     import io.iohk.atala.prism.protos.GrpcClient
                     import io.iohk.atala.prism.protos.GrpcOptions
                     import io.iohk.atala.prism.protos.PrismMetadata
