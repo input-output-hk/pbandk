@@ -43,14 +43,18 @@ class Generator : ServiceGenerator {
                     package ${service.file.kotlinPackageName}
                     
                     import io.iohk.atala.prism.protos.PrismMetadata
+                    import io.ktor.utils.io.core.Closeable
                     import kotlinx.coroutines.flow.Flow
                     
                     @io.iohk.atala.prism.common.PrismSdkInternal
-                    public interface ${service.name}Coroutine {
+                    public interface ${service.name}Coroutine : Closeable {
                         ${interfaceMethods.joinToString("\n                        ")}
                         @io.iohk.atala.prism.common.PrismSdkInternal
                         public class Client(public val client: io.iohk.atala.prism.protos.GrpcClient) : ${service.name}Coroutine {
                             ${clientMethods.joinToString("")}
+                            public override fun close() {
+                                client.close()
+                            }
                         }
                     }
             """.trimIndent()
@@ -141,14 +145,18 @@ class Generator : ServiceGenerator {
                     import io.iohk.atala.prism.protos.GrpcClient
                     import io.iohk.atala.prism.protos.GrpcOptions
                     import io.iohk.atala.prism.protos.PrismMetadata
+                    import io.ktor.utils.io.core.Closeable
                     import kotlinx.coroutines.flow.toList
                     import kotlinx.coroutines.runBlocking
-                    
+
                     @io.iohk.atala.prism.common.PrismSdkInternal
-                    public class ${service.name}Sync(options: GrpcOptions) {
+                    public class ${service.name}Sync(options: GrpcOptions) : Closeable {
                         private val grpcClient = GrpcClient(options)
                         private val internalService = ${service.name}Coroutine.Client(grpcClient)
                         ${clientMethods.joinToString("")}
+                        public override fun close() {
+                            grpcClient.close()
+                        }
                     }
             """.trimIndent()
         )
@@ -186,20 +194,25 @@ class Generator : ServiceGenerator {
             """
                     package $javaPackageName.async
                     
+                    import io.grpc.stub.StreamObserver
                     import io.iohk.atala.prism.protos.${service.name}Coroutine
                     import io.iohk.atala.prism.protos.GrpcClient
                     import io.iohk.atala.prism.protos.GrpcOptions
                     import io.iohk.atala.prism.protos.PrismMetadata
+                    import io.ktor.utils.io.core.Closeable
                     import kotlinx.coroutines.GlobalScope
                     import kotlinx.coroutines.flow.collect
                     import kotlinx.coroutines.future.future
                     import java.util.concurrent.CompletableFuture
                     
                     @io.iohk.atala.prism.common.PrismSdkInternal
-                    public class ${service.name}Async(options: GrpcOptions) {
+                    public class ${service.name}Async(options: GrpcOptions) : Closeable {
                         private val grpcClient = GrpcClient(options)
                         private val internalService = ${service.name}Coroutine.Client(grpcClient)
                         ${clientMethods.joinToString("")}
+                        public override fun close() {
+                            grpcClient.close()
+                        }
                     }
             """.trimIndent()
         )
