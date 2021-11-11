@@ -37,3 +37,4 @@ include(":conformance:native")
 project(":conformance:native").name = "conformance-native"
 
 include(":prism-clients-generator")
+project(":prism-clients-generator").name = "prism-clients-generator"

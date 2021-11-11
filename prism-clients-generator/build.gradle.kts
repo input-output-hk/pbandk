@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     `maven-publish`
+    signing
 }
 
 group = "io.iohk.atala"
@@ -8,6 +9,12 @@ description = "Prism gRPC clients generator. Generate convenient definitions for
 
 dependencies {
     compileOnly(project(":protoc-gen-pbandk:protoc-gen-pbandk-lib"))
+}
+
+@Suppress("UnstableApiUsage")
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 publishing {
