@@ -56,10 +56,8 @@ class Generator : ServiceGenerator {
                     import io.ktor.utils.io.core.Closeable
                     import kotlinx.coroutines.flow.Flow
                     
-                    @io.iohk.atala.prism.common.PrismSdkInternal
                     public interface ${service.name}Coroutine : Closeable {
                         ${interfaceMethods.joinToString("\n                        ")}
-                        @io.iohk.atala.prism.common.PrismSdkInternal
                         public class Client(public val client: io.iohk.atala.prism.protos.GrpcClient) : ${service.name}Coroutine {
                             ${clientMethods.joinToString("")}
                             public override fun close() {
@@ -109,7 +107,6 @@ class Generator : ServiceGenerator {
                     import kotlin.js.JsName
                     
                     @JsExport
-                    @io.iohk.atala.prism.common.PrismSdkInternal
                     public class ${service.name}Promise(options: GrpcOptions) {
                         private val grpcClient = GrpcClient(options)
                         public val internalService: ${service.name}Coroutine = ${service.name}Coroutine.Client(grpcClient)
@@ -159,7 +156,6 @@ class Generator : ServiceGenerator {
                     import kotlinx.coroutines.flow.toList
                     import kotlinx.coroutines.runBlocking
 
-                    @io.iohk.atala.prism.common.PrismSdkInternal
                     public class ${service.name}Sync(options: GrpcOptions) : Closeable {
                         private val grpcClient = GrpcClient(options)
                         private val internalService = ${service.name}Coroutine.Client(grpcClient)
@@ -215,7 +211,6 @@ class Generator : ServiceGenerator {
                     import kotlinx.coroutines.future.future
                     import java.util.concurrent.CompletableFuture
                     
-                    @io.iohk.atala.prism.common.PrismSdkInternal
                     public class ${service.name}Async(options: GrpcOptions) : Closeable {
                         private val grpcClient = GrpcClient(options)
                         private val internalService = ${service.name}Coroutine.Client(grpcClient)
